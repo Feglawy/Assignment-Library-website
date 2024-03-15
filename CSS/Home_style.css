@@ -12,7 +12,7 @@
   list-style: none;
   box-sizing: border-box;
 }
-body {
+#home-body {
   font-family: "Madimi One";
   background-color: var(--white-color);
 }
