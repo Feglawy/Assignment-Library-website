@@ -4,48 +4,45 @@ body {
 }
 
 #loginForm {
-  position: relative;
+  width: 700px;
+  margin: 200px auto; /* Adjust margin to create space around the form */
   background-color: var(--gray-color);
-  height: 70vh;
-  padding: 100px 400px 350px 50px;
-  margin: 100px auto auto auto;
-  box-shadow: 5px 7px 6px rgb(65, 64, 64);
+  padding: 150px;
   border-radius: 15px;
-  width: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 40px 20px 27px 20px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .info {
-  color: white;
-  position: center;
-  text-align: center;
-}
-
-#login-button {
-  background-color: #13161a;
-  color: white;
   font-size: 30px;
-  position: relative;
-  top: 550px;
-  bottom: 5px;
-  left: 700px;
-  border: none;
-  height: 80px;
-  width: 230px;
-  border-radius: 15px;
+  color: #ffffff;
+  margin-bottom: 5px;
 }
-
-#login-button:hover {
-  transition: 0.75s;
-  background-color: var(--Green-color);
-}
-
 .input {
+  width: calc(100% - 10px);
   outline: none;
   border: none;
   background: none;
   border-bottom: 2px solid white;
-  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 25px;
+}
+
+#login-button {
   width: 100%;
-  height: 80px;
+  padding: 10px;
+  background-color: var(--dark-color);
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
   font-size: 20px;
+  margin-top: 50px;
+}
+#login-button:hover {
+  background-color: var(--Green-color);
+  transition: 0.5s;
 }
