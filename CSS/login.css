@@ -1,0 +1,94 @@
+:root {
+    --dark-color: #222831;
+    --gray-color: #31363f;
+    --Green-color: #76abae;
+    --white-color: #eeeeee;
+}
+body {
+    background-color: var(--white-color);
+}
+
+#loginForm {
+
+    background-color: var(--gray-color);
+    height: 180px;
+    width: 100px;
+    padding: 100px 400px 350px 50px;
+    margin: 100px 450px 750px 500px;
+    box-shadow: 5px 7px 6px rgb(65, 64, 64);
+    border-radius: 15px;
+    /* margin: auto;
+        width: 50%;
+        border: 3px solid var(--dark-color);
+        padding: 10px; */
+}
+
+
+.h1 {
+    color: white;
+    position: relative;
+}
+
+
+#login {
+    background-color: #13161a;
+    color: white;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: absolute;
+    top: 550px;
+    bottom: 5px;
+    left: 700px;
+    border: none;
+    height: 35px;
+    width: 130px;
+    border-radius: 15px;
+
+
+}
+
+#login:hover {
+    transition: 0.75s;
+    background-color: var(--Green-color);
+}
+
+.input {
+    outline: none;
+    position: relative;
+    border: none;
+    background: none;
+    border-bottom: 2px solid white;
+    color: white;
+    width: 250px;
+    height: 35px;
+
+}
+
+
+.link {
+    position: absolute;
+    top: 650px;
+    bottom: 5px;
+    left: 710px;
+    color: white;
+}
+
+.link:hover {
+    color: aqua;
+}
+
+#p1 {
+    font-size: 50px;
+}
+
+#p2 {
+    font-size: 40px;
+}
+
+#p3 {
+    font-size: 35px;
+}
+
+.table {
+    border: 2px solid;
+}
