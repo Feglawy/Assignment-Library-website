@@ -1,9 +1,4 @@
-:root {
-  --dark-color: #222831;
-  --gray-color: #31363f;
-  --Green-color: #76abae;
-  --white-color: #eeeeee;
-}
+@import url("rule.css");
 
 * {
   padding: 0;
