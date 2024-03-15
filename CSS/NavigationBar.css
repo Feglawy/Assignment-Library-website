@@ -14,12 +14,13 @@ nav {
   background-color: var(--dark-color);
   height: 80px;
 }
-label.logo {
+.logo {
   color: white;
   font-size: 50px;
   font-weight: bold;
   line-height: 80px;
   padding: 0 80px;
+  cursor: pointer;
 }
 
 nav ul {
@@ -54,8 +55,8 @@ nav ul li a {
   cursor: pointer;
 }
 
-a.active,
-a:hover {
+nav ul li a.active,
+nav ul li a:hover {
   background-color: var(--Green-color);
   transition: 0.75s;
 }
