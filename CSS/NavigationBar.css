@@ -11,11 +11,9 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
-}
-#home-body {
   font-family: "Madimi One";
-  background-color: var(--white-color);
 }
+
 nav {
   background-color: var(--dark-color);
   height: 80px;
