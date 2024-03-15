@@ -3,12 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- page title -->
     <title>Online Library website</title>
+
+    <!-- page icon -->
     <link
       rel="shortcut icon"
       href="icons/storytelling.ico"
       type="image/x-icon"
     />
+
+    <link rel="stylesheet" href="CSS/Home_style.css" />
+
+    <!-- google icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <!-- google fonts -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap");
+    </style>
   </head>
-  <body></body>
+  <body>
+    <!-- navigation bar -->
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check">
+        <i class="material-icons" id="menu">menu</i>
+      </label>
+      <label class="logo">Library</label>
+      <ul class="pages">
+        <li><a class="active" href="/index.html">Home</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Borrowed Books</a></li>
+        <li><a href="#">Update Books</a></li>
+        <li><a href="#">Available Books</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">login</a></li>
+      </ul>
+    </nav>
+  </body>
 </html>
