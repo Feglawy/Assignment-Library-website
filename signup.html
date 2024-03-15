@@ -52,10 +52,25 @@
       </ul>
       <script src="/JS/navigationBar.js"></script>
     </nav>
-
     <!-- login form -->
     <div class="loginForm">
       <form>
+        <h1 class="info">Fullname</h1>
+        <div id="fullname">
+          <input
+            class="input"
+            id="first-name-inp"
+            type="text"
+            placeholder="First name"
+            required
+          />
+          <input
+            class="input"
+            id="last-name-inp"
+            type="text"
+            placeholder="Last name"
+          />
+        </div>
         <h1 class="info">Username</h1>
         <!-- user name input box -->
         <input
@@ -85,11 +100,10 @@
         </div>
 
         <!-- login button -->
-        <button id="login-button" class="btn">Login</button>
         <a id="signup-button" class="btn" href="/signup.html">Sign Up</a>
+        <a id="signup-button" class="btn" href="/login.html">login</a>
+        <p id="have-account">already have an account?</p>
       </form>
     </div>
-
-    <!-- show password and hide it -->
   </body>
 </html>

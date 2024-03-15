@@ -3,7 +3,7 @@ body {
   background-color: var(--white-color);
 }
 
-#loginForm {
+.loginForm {
   width: 700px;
   margin: 200px auto; /* Adjust margin to create space around the form */
   background-color: var(--gray-color);
@@ -77,5 +77,4 @@ body {
   margin-top: 20px;
   border: none;
   text-align: center;
-
 }
