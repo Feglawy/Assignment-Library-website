@@ -32,7 +32,7 @@
       <!-- menu button -->
       <input type="checkbox" id="check" />
       <label for="check">
-        <i class="material-icons" id="menu">menu</i>
+        <i class="material-icons" id="menu" onclick="ToggleMenu()">menu</i>
       </label>
 
       <!-- logo -->
@@ -51,10 +51,14 @@
         <li><a href="/About.html">About</a></li>
         <li><a class="active" href="/login.html">login</a></li>
       </ul>
+      <script src="/JS/navigationBar.js"></script>
     </nav>
+
+    <!-- login form -->
     <div id="loginForm">
       <form>
         <h1 class="info">Username</h1>
+        <!-- user name input box -->
         <input
           class="input"
           id="inp-username"
@@ -62,33 +66,31 @@
           placeholder="enter your Username"
           required
         />
-        <br /><br /><br />
         <h1 class="info">Password</h1>
-        <input
-          class="input"
-          id="inp-pass"
-          type="password"
-          placeholder="enter your Password"
-          required
-        />
-        <span id="show-pass" onclick="ShowPassword()">
-          <i class="material-icons" id="visibility">visibility</i>
-        </span>
-        <button id="login-button">Login</button>
+
+        <!-- password container for the password input and show pass -->
+        <div id="password-container">
+          <!-- password input box -->
+          <input
+            class="input"
+            id="inp-pass"
+            type="password"
+            placeholder="enter your Password"
+            required
+          />
+          <!-- Show password click -->
+          <div id="show-pass" onclick="ShowPassword()">
+            <i class="material-icons" id="visibility">visibility</i>
+          </div>
+          <script src="/JS/login.js"></script>
+        </div>
+
+        <!-- login button -->
+        <button id="login-button" class="btn">Login</button>
+        <a id="signup-button" class="btn" href="/signup.html">Sign Up</a>
       </form>
     </div>
-    <script>
-      function ShowPassword() {
-        var passwordBox = document.getElementById("inp-pass");
-        var iconBox = document.getElementById("visibility");
-        if (passwordBox.type === "password") {
-          passwordBox.type = "text";
-          iconBox.innerHTML = "visibility";
-        } else {
-          passwordBox.type = "password";
-          iconBox.innerHTML = "visibility_off";
-        }
-      }
-    </script>
+
+    <!-- show password and hide it -->
   </body>
 </html>

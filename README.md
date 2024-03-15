@@ -2,4 +2,6 @@
 
 Assignment web 2024
 
-- [ ] navigation bar
+- [x] navigation bar
+- [ ] home page (working on it)
+- [ ] login and signup pages 

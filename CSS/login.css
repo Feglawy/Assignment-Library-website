@@ -31,6 +31,24 @@ body {
   font-size: 25px;
 }
 
+#password-container {
+  display: flex;
+  align-items: center;
+}
+
+#show-pass {
+  flex: 1;
+  cursor: pointer;
+  border-radius: 15px;
+  size: 150px;
+  color: black;
+}
+
+#show-pass :hover {
+  transition: 0.5s;
+  color: var(--Green-color);
+}
+
 #login-button {
   width: 100%;
   padding: 10px;
@@ -42,7 +60,22 @@ body {
   font-size: 20px;
   margin-top: 50px;
 }
-#login-button:hover {
+#login-button:hover,
+#signup-button:hover {
   background-color: var(--Green-color);
   transition: 0.5s;
+}
+
+#signup-button {
+  display: inline-block;
+  width: 100%;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: var(--dark-color);
+  color: #fff;
+  font-size: 20px;
+  margin-top: 20px;
+  border: none;
+  text-align: center;
+
 }
