@@ -92,13 +92,26 @@
             placeholder="enter your Password"
             required
           />
-          <!-- Show password click -->
+          <!-- Show password click
           <div id="show-pass" onclick="ShowPassword()">
             <i class="material-icons" id="visibility">visibility</i>
           </div>
-          <script src="/JS/login.js"></script>
+          <script src="/JS/login.js"></script> -->
+          
+        </div>
+        <div id="confirm-password">
+        <input class="input" id="inp-pass" type="password" placeholder="confirm your Password" required />
+        </div>
+        <div id="Authority">
+          <h1 class="Admin">Authority</h1>
+          <input type="radio" name="user_type" id="is_admin" value="Admin" />
+          <label for="is_admin">Admin</label>
+          <input type="radio" name="user_type" id="is_guest" value="Guest" />
+          <label for="is_guest">Guest</label>
         </div>
 
+
+        
         <!-- login button -->
         <a id="signup-button" class="btn" href="/signup.html">Sign Up</a>
         <a id="signup-button" class="btn" href="/login.html">login</a>

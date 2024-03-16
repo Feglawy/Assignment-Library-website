@@ -15,3 +15,8 @@
   color: white;
   margin-top: 10px;
 }
+
+#Authority {
+    color: white;
+    display: flex ;
+}
