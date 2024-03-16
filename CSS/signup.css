@@ -17,6 +17,10 @@
   margin-top: 10px;
 }
 
+#signup-button {
+  cursor: pointer;
+}
+
 #Authority {
   color: white;
   display: flex;

@@ -41,9 +41,9 @@ body {
 
 #show-pass {
   flex: 1;
+  display: block;
   cursor: pointer;
   border-radius: 15px;
-  size: 150px;
   color: black;
 }
 
