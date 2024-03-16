@@ -98,3 +98,9 @@ nav ul li a:hover {
     top: 75px;
   }
 }
+
+@media (max-width: 420px) {
+  .logo span {
+    display: none;
+  }
+}
