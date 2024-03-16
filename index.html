@@ -1,73 +1,90 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- page title -->
-    <title>Online Library website</title>
-
-    <!-- page icon -->
-    <link
-      rel="shortcut icon"
-      href="Images/icons/storytelling.ico"
-      type="image/x-icon"
-    />
-
-    <!-- css -->
-    <link rel="stylesheet" href="website.css" />
-
-    <!-- google icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-
-    <!-- google fonts -->
-    <style>
-      /* "Madimi One" */
-      @import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap");
-    </style>
-  </head>
-  <body id="home-body">
-    <!-- navigation bar -->
-    <nav>
-      <!-- menu button -->
-      <input type="checkbox" id="check" />
-      <label for="check">
-        <i class="material-icons" id="menu" onclick="ToggleMenu()">menu</i>
-      </label>
-
-      <!-- logo -->
-      <a href="/index.html" class="logo">
-        <img src="Images/icons/storytelling.ico" width="40" height="40" />
-        <span>Library</span>
-      </a>
-
-      <ul class="pages">
-        <li><a class="active" href="/index.html">Home</a></li>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AvailableBooks</title>
+</head>
+<body> 
+    <ul class="pages">
+        <li><a href="/index.html">Home</a></li>
         <li><a href="/Search.html">Search</a></li>
         <li><a href="/BorrowedBooks.html">Borrowed Books</a></li>
         <li><a href="/UpdateBooks.html">Update Books</a></li>
         <li><a href="/AvailableBooks.html">Available Books</a></li>
         <li><a href="/About.html">About</a></li>
-        <li><a href="/login.html">login</a></li>
-      </ul>
-      <script src="/JS/navigationBar.js"></script>
-    </nav>
-
-    <!-- Home section start -->
-    <div class="first-section">
-      <div class="website-text">
-        <h5>Online Library website</h5>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet unde,
-          libero tempore voluptas, ratione nemo, recusandae inventore laboriosam
-          quisquam illo placeat ea? Excepturi fugit ad earum mollitia,
-          consequuntur error perspiciatis?
-        </p>
-      </div>
-      <img src="Images/cover1.png" />
-    </div>
-    <div class="home"></div>
-  </body>
+        <li><a class="active" href="/login.html">login</a></li>
+    </ul> 
+    <h2>Available Books</h2>
+    <table>
+        <tr>
+            <td>
+                <img src="books-library.com-09142255Ga8H1.jpg" alt="not appear" height="400">
+                <ol>هنا انت </ol>
+            </td>
+            <td>
+                <img src="1532191169.jpg" alt="not appear" height="400">
+                <ol>فن اللامبالاة</ol>
+            </td>
+            <td>
+                <img src="download (3).jpeg" alt="not appear" height="400">
+                <ol>AI Intelligence</ol>
+            </td>
+            <td>
+                <img src="books-library.com-09142255Ga8H1.jpg" alt="not appear" height="400">
+                <ol>هنا انت</ol>    
+            </td>
+                <td>
+                <img src="978-1-4302-7218-2.jpeg" alt="not appear" height="400">
+                <ol>JavaScript</ol>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="books-library.net-04021343Jc4I2.jpg" alt="not appear" height="420">
+                <ol>القواعد الاساسيه للغه العربيه</ol>
+            </td>
+            <td>
+                <img src="books-library.net-11191435Qy9Q1.jpg" alt="not appear" height="420">
+                <ol>المخ الابله</ol>
+            </td>
+            <td>
+                <img src="books-library.online-1601213765-729.jpg" alt="not appear" height="420">
+                <ol>الهرم المقلوب</ol>
+            </td>
+            <td>
+                <img src="download (1).jpeg" alt="not appear" height="420">
+                <ol>HTML5</ol>
+            </td>
+            <td>
+                <img src="download (2).jpeg" alt="not appear" height="420">
+                <ol>Modern CSS</ol>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="download (3).jpeg" alt="not appear" height="400" width="300">
+                <ol>AI Inteliigence</strong></ol>
+            </td>
+            <td>
+                <img src="download.jpeg" alt="not appear" height="400">
+                <ol>C++</strong></ol>
+            </td>
+            <td>
+                <img src="images.jpeg" alt="not appear" height="400">
+                <ol>الرجال من المريخ والنساء من الزهرة</strong></ol>
+            </td>
+            <td>
+                <img src="9780593754825.jpeg" alt="not appear" height="400" width="300">
+                <ol> Who Is Linole Messi</strong></ol>
+            </td>
+            <td>
+                <img src="download (4).jpeg" alt="not appear" height="400" width="400">
+                <ol>Harry Potter</ol>
+            </td>
+        </tr>
+        
+        
+    </table>
+</body>
 </html>
