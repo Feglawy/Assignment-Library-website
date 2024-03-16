@@ -6,14 +6,14 @@ Assignment web 2024
 
 - [x] navigation bar
 - [ ] home page (working on it)
-- [ ] login and signup pages (working on it) --Islam
+- [x] login and signup pages (working on it) --Islam
 - [ ] about page
 - [ ] preview page
 - [ ] update page
 - [ ] search (almost done)
 - [ ] available books
 - [ ] borrowed books
-- [ ] profile (ahmed)
+- [x] profile (ahmed)
 
 ### good assits
 
