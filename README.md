@@ -4,15 +4,15 @@ Assignment web 2024
 
 ### phase 1 html
 - [x] navigation bar
-- [ ] home page (working on it)
-- [ ] login and signup pages
-- [ ] about page
+- [ ] home page (Abdallah M)
+- [x] login and signup pages 
+- [ ] about page (ali)
 - [ ] preview page
 - [ ] update page
-- [ ] search
+- [ ] search (almost done)
 - [ ] available books
 - [ ] borrowed books
-- [ ] profile
+- [ ] profile (ahmed)
 
 
 ### good assits
