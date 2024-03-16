@@ -16,12 +16,23 @@
   color: white;
   margin-top: 10px;
 }
-#confirm-password{
-  margin-top: 5px;
-}
+
 #Authority {
-    color: white;
-    display: flex ;
+  color: white;
+  display: flex;
+  margin-top: 10px;
+}
+
+#Authority label {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+#is_admin {
+  margin-left: 8vh;
 }
 
 #is_guest {
