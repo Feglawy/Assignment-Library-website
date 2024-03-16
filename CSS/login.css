@@ -51,7 +51,7 @@ body {
   transition: 0.5s;
   color: var(--Green-color);
 }
-
+/* 
 #login-button {
   width: 100%;
   padding: 10px;
@@ -62,14 +62,17 @@ body {
   cursor: pointer;
   font-size: 20px;
   margin-top: 50px;
-}
+} */
+
 #login-button:hover,
 #signup-button:hover {
   background-color: var(--Green-color);
   transition: 0.5s;
 }
 
-#signup-button {
+
+.loginForm a, #signup-button {
+/* #signup-button { */
   display: inline-block;
   width: 100%;
   border-radius: 15px;
