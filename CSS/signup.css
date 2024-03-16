@@ -27,12 +27,11 @@
   font-size: 20px;
   display: flex;
   align-items: center;
+  padding-left: 8px;
 }
 
-
-
 #is_admin {
-  margin-left: 8vh;
+  margin-left: 7vh;
 }
 
 #is_guest {
