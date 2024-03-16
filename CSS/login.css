@@ -30,6 +30,9 @@ body {
   color: #fff;
   font-size: 25px;
 }
+.input:focus {
+  border-bottom: 2px solid var(--Green-color);
+}
 
 #password-container {
   display: flex;
