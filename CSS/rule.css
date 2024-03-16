@@ -4,3 +4,12 @@
   --Green-color: #76abae;
   --white-color: #eeeeee;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Madimi One";
+}
