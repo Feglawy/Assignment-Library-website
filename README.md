@@ -10,10 +10,10 @@ Assignment web 2024
 - [ ] about page
 - [ ] preview page
 - [ ] update page
-- [ ] search
+- [ ] search (almost done)
 - [ ] available books
 - [ ] borrowed books
-- [ ] profile
+- [ ] profile (ahmed)
 
 ### good assits
 
