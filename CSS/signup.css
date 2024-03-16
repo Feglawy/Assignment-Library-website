@@ -15,3 +15,45 @@
   color: white;
   margin-top: 10px;
 }
+
+#Authority {
+  color: white;
+  display: flex;
+  margin-top: 10px;
+}
+#Authority label {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+input:checked {
+  border: 6px solid black;
+  outline: unset !important;
+  /* I added this one for Edge (chromium) support */
+}
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+}
+input:checked {
+  border: 6px solid var(--Green-color);
+  outline: unset !important;
+  /* I added this one for Edge (chromium) support */
+}
+
+#is_admin {
+  margin-left: 8vh;
+}
+
+#is_guest {
+  margin-left: 20px;
+}
