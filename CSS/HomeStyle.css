@@ -32,9 +32,6 @@
 }
 
 .recommended-section {
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   border-radius: 15px;
   background-color: #eeeeee49;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
@@ -44,6 +41,8 @@
 }
 .book {
   width: 15%;
+  min-width: 198px;
+  min-height: 193px;
   margin: 15px;
   box-sizing: border-box;
   float: left;
@@ -58,6 +57,11 @@
   border-radius: 20px;
   height: 250px;
   width: calc(250px * 0.7032967033);
+}
+
+.book .name {
+  color: var(--dark-color);
+  font-size: 15px;
 }
 
 .book a {
