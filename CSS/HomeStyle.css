@@ -59,3 +59,17 @@
   height: 250px;
   width: calc(250px * 0.7032967033);
 }
+
+.book a {
+  display: inline-block;
+  width: 50%;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: var(--dark-color);
+  color: #fff;
+  font-size: 20px;
+  margin-top: 20px;
+  border: none;
+  text-align: center;
+  margin-bottom: 10px;
+}
