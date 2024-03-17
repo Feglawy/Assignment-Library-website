@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
     <!-- page icon -->
-    <link rel="shortcut icon" href="icons/storytelling.ico" type="image/x-icon"/>
-    
+    <link
+      rel="shortcut icon"
+      href="icons/storytelling.ico"
+      type="image/x-icon"
+    />
+
     <!-- css -->
     <link rel="stylesheet" href="website.css" />
 
     <!-- google icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
     <!-- google fonts -->
     <style>
-        /* "Madimi One" */
-        @import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap");
+      /* "Madimi One" */
+      @import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap");
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- navigation bar -->
     <nav>
-        <!-- menu button -->
-        <input type="checkbox" id="check" />
-        <label for="check">
-            <i class="material-icons" id="menu" onclick="ToggleMenu()">menu</i>
-        </label>
+      <!-- menu button -->
+      <input type="checkbox" id="check" />
+      <label for="check">
+        <i class="material-icons" id="menu" onclick="ToggleMenu()">menu</i>
+      </label>
 
-        <!-- logo -->
-        <a href="/index.html" class="logo">
-            <img src="icons/storytelling.ico" width="40" height="40" />
-            <span>Library</span>
-        </a>
+      <!-- logo -->
+      <a href="/index.html" class="logo">
+        <img src="Images/icons/storytelling.ico" width="40" height="40" />
+        <span>Library</span>
+      </a>
 
-        <ul class="pages">
-            <a href="/userCard.html"><img src="/img/tantawy.jpeg" class="user-pic"></a>
-        </ul>
-        <script src="/JS/navigationBar.js"></script>
+      <ul class="pages">
+        <a href="/userCard.html"
+          ><img src="/Images/tantawy.jpeg" class="user-pic"
+        /></a>
+      </ul>
+      <script src="/JS/navigationBar.js"></script>
     </nav>
-    
+
     <!-- user card form -->
     <div class="cont">
-        <div class="user-card">
-            <div class="user-card-img">
-                <img src="img/tantawy.jpeg" alt="">
-            </div>
-            <div class="user-info">
-                <h2>Tantawy El gamd</h2>
-                <p><span>Email: </span>Tantawy@gmail.com</p>
-                <p><span>Location: </span> Gize, Egypt</p>
-                <p><span>Profile Type: </span> Admin</p>
-                <p><span>About Me</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta neque tempore, sed maiores veritatis voluptatibus dolores vero consectetur cum possimus iure nam ea accusamus, officiis laborum temporibus, beatae sit quia?</p>
-            </div>
+      <div class="user-card">
+        <div class="user-card-img">
+          <img src="img/tantawy.jpeg" alt="" />
         </div>
+        <div class="user-info">
+          <h2>Tantawy El gamd</h2>
+          <p><span>Email: </span>Tantawy@gmail.com</p>
+          <p><span>Location: </span> Gize, Egypt</p>
+          <p><span>Profile Type: </span> Admin</p>
+          <p>
+            <span>About Me</span> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Dicta neque tempore, sed maiores veritatis
+            voluptatibus dolores vero consectetur cum possimus iure nam ea
+            accusamus, officiis laborum temporibus, beatae sit quia?
+          </p>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
