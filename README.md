@@ -7,7 +7,7 @@ Assignment web 2024
 - [x] navigation bar
 - [ ] home page (working on it) --Abdallah
 - [x] login and signup pages (Done) --Islam
-- [ ] about page
+- [x] about page
 - [ ] preview page
 - [ ] update page
 - [ ] search (almost done)
