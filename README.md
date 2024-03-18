@@ -10,10 +10,12 @@ Assignment web 2024
 - [x] about page
 - [ ] preview page
 - [ ] update page
-- [ ] search (almost done)
+- [x] search (almost done)
 - [x] available books
 - [ ] borrowed books
 - [x] profile (Done) --Ahmed
+
+!TO-DO add to css some checks to screen width and hight
 
 ### good assits
 
