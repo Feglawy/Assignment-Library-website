@@ -11,7 +11,7 @@ Assignment web 2024
 - [ ] preview page
 - [ ] update page
 - [ ] search (almost done)
-- [ ] available books
+- [x] available books
 - [ ] borrowed books
 - [x] profile (Done) --Ahmed
 

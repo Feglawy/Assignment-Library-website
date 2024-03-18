@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Library website</title>
 
+    <!-- page title -->
+    <title>Online Library website</title>
+
     <!-- page icon -->
     <link
       rel="shortcut icon"
@@ -58,5 +61,41 @@
 
       <script src="/JS/navigationBar.js"></script>
     </nav>
+
+    <div class="main-page">
+      <div class="search-area">
+        <input
+          type="search"
+          name="search-bar"
+          id="search-bar"
+          placeholder="Search for a book..."
+        />
+      </div>
+      <div id="Search-by">
+        <h1 class="searchType">Search by</h1>
+        <input
+          type="radio"
+          name="search-by"
+          id="search-by-title"
+          value="title"
+          checked="checked"
+        />
+        <label for="search-by-title">title</label>
+        <input
+          type="radio"
+          name="search-by"
+          id="search-by-author"
+          value="Author"
+        />
+        <label for="search-by-author">author</label>
+        <input
+          type="radio"
+          name="search-by"
+          id="search-by-category"
+          value="category"
+        />
+        <label for="search-by-category">category</label>
+      </div>
+    </div>
   </body>
 </html>
