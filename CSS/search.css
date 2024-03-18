@@ -28,8 +28,11 @@
   display: flex;
   align-items: center;
 }
+
+
 .radio {
   display: flex;
-    align-items: center;
-  margin-left: 3vw;
+  align-items: center;
+  margin-left: 1vw;
 }
+
