@@ -23,13 +23,15 @@
   display: flex;
   justify-content: center;
 }
-#Search-by label{
-  margin: 1px;
-  display: flex;
-  align-items: center;
-}
+
 .radio {
   display: flex;
-    align-items: center;
-  margin-left: 3vw;
+  align-items: center;
+  flex-direction: row;
+}
+.inp {
+  padding-left: 1vw;
+}
+.searchType {
+  margin-right: 20vw;
 }
