@@ -21,6 +21,8 @@
   z-index: -1;
   width: 100%;
   border-radius: 30px;
+  max-width: 620px;
+  min-width: 320px;
 }
 
 #Team-members {
