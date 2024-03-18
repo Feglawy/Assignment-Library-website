@@ -73,28 +73,17 @@
       </div>
       <div id="Search-by">
         <h1 class="searchType">Search by</h1>
-        <input
-          type="radio"
-          name="search-by"
-          id="search-by-title"
-          value="title"
-          checked="checked"
-        />
-        <label for="search-by-title">title</label>
-        <input
-          type="radio"
-          name="search-by"
-          id="search-by-author"
-          value="Author"
-        />
-        <label for="search-by-author">author</label>
-        <input
-          type="radio"
-          name="search-by"
-          id="search-by-category"
-          value="category"
-        />
-        <label for="search-by-category">category</label>
+        <div class="radio">
+          <input type="radio" name="search-by" id="search-by-title" value="title" checked="checked" />
+          <label for="search-by-title">title</label>
+        </div>
+
+       <div class="radio"><input type="radio" name="search-by" id="search-by-author" value="Author" />
+      <label for="search-by-author">author</label></div>
+        <div class="radio">
+          <input type="radio" name="search-by" id="search-by-category" value="category" />
+          <label for="search-by-category">category</label>
+        </div>
       </div>
     </div>
   </body>

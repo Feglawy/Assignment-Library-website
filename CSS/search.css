@@ -23,3 +23,13 @@
   display: flex;
   justify-content: center;
 }
+#Search-by label{
+  margin: 1px;
+  display: flex;
+  align-items: center;
+}
+.radio {
+  display: flex;
+    align-items: center;
+  margin-left: 3vw;
+}
