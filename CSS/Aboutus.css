@@ -1,0 +1,43 @@
+#header-about-us {
+  margin-top: 80px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.Main-About {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 15px;
+  padding: 15px;
+  width: 85%;
+  margin-top: 50px;
+  height: 45vh;
+  font-size: 25px;
+}
+
+.Main-About img {
+  z-index: -1;
+  width: 100%;
+  border-radius: 30px;
+}
+
+#Team-members {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 25px;
+}
+
+#Team-members ul li:hover {
+  display: inline-block;
+  padding: 5px;
+  background-color: var(--Green-color);
+  border-radius: 15px;
+  transition: 0.5s;
+  cursor: default;
+}
+
+#Contact-us-section {
+  margin-top: 50px;
+}
