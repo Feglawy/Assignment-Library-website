@@ -1,18 +1,29 @@
 @import url("rule.css");
 
 nav {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 20px; 
   width: 100%;
   background-color: var(--dark-color);
   height: 80px;
+  justify-content: flex-end;
 }
 
 .logo {
+  position: absolute;
+  display: flex;
+  align-items: center;
   color: white;
   font-size: 35px;
   font-weight: bold;
   line-height: 80px;
   padding: 0 80px;
   cursor: pointer;
+}
+.logo img {
+  margin-bottom: 10px;
 }
 
 nav ul {
@@ -32,6 +43,19 @@ nav ul li a {
   padding: 7px 13px;
   border-radius: 15px;
   text-transform: uppercase;
+}
+
+#user-profile-icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: url("/Images/tantawy.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-width: 10px;
+  background-color: var(--Green-color);
 }
 
 #check {

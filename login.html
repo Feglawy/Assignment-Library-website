@@ -28,18 +28,18 @@
   </head>
   <body>
     <!-- navigation bar -->
+    <!-- logo -->
+    <a href="/index.html" class="logo">
+      <img src="Images/icons/storytelling.ico" width="40" height="40" />
+      <span>Library</span>
+    </a>
+    <!-- Pages -->
     <nav>
       <!-- menu button -->
       <input type="checkbox" id="check" />
       <label for="check">
         <i class="material-icons" id="menu" onclick="ToggleMenu()">menu</i>
       </label>
-
-      <!-- logo -->
-      <a href="/index.html" class="logo">
-        <img src="Images/icons/storytelling.ico" width="40" height="40" />
-        <span>Library</span>
-      </a>
 
       <ul class="pages">
         <li><a href="/index.html">Home</a></li>
@@ -48,8 +48,13 @@
         <li><a href="/UpdateBooks.html">Update Books</a></li>
         <li><a href="/AvailableBooks.html">Available Books</a></li>
         <li><a href="/About.html">About</a></li>
-        <li><a class="active" href="/login.html">login</a></li>
+        <li><a href="/login.html">login</a></li>
       </ul>
+      <!-- user profile -->
+      <div id="user-profile-icon" style="display: none">
+        <a class="active" href="/userCard.html"></a>
+      </div>
+
       <script src="/JS/navigationBar.js"></script>
     </nav>
 

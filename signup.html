@@ -28,6 +28,12 @@
   </head>
   <body>
     <!-- navigation bar -->
+    <!-- logo -->
+    <a href="/index.html" class="logo">
+      <img src="Images/icons/storytelling.ico" width="40" height="40" />
+      <span>Library</span>
+    </a>
+    <!-- Pages -->
     <nav>
       <!-- menu button -->
       <input type="checkbox" id="check" />
@@ -35,21 +41,20 @@
         <i class="material-icons" id="menu" onclick="ToggleMenu()">menu</i>
       </label>
 
-      <!-- logo -->
-      <a href="/index.html" class="logo">
-        <img src="Images/icons/storytelling.ico" width="40" height="40" />
-        <span>Library</span>
-      </a>
-
       <ul class="pages">
-        <li><a href="/index.html" target="_blank">Home</a></li>
-        <li><a href="/Search.html" target="_blank">Search</a></li>
-        <li><a href="/BorrowedBooks.html" target="_blank">Borrowed Books</a></li>
-        <li><a href="/UpdateBooks.html" target="_blank">Update Books</a></li>
-        <li><a href="/AvailableBooks.html" target="_blank">Available Books</a></li>
-        <li><a href="/About.html" target="_blank">About</a></li>
-        <li><a class="active" href="/login.html" target="_blank">login</a></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/Search.html">Search</a></li>
+        <li><a href="/BorrowedBooks.html">Borrowed Books</a></li>
+        <li><a href="/UpdateBooks.html">Update Books</a></li>
+        <li><a href="/AvailableBooks.html">Available Books</a></li>
+        <li><a href="/About.html">About</a></li>
+        <li><a href="/login.html">login</a></li>
       </ul>
+      <!-- user profile -->
+      <div id="user-profile-icon" style="display: none">
+        <a class="active" href="/userCard.html"></a>
+      </div>
+
       <script src="/JS/navigationBar.js"></script>
     </nav>
     <!-- login form -->
