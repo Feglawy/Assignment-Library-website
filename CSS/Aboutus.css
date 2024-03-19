@@ -29,17 +29,27 @@
   margin-top: 50px;
   text-align: center;
   font-size: 25px;
+  padding: 5px;
+}
+#Team-members ul li {
+  padding: 4px;
+  border-radius: 15px;
 }
 
 #Team-members ul li:hover {
   display: inline-block;
-  padding: 5px;
   background-color: var(--Green-color);
-  border-radius: 15px;
   transition: 0.5s;
   cursor: default;
 }
-
-#Contact-us-section {
+.end {
+  text-align: center;
+  background-color: #f1efef;
+}
+.end hr {
   margin-top: 50px;
+}
+#Contact-us-section {
+  font-size: x-large;
+  margin: 20px 0 50px 0;
 }
