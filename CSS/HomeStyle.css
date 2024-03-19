@@ -27,8 +27,8 @@
 }
 #we-recommend {
   margin-top: 90vh;
-  margin-left: 10vh;
-  margin-bottom: 10vh;
+  margin-left: 10%;
+  margin-right: 2%;
 }
 
 .recommended-section {
@@ -37,7 +37,8 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   position: relative;
-  margin-left: calc(10vh);
+  margin-left: 10%;
+  margin-right: 2%;
 }
 .book {
   width: 15%;
