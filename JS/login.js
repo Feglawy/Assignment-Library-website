@@ -4,11 +4,11 @@ function ShowPassword() {
   var iconBox = document.getElementById("visibility");
   if (passwordBox.type === "password") {
     passwordBox.type = "text";
-    confirmPasswordBox.type = "text";
     iconBox.innerHTML = "visibility_off";
+    confirmPasswordBox.type = "text";
   } else {
     passwordBox.type = "password";
-    confirmPasswordBox.type = "password";
     iconBox.innerHTML = "visibility";
+    confirmPasswordBox.type = "password";
   }
 }
