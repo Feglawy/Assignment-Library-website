@@ -37,8 +37,7 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   position: relative;
-  margin-left: 10%;
-  margin-right: 2%;
+  margin-top: 3%;
 }
 
 .book {
@@ -81,6 +80,6 @@
 }
 
 .book:hover {
-  transform: translateY(-40px) scale(1.2);
-  transition: 0.7s all;
+  transform: translateY(-40px) scale(1.15);
+  transition: 0.65s all;
 }
