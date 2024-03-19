@@ -1,0 +1,29 @@
+.Update-books-main {
+  margin-top: 80px;
+}
+
+#add-new {
+  display: inline-block;
+  width: 20%;
+  min-width: 230px;
+  height: 40px;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: var(--dark-color);
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  margin: auto;
+}
+
+#add-new:hover {
+  background-color: var(--Green-color);
+  transition: 0.5s;
+}
+
+.books {
+  width: 100%;
+  margin: auto;
+  margin-top: 10%;
+}
