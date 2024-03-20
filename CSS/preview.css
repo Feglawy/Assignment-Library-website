@@ -30,6 +30,7 @@
   border: 1px solid rgba(255, 255, 255, 0.81);
   width: 90%;
   margin: auto;
+  margin-right: 2vh;
   border-radius: 15px;
   font-size: x-large;
   text-align: center;
@@ -60,4 +61,60 @@
 .borrow-btn:hover {
   background-color: var(--Green-color);
   transition: 0.5s;
+}
+
+.info-container {
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+.info {
+  position: relative;
+  min-width: 305px;
+  padding: 5vh;
+  color: black;
+  background: rgba(255, 255, 255, 0.47);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14.8px);
+  -webkit-backdrop-filter: blur(14.8px);
+  border: 1px solid rgba(255, 255, 255, 0.81);
+  margin: 0 2vh 0 2vh;
+  font-size: 25px;
+}
+
+.info ul h5 {
+  text-align: center;
+  padding: 1vh;
+}
+
+#author,
+#types {
+  text-align: center;
+  padding: 1vh;
+  border-radius: 15px;
+}
+
+#types {
+  padding: 0vh;
+}
+
+#author:hover,
+#types:hover,
+#categories li:hover {
+  background-color: var(--Green-color);
+  transition: 0.5s;
+  cursor: default;
+}
+
+#categories {
+  display: flex;
+  font-size: medium;
+}
+
+#categories li {
+  justify-content: center;
+  margin: auto;
+  padding: 5px;
+  border-radius: 15px;
 }

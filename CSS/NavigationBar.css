@@ -86,7 +86,7 @@ nav ul li a:hover {
     transition: all 0.5s;
   }
 
-  ul {
+  nav ul {
     position: absolute;
     width: 50%;
     height: 63vh;
