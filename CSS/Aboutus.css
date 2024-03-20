@@ -53,3 +53,13 @@
   font-size: x-large;
   margin: 20px 0 50px 0;
 }
+
+@media (max-width: 850px) {
+  .Main-About {
+    display: block;
+    text-align: center;
+  }
+  #Team-members {
+    margin-top: 150px;
+  }
+}
