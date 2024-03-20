@@ -68,7 +68,7 @@
   display: flex;
   justify-content: space-evenly;
 }
-.info {
+#info {
   position: relative;
   min-width: 305px;
   padding: 5vh;
@@ -83,7 +83,7 @@
   font-size: 25px;
 }
 
-.info ul h5 {
+#info ul h5 {
   text-align: center;
   padding: 1vh;
 }
