@@ -1,13 +1,16 @@
-.borred{
+
+.Borrowed {
     text-align: center;
 }
-.borred h1{
-    margin-top: 50px;
+.book:hover {
+    transform: translateY(-25px) scale(1);
+    
 }
-/* 
-@media only screen and(min-width: 770px){
-    .borred h1{
-        display: flex;
-        flex-direction: row;
-    }
-} */
+
+.book .Borrowed , a:hover {
+    transform: translateY(-10px) scale(1.1);
+    transition: 0.7s all;
+}
+.book .Borrowed{
+    background-color: var(--Green-color)   ;
+}
