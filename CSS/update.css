@@ -36,7 +36,15 @@
   margin-top: 10%;
 }
 
-.books a:hover{
+.books a:hover {
   transform: translateY(-10px) scale(1.1);
-    transition: 0.7s all;
+  transition: 0.7s all;
+}
+
+@media (max-width: 520px) {
+  .books-section {
+    width: 50%;
+    margin: auto;
+    transition: 1s;
+  }
 }

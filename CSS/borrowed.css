@@ -1,16 +1,23 @@
-
 .Borrowed {
-    text-align: center;
+  text-align: center;
 }
 .book:hover {
-    transform: translateY(-25px) scale(1);
-    
+  transform: translateY(-25px) scale(1);
 }
 
-.book .Borrowed , a:hover {
-    transform: translateY(-10px) scale(1.1);
-    transition: 0.7s all;
+.book .Borrowed,
+a:hover {
+  transform: translateY(-10px) scale(1.1);
+  transition: 0.7s all;
 }
-.book .Borrowed{
-    background-color: var(--Green-color)   ;
+.book .Borrowed {
+  background-color: var(--Green-color);
+}
+
+@media (max-width: 520px) {
+  .books {
+    width: 50%;
+    margin: auto;
+    transition: 1s;
+  }
 }
