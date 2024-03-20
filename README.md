@@ -17,6 +17,8 @@ Assignment web 2024
 
 !TO-DO add to css some checks to screen width and hight
 
+!TO-DO add the tags and author name to the book preview page 
+
 ### good assits
 
 [Good website for shadowing](https://getcssscan.com/css-box-shadow-examples)
