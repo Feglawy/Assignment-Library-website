@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>login</title>
+    <title>online liberary website</title>
 
     <!-- page icon -->
     <link
@@ -40,7 +40,7 @@
         <li><a href="UpdateBooks.html">Update Books</a></li>
         <li><a href="AvailableBooks.html">Available Books</a></li>
         <li><a href="About.html">About</a></li>
-        <li><a class="active" href="login.html">login</a></li>
+        <li><a href="login.html">login</a></li>
       </ul>
       <!-- user profile -->
       <div id="user-profile-icon" style="display: none">
@@ -51,44 +51,48 @@
     </nav>
   </head>
   <body>
-    <!-- login form -->
-    <div class="loginForm">
-      <form>
-        <h1 class="info">Email</h1>
-        <!-- user name input box -->
-        <input
-          class="input"
-          id="inp-username"
-          type="email"
-          placeholder="enter your E-mail"
-          required
-        />
-        <h1 class="info">Password</h1>
-
-        <!-- password container for the password input and show pass -->
-        <div id="password-container">
-          <!-- password input box -->
-          <input
-            class="input"
-            id="inp-pass"
-            type="password"
-            placeholder="enter your Password"
-            required
-          />
-          <!-- Show password click -->
-          <div id="show-pass" onclick="ShowPassword()">
-            <i class="material-icons" id="visibility">visibility</i>
-          </div>
-          <script src="/JS/login.js"></script>
-        </div>
-
-        <!-- login button -->
-        <a id="login-button" class="btn" href="userCard.html">Login</a>
-        <!-- <button id="login-button" class="btn" >Login</button> -->
-        <a id="signup-button" class="btn" href="signup.html">Sign Up</a>
-      </form>
+    <div class="book-image">
+      <img class="bg-img" src="/Images//covers/TPN-cover-18.webp" alt="TPN" />
+      <img
+        class="preview-img"
+        src="/Images//covers/TPN-cover-18.webp"
+        alt="TPN"
+      />
+      <br />
     </div>
-
-    <!-- show password and hide it -->
+    <div class="info-container">
+      <div id="info">
+        <ul>
+          <h5>Author</h5>
+          <li id="author">Kaiu shirai</li>
+          <h5>Type</h5>
+          <div id="types">
+            <ul>
+              <li>manga</li>
+            </ul>
+          </div>
+          <h5>categories</h5>
+          <ul id="categories">
+            <li>action</li>
+            <li>mystery</li>
+            <li>drama</li>
+          </ul>
+        </ul>
+      </div>
+      <div class="book-description">
+        <div class="text">
+          <h1 class="book-name">The promised neverland</h1>
+          <p>
+            Emma, Norman and Ray are the brightest kids at the Grace Field House
+            orphanage. And under the care of the woman they refer to as “Mom,”
+            all the kids have enjoyed a comfortable life. Good food, clean
+            clothes and the perfect environment to learn—what more could an
+            orphan ask for? One day, though, Emma and Norman uncover the dark
+            truth of the outside world they are forbidden from seeing.
+          </p>
+          <a class="borrow-btn" href="#">Borrow</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -86,7 +86,7 @@ nav ul li a:hover {
     transition: all 0.5s;
   }
 
-  ul {
+  nav ul {
     position: absolute;
     width: 50%;
     height: 63vh;
@@ -99,7 +99,7 @@ nav ul li a:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     transition: all 0.5s;
-    z-index: 1;
+    z-index: 5;
   }
 
   nav ul li {
@@ -116,7 +116,10 @@ nav ul li a:hover {
 }
 
 @media (max-width: 420px) {
-  .logo span {
+  .logo {
+    padding: 20px 80px;
+  }
+  #website-name {
     display: none;
   }
 }

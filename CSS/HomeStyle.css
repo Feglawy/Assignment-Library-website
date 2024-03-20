@@ -1,14 +1,21 @@
+.first-section {
+  display: block;
+  height: fit-content;
+}
 .first-section .website-text {
   position: absolute;
   color: black;
   width: 50%;
   height: 60vh;
+  height: fit-content;
   font-size: 20px;
-  background-color: #eeeeee49;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  margin-top: 10vh;
-  margin-left: 10vh;
+  background: rgba(255, 255, 255, 0.36);
+  border-radius: 16px;
+  box-shadow: rgba(61, 61, 61, 0.2) 0px 2px 8px 0px;
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  margin-top: 10%;
+  margin-left: 5%;
   text-align: center;
   padding: 100px;
   min-width: 500px;
@@ -18,16 +25,16 @@
 .first-section img {
   border-radius: 0 0 15px 15px;
   width: 100%;
-  height: 80vh;
+  height: 80%;
   margin-top: -2px;
   position: absolute;
   filter: blur(5px);
-  z-index: -1;
+  z-index: -2;
   object-fit: cover;
 }
 #we-recommend {
-  margin-top: 90vh;
-  margin-left: 10%;
+  margin-top: 80vh;
+  margin-left: 8%;
   margin-right: 2%;
 }
 
@@ -37,8 +44,8 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   position: relative;
-  margin-left: 10%;
-  margin-right: 2%;
+  width: 100%;
+  margin: auto;
 }
 
 .book {
@@ -83,4 +90,24 @@
 .book:hover {
   transform: translateY(-40px) scale(1.2);
   transition: 0.7s all;
+}
+
+@media (max-width: 540px) {
+  .first-section .website-text {
+    margin: 0;
+    transition: 1s;
+  }
+  .recommended-section {
+    width: 50%;
+    margin: auto;
+    transition: 0.5s;
+  }
+}
+
+@media (max-width: 420px) {
+  .first-section .website-text {
+    z-index: -1;
+    min-width: 100%;
+    transition: 0.5s;
+  }
 }
