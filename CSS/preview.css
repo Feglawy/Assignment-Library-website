@@ -119,7 +119,7 @@
   border-radius: 15px;
 }
 
-@media (max-width: 795px) {
+@media (max-width: 1000px) {
   .book-image {
     margin-top: 5vh;
     display: flex;
