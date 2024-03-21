@@ -96,6 +96,7 @@
 @media (max-width: 540px) {
   .first-section .website-text {
     margin: 0;
+    min-width: 100%;
     transition: 1s;
   }
   .recommended-section {
@@ -111,7 +112,6 @@
 @media (max-width: 420px) {
   .first-section .website-text {
     z-index: -1;
-    min-width: 100%;
     transition: 0.5s;
     padding: 70px;
   }
