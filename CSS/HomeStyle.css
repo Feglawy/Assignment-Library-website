@@ -103,6 +103,9 @@
     margin: auto;
     transition: 0.5s;
   }
+  .book {
+    margin-left: -10px;
+  }
 }
 
 @media (max-width: 420px) {
@@ -110,5 +113,6 @@
     z-index: -1;
     min-width: 100%;
     transition: 0.5s;
+    padding: 70px;
   }
 }
