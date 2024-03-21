@@ -80,6 +80,11 @@ nav ul li a:hover {
   transition: 0.75s;
 }
 
+.logo:hover {
+  transform: translateY(-10px);
+  transition: all 0.7s;
+}
+
 @media (max-width: 1250px) {
   #menu {
     display: block;
