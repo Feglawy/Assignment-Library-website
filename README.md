@@ -15,9 +15,14 @@ Assignment web 2024
 - [x] borrowed books
 - [x] profile (Done) --Ahmed
 
-!TO-DO add to css some checks to screen width and hight
+---
 
-!TO-DO add the tags and author name to the book preview page 
+- [x] TO-DO add to css some checks to screen width and hight
+- [x] TO-DO add the tags and author name to the book preview page
+
+---
+[Database structure](https://drawsql.app/teams/feglawy/diagrams/library)
+---
 
 ### good assits
 

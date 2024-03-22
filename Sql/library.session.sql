@@ -1,3 +1,4 @@
+-- The users Table 
 CREATE TABLE `users`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `firstname` VARCHAR(255) NOT NULL,
@@ -10,12 +11,15 @@ CREATE TABLE `users`(
     `Profile-Icon` TEXT NULL COMMENT 'The path to the icon'
 );
 
+
 -- @block
+-- authors table
 CREATE TABLE `authors`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` BIGINT NOT NULL
 );
 -- @block
+-- books table
 CREATE TABLE `Books`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(255) NOT NULL UNIQUE,
@@ -29,7 +33,8 @@ CREATE TABLE `Books`(
 );
 
 -- @block
-CREATE TABLE `Borrowed-Books`(
+-- borrowed books table
+CREATE TABLE `Borrowed_Books`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT UNSIGNED NOT NULL,
     `Book_id` BIGINT UNSIGNED NOT NULL,
@@ -39,11 +44,13 @@ CREATE TABLE `Borrowed-Books`(
 );
 
 -- @block
+-- categories table
 CREATE TABLE `categories`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL
 );
 -- @block
+-- book categories
 CREATE TABLE `Book-categories`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `book_id` BIGINT UNSIGNED NOT NULL,
@@ -54,11 +61,13 @@ CREATE TABLE `Book-categories`(
 );
 
 -- @block
+-- book types table like manga novel book light-novel
 CREATE TABLE `types`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `types` VARCHAR(255) NOT NULL
 );
 -- @block
+-- book type table
 CREATE TABLE `Book-Types`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `book_id` BIGINT UNSIGNED NOT NULL,
