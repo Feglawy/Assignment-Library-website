@@ -11,8 +11,8 @@
 
 #add-new {
   display: inline-block;
-  width: 20%;
-  min-width: 230px;
+  /* width: 20%;
+  min-width: 230px; */
   height: 40px;
   border-radius: 15px;
   padding: 10px;
@@ -25,13 +25,16 @@
   margin-top: 20px;
 }
 
+
 #add-new:hover {
   background-color: var(--Green-color);
   transition: 0.5s;
 }
 
-.books {
-  width: 100%;
-  margin: auto;
-  margin-top: 10%;
+@media (max-width: 520px) {
+  .books-section {
+    width: 50%;
+    margin: auto;
+    transition: 1s;
+  }
 }
