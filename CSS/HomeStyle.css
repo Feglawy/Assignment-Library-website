@@ -42,10 +42,15 @@
 }
 
 @media (max-width: 540px) {
+  .first-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .first-section .website-text {
     margin: 0;
     min-width: 100%;
-    transition: 1s;
+    transition: 0.5s;
   }
 }
 

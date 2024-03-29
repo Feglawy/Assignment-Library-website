@@ -41,3 +41,15 @@
 #is_guest {
   margin-left: 20px;
 }
+
+@media (max-width: 700px) {
+  #Authority {
+    font-size: 10px;
+  }
+  #Authority label {
+    font-size: 15px;
+  }
+  #is_admin {
+    margin-left: 5vh;
+  }
+}
