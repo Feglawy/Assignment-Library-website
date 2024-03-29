@@ -1,5 +1,10 @@
+-- @block
+-- create database
+CREATE DATABASE Library;
+
+-- @block
 -- The users Table 
-CREATE TABLE `users`(
+CREATE TABLE Library.`users`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `firstname` VARCHAR(255) NOT NULL,
     `lastname` VARCHAR(255) NULL,
@@ -14,13 +19,13 @@ CREATE TABLE `users`(
 
 -- @block
 -- authors table
-CREATE TABLE `authors`(
+CREATE TABLE Library.`authors`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` BIGINT NOT NULL
 );
 -- @block
 -- books table
-CREATE TABLE `Books`(
+CREATE TABLE Library.`Books`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(255) NOT NULL UNIQUE,
     `description` TEXT NOT NULL,
@@ -34,7 +39,7 @@ CREATE TABLE `Books`(
 
 -- @block
 -- borrowed books table
-CREATE TABLE `Borrowed_Books`(
+CREATE TABLE Library.`Borrowed_Books`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT UNSIGNED NOT NULL,
     `Book_id` BIGINT UNSIGNED NOT NULL,
@@ -45,13 +50,13 @@ CREATE TABLE `Borrowed_Books`(
 
 -- @block
 -- categories table
-CREATE TABLE `categories`(
+CREATE TABLE Library.`categories`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL
 );
 -- @block
 -- book categories
-CREATE TABLE `Book-categories`(
+CREATE TABLE Library.`Book-categories`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `book_id` BIGINT UNSIGNED NOT NULL,
     `category_id` BIGINT UNSIGNED NOT NULL,
@@ -62,13 +67,13 @@ CREATE TABLE `Book-categories`(
 
 -- @block
 -- book types table like manga novel book light-novel
-CREATE TABLE `types`(
+CREATE TABLE Library.`types`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `types` VARCHAR(255) NOT NULL
 );
 -- @block
 -- book type table
-CREATE TABLE `Book-Types`(
+CREATE TABLE Library.`Book-Types`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `book_id` BIGINT UNSIGNED NOT NULL,
     `type_id` BIGINT UNSIGNED NOT NULL,

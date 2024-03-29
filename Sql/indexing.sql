@@ -3,31 +3,33 @@
 
 -- @block
 -- indexing the email address on users table
-CREATE Index idx_user_email on users(Emailaddress);
+CREATE Index idx_user_email on library.users(Emailaddress);
 
 -- @block
 -- indexing borrowed books users' ids
-CREATE Index idx_books_users on borrowed_books(user_id);
+CREATE Index idx_books_users on library.borrowed_books(user_id);
+-- @block
 -- indexing borrowed books books' ids
-CREATE Index idx_books_booksids on borrowed_books(Book_id);
+CREATE Index idx_books_booksids on library.borrowed_books(Book_id);
 
 
 -- @block
 -- indexing Books
-CREATE Index idx_books_name on books(Name);
+CREATE Index idx_books_name on library.books(Name);
+-- @block
 -- indexing available books
-CREATE Index idx_books_aveilable on books(is_available);
+CREATE Index idx_books_aveilable on library.books(is_available);
 
 
 -- @block
 -- indexing authors
-CREATE Index idx_authors on authors(name);
+CREATE Index idx_authors on library.authors(name);
 
 -- @block
 -- indexing categories
-CREATE Index idx_books on categories(name);
+CREATE Index idx_books on library.categories(name);
 
 
 -- @block
 -- indexing types
-CREATE Index idx_types on types(types);
+CREATE Index idx_types on library.types(types);
