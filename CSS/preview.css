@@ -81,6 +81,7 @@
   border: 1px solid rgba(255, 255, 255, 0.81);
   margin: 0 2vh 0 2vh;
   font-size: 25px;
+  max-width: 350px;
 }
 
 #info h5 {
@@ -110,6 +111,7 @@
 #categories {
   display: flex;
   font-size: medium;
+  flex-wrap: wrap;
 }
 
 #categories li {

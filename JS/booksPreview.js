@@ -46,9 +46,58 @@ let jjk = new Book(
   "manga",
   true
 );
-
+let TG = new Book(
+  "Tokyo Ghoul",
+  "Shy Ken Kaneki is thrilled to go on a date with the beautiful Rize. But it turns out that she's only interested in his body--eating it, that is. When a morally questionable rescue transforms him into the first half-human hal",
+  "/Images/covers/TokyoGhoul-Vol-11.jpg",
+  ["Sui Ishida"],
+  ["action", "Supernatural thriller", "Dark fantasy"],
+  "manga",
+  true
+);
+let op = new Book(
+  "One Piece",
+  "As a child, Monkey D. Luffy dreamed of becoming King of the Pirates. But his life changed when he accidentally gained the power to stretch like rubber...at the cost of never being able to swim again! Years later, Luffy sets off in search of the One Piece, said to be the greatest treasure in the world...",
+  "/Images/covers/one-piece-cover.jpg",
+  ["Eiichiro Oda"],
+  ["action", "comedy", "adventure", "super natural", "fantasy"],
+  "manga",
+  true
+);
+let soloLeveling = new Book(
+  "Solo leveling",
+  "After his victory on Jeju Island, the top guilds are all clamoring to recruit Jinwoo Sung, the strongest S-rank hunter and the hero of Korea―a far cry from the hapless E-rank hunter he used to be. As exciting as each new development is, however, Jinwoo’s eager to finally get some answers, so an invitation from the system to return to the double dungeon that changed his life is a welcome opportunity. He’ll have to put the visit on the back burner, though, because first things first―Jinwoo has a guild to establish!",
+  "/Images/covers/solo-leveling-vol-3.jpg",
+  ["Hye Young Im"],
+  ["action", "comedy", "adventure", "super natural", "fantasy"],
+  "manhwa",
+  true
+);
+let aot = new Book(
+  "Attack On Titan",
+  "In this post-apocalyptic sci-fi story, humanity has been devastated by the bizarre, giant humanoids known as the Titans. Little is known about where they came from or why they are bent on consuming mankind. Seemingly unintelligent, they have roamed the world for years, killing everyone they see. For the past century, what's left of man has hidden in a giant, three-walled city. People believe their 50-meter-high walls will protect them from the Titans, but the sudden appearance of an immense Titan is about to change everything.",
+  "/Images/covers/Aot-cover.jpg",
+  ["Hajime Isayama"],
+  ["Action ", "Dark fantasy", "Post-apocalyptic"],
+  "manga",
+  true
+);
+let moriarty = new Book(
+  "Moriarty The Patriot",
+  "The untold story of Sherlock Holmes’ greatest rival, Moriarty! <br> Before he was Sherlock’s rival, Moriarty fought against the unfair class caste system in London by making sure corrupt nobility got their comeuppance. But even the most well-intentioned plans can spin out of control—will Moriarty’s dream of a more just and equal world turn him into a hero…or a monster?",
+  "/Images/covers/Moriarty-the-patriot.webp",
+  ["Ryosuke Takeuchi"],
+  ["Crime", "Mystery", "Thriller"],
+  "manga",
+  true
+);
 bookMap.set("TPN", tpn);
 bookMap.set("JJK", jjk);
+bookMap.set("TG", TG);
+bookMap.set("OP", op);
+bookMap.set("soloLeveling", soloLeveling);
+bookMap.set("AOT", aot);
+bookMap.set("moriarty", moriarty);
 
 // param: BookInfo is type Book
 function displayBookInfo(BookInfo) {
@@ -117,7 +166,5 @@ window.onload = function () {
     let bookInfo = fetchBookInfo(bookId);
 
     displayBookInfo(bookInfo);
-  } else {
-    alert("Could not load Book ");
   }
 };
