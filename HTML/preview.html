@@ -55,47 +55,29 @@
   </head>
   <body>
     <div class="book-image">
-      <img class="bg-img" src="/Images//covers/TPN-cover-18.webp" alt="TPN" />
-      <img
-        class="preview-img"
-        src="/Images//covers/TPN-cover-18.webp"
-        alt="TPN"
-      />
+      <img id="bg-img" src="" />
+      <img id="preview-img" src="" />
       <br />
     </div>
     <div class="info-container">
       <div id="info">
-        <ul>
-          <h5>Author</h5>
-          <li id="author">Kaiu shirai</li>
-          <h5>Type</h5>
-          <div id="types">
-            <ul>
-              <li>manga</li>
-            </ul>
-          </div>
-          <h5>categories</h5>
-          <ul id="categories">
-            <li>action</li>
-            <li>mystery</li>
-            <li>drama</li>
-          </ul>
-        </ul>
+        <h5>Author</h5>
+        <ul id="author"></ul>
+        <h5>Type</h5>
+        <div>
+          <ul id="types"></ul>
+        </div>
+        <h5>categories</h5>
+        <ul id="categories"></ul>
       </div>
-      <div class="book-description">
+      <div id="name-description-container">
         <div class="text">
-          <h1 class="book-name">The promised neverland</h1>
-          <p>
-            Emma, Norman and Ray are the brightest kids at the Grace Field House
-            orphanage. And under the care of the woman they refer to as “Mom,”
-            all the kids have enjoyed a comfortable life. Good food, clean
-            clothes and the perfect environment to learn—what more could an
-            orphan ask for? One day, though, Emma and Norman uncover the dark
-            truth of the outside world they are forbidden from seeing.
-          </p>
-          <a class="borrow-btn" href="#">Borrow</a>
+          <h1 id="book-name"></h1>
+          <p id="book-description"></p>
+          <button class="borrow-btn">Borrow</button>
         </div>
       </div>
     </div>
+    <script src="/JS/booksPreview.js"></script>
   </body>
 </html>

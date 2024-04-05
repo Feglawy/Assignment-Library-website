@@ -28,3 +28,16 @@ BorrowedBtns.forEach(function (anchor) {
     anchor.textContent = "Borrowed";
   });
 });
+
+var previewButtons = document.querySelectorAll(".previewButton");
+
+previewButtons.forEach(function (button) {
+  // Add click event listener to the button
+  button.addEventListener("click", function () {
+    // Get the book ID from the custom 'data-book-id' attribute
+    var bookId = button.getAttribute("book-id");
+
+    // Redirect to the preview page with the corresponding book ID
+    window.location.href = "HTML/preview.html?bookId=" + bookId;
+  });
+});
