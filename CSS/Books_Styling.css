@@ -23,7 +23,7 @@
   box-sizing: border-box;
   text-align: center;
   border-radius: 20px;
-  cursor: pointer;
+  cursor: default;
   padding-top: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

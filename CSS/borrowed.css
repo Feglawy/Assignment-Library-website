@@ -13,3 +13,14 @@
 .book .Borrowed {
   background-color: var(--Green-color);
 }
+
+.book .Borrowed:hover {
+  background-color: red;
+  transition: color 0.3s, transform 0.3s;
+}
+
+@media (max-width: 540px) {
+  .book a {
+    font-size: 15px;
+  }
+}
