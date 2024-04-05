@@ -1,5 +1,5 @@
 #header-about-us {
-  margin-top: 80px;
+  margin-top: 100px;
   text-align: center;
   font-size: 50px;
 }
@@ -21,6 +21,7 @@
   z-index: -1;
   width: 100%;
   border-radius: 30px;
+  margin-top: 10px;
   max-width: 620px;
   min-width: 320px;
 }
@@ -58,10 +59,11 @@
 
 @media (max-width: 850px) {
   .Main-About {
-    display: block;
+    display: flex;
     text-align: center;
-  }
-  #Team-members {
-    margin-top: 150px;
+    justify-content: space-between;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
   }
 }

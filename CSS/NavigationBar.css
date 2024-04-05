@@ -1,4 +1,9 @@
-@import url("rule.css");
+.nav-container {
+  position: fixed;
+  width: 100%;
+  z-index: 500;
+  top: 0;
+}
 
 nav {
   display: flex;
@@ -98,7 +103,7 @@ nav ul li a:hover {
     min-height: 600px;
     background: var(--dark-color);
     text-align: center;
-    top: -200%;
+    top: -1000%;
     right: 0%;
     border-radius: 0px 0px 15px 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
