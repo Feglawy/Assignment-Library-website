@@ -23,77 +23,82 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <!-- navigation bar -->
-    <!-- logo -->
-    <a href="/" class="logo">
-      <img src="/Images/icons/storytelling.ico" width="40" height="40" />
-      <span id="website-name">Library</span>
-    </a>
-    <!-- Pages -->
-    <nav>
-      <!-- menu button -->
-      <input type="checkbox" id="check" />
-      <label for="check">
-        <i class="material-icons" id="menu" onclick="ToggleMenu()">menu</i>
-      </label>
+    <div class="nav-container">
+      <!-- navigation bar -->
+      <!-- logo -->
+      <a href="/" class="logo">
+        <img src="/Images/icons/storytelling.ico" width="40" height="40" />
+        <span id="website-name">Library</span>
+      </a>
+      <!-- Pages -->
+      <nav>
+        <!-- menu button -->
+        <input type="checkbox" id="check" />
+        <label for="check">
+          <i class="material-icons" id="menu" onclick="ToggleMenu()">menu</i>
+        </label>
 
-      <ul class="pages">
-        <li><a href="/">Home</a></li>
-        <li><a class="active" href="Search.html">Search</a></li>
-        <li><a href="BorrowedBooks.html">Borrowed Books</a></li>
-        <li><a href="UpdateBooks.html">Update Books</a></li>
-        <li><a href="AvailableBooks.html">Available Books</a></li>
-        <li><a href="About.html">About</a></li>
-        <li><a href="login.html">login</a></li>
-      </ul>
-      <!-- user profile -->
-      <div id="user-profile-icon" style="display: none">
-        <a class="active" href="userCard.html"></a>
-      </div>
+        <ul class="pages">
+          <li><a href="/">Home</a></li>
+          <li><a class="active" href="/HTML/Search.html">Search</a></li>
+          <li><a href="/HTML/BorrowedBooks.html">Borrowed Books</a></li>
+          <li><a href="/HTML/UpdateBooks.html">Update Books</a></li>
+          <li><a href="/HTML/AvailableBooks.html">Available Books</a></li>
+          <li><a href="/HTML/About.html">About</a></li>
+          <li><a href="/HTML/login.html">login</a></li>
+        </ul>
+        <!-- user profile -->
+        <div id="user-profile-icon" style="display: none">
+          <a class="active" href="userCard.html"></a>
+        </div>
 
-      <script src="/JS/navigationBar.js"></script>
-    </nav>
+        <script src="/JS/navigationBar.js"></script>
+      </nav>
+    </div>
   </head>
   <body>
     <div class="main-page">
-      <div class="search-area">
-        <input
-          type="search"
-          name="search-bar"
-          id="search-bar"
-          placeholder="Search for a book..."
-        />
-      </div>
-      <div id="Search-by">
-        <h1 class="searchType">Search by</h1>
+      <div class="search">
+        <img src="/Images//icons/observation.png" alt="Search" >
+        <div class="search-area">
+          <input
+            type="search"
+            name="search-bar"
+            id="search-bar"
+            placeholder="Search for a book..."
+          />
+        </div>
+        <div id="Search-by">
+          <h1>Search by</h1>
 
-        <div class="radio">
-          <input
-            type="radio"
-            name="search-by"
-            id="search-by-title"
-            value="title"
-            checked="checked"
-          />
-          <label for="search-by-title">title</label>
-        </div>
-        <div class="radio">
-          <input
-            type="radio"
-            name="search-by"
-            id="search-by-author"
-            value="Author"
-          />
-          <label for="search-by-author">author</label>
-        </div>
-        <div class="radio">
-          <input
-            type="radio"
-            name="search-by"
-            id="search-by-category"
-            value="category"
-          />
-          <label for="search-by-category">category</label>
+          <div class="radio">
+            <input
+              type="radio"
+              name="search-by"
+              id="search-by-title"
+              value="title"
+              checked="checked"
+            />
+            <label for="search-by-title">title</label>
+          </div>
+          <div class="radio">
+            <input
+              type="radio"
+              name="search-by"
+              id="search-by-author"
+              value="Author"
+            />
+            <label for="search-by-author">author</label>
+          </div>
+          <div class="radio">
+            <input
+              type="radio"
+              name="search-by"
+              id="search-by-category"
+              value="category"
+            />
+            <label for="search-by-category">category</label>
+          </div>
         </div>
       </div>
     </div>
