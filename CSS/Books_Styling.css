@@ -58,6 +58,11 @@
   transition: 0.7s all;
 }
 
+.no-hover:hover {
+  transform: none;
+  transition: none;
+}
+
 @media (max-width: 540px) {
   .recommended-section,
   .books-section {
@@ -70,5 +75,9 @@
   .book:hover {
     transform: translateY(-30px) scale(1.05);
     transition: 0.7s all;
+  }
+  .no-hover:hover {
+    transform: none;
+    transition: none;
   }
 }
