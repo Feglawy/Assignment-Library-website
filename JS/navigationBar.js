@@ -13,11 +13,6 @@ function ToggleMenu() {
 document.addEventListener("DOMContentLoaded", function () {
   // the HTML content for the navigation bar
   const navbarHtml = `
-      <!-- google icons -->
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      />
       <!-- page icon -->
       <link
         rel="shortcut icon"
