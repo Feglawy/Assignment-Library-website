@@ -6,54 +6,12 @@
     <!-- page title -->
     <title>Online Library website</title>
 
-    <!-- page icon -->
-    <link
-      rel="shortcut icon"
-      href="/Images/icons/storytelling.ico"
-      type="image/x-icon"
-    />
-
     <!-- css -->
     <link rel="stylesheet" href="/website.css" />
 
-    <!-- google icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <div class="nav-container">
-      <!-- navigation bar -->
-      <!-- logo -->
-      <a href="/" class="logo">
-        <img src="/Images/icons/storytelling.ico" width="40" height="40" />
-        <span id="website-name">Library</span>
-      </a>
-      <!-- Pages -->
-      <nav>
-        <!-- menu button -->
-        <input type="checkbox" id="check" />
-        <label for="check">
-          <i class="material-icons" id="menu" onclick="ToggleMenu()">menu</i>
-        </label>
-
-        <ul class="pages">
-          <li><a href="/">Home</a></li>
-          <li><a href="/HTML/Search.html">Search</a></li>
-          <li><a href="/HTML/BorrowedBooks.html">Borrowed Books</a></li>
-          <li>
-            <a class="active" href="/HTML/UpdateBooks.html">Update Books</a>
-          </li>
-          <li><a href="/HTML/AvailableBooks.html">Available Books</a></li>
-          <li><a href="/HTML/About.html">About</a></li>
-          <li><a href="/HTML/login.html">login</a></li>
-        </ul>
-        <!-- user profile -->
-        <div id="user-profile-icon" style="display: none">
-          <a class="active" href="userCard.html"></a>
-        </div>
-
-        <script src="/JS/navigationBar.js"></script>
-      </nav>
+    <!-- the navigation bar container -->
+    <div id="nav-container">
+      <script src="/JS/navigationBar.js"></script>
     </div>
   </head>
   <body>

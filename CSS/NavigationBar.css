@@ -1,4 +1,4 @@
-.nav-container {
+#nav-container {
   position: fixed;
   width: 100%;
   z-index: 500;
@@ -73,10 +73,11 @@ nav ul li a {
   float: right;
   display: none;
   color: white;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 80px;
   margin-right: 40px;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 nav ul li a.active,
