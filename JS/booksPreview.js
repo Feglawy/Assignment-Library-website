@@ -1,4 +1,4 @@
-import bookMap from "./AvailableBooks.js";
+import { bookMap, BorrowedBooksMap } from "./AvailableBooks.js";
 
 // param: BookInfo is type Book
 function displayBookInfo(BookInfo) {
@@ -57,15 +57,20 @@ function getBookIdFromUrl() {
   return urlParams.get("bookId");
 }
 
+// Get the book ID from the URL
+let bookId = getBookIdFromUrl();
+
+// Fetch book information from the server
+// Book info is a Book object
+let bookInfo = fetchBookInfo(bookId);
+
 window.onload = function () {
-  // Get the book ID from the URL
-  let bookId = getBookIdFromUrl();
-
   if (bookId) {
-    // Fetch book information from the server
-    // Book info is a Book object
-    let bookInfo = fetchBookInfo(bookId);
-
     displayBookInfo(bookInfo);
   }
 };
+
+let borrowBtn = document.getElementById("borrow-btn");
+borrowBtn.addEventListener("click", function addToBorrowedBooks() {
+  BorrowedBooksMap.set(bookId, bookInfo);
+});

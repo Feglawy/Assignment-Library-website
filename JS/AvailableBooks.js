@@ -28,6 +28,8 @@ class Book {
 }
 
 let bookMap = new Map();
+let BorrowedBooksMap = new Map();
+
 let tpn = new Book(
   "The Promised Neverland",
   "Emma, Norman and Ray are the brightest kids at the Grace Field House orphanage. And under the care of the woman they refer to as “Mom,” all the kids have enjoyed a comfortable life. Good food, clean clothes and the perfect environment to learn—what more could an orphan ask for? One day, though, Emma and Norman uncover the dark truth of the outside world they are forbidden from seeing.",
@@ -99,4 +101,4 @@ bookMap.set("soloLeveling", soloLeveling);
 bookMap.set("AOT", aot);
 bookMap.set("moriarty", moriarty);
 
-export default bookMap;
+export { bookMap, BorrowedBooksMap };

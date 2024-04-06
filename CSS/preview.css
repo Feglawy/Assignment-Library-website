@@ -44,7 +44,7 @@
   margin: 5vh;
 }
 
-.borrow-btn {
+#borrow-btn {
   display: inline-block;
   width: 50%;
   border-radius: 15px;
@@ -58,7 +58,7 @@
   text-align: center;
 }
 
-.borrow-btn:hover {
+#borrow-btn:hover {
   background-color: var(--Green-color);
   transition: 0.5s;
 }
