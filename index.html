@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- page title -->
     <title>Online Library website</title>
-    
+
     <!-- css -->
     <link rel="stylesheet" href="/website.css" />
 
@@ -29,51 +29,14 @@
       <img src="/Images/cover1.png" class="cover-page-home" />
     </div>
 
-    <h1 id="we-recommend">We recommend:</h1>
-    <!-- recommeded section -->
-    <div class="recommended-section">
-      <!-- Books -->
-      <div class="book">
-        <img src="/Images/covers/TPN-cover-18.webp" alt="TPN" />
-        <h5 class="name">The promised neverland</h5>
-        <button class="previewButton" book-id="TPN">Details</button>
-      </div>
-      <div class="book">
-        <img src="/Images/covers/jjk-cover.webp" alt="jjk" />
-        <h5 class="name">Jujutsu kaisen</h5>
-        <button class="previewButton" book-id="JJK">Details</button>
-      </div>
-      <div class="book">
-        <img src="/Images/covers/TokyoGhoul-Vol-11.jpg" alt="TG" />
-        <h5 class="name">Tokyo Ghoul</h5>
-        <button class="previewButton" book-id="TG">Details</button>
-      </div>
-      <div class="book">
-        <img src="/Images/covers/one-piece-cover.jpg" alt="one piece" />
-        <h5 class="name">one piece</h5>
-        <button class="previewButton" book-id="OP">Details</button>
-      </div>
-      <div class="book">
-        <img src="/Images/covers/solo-leveling-vol-3.jpg" alt="solo leveling" />
-        <h5 class="name">Solo leveling</h5>
-        <button class="previewButton" book-id="soloLeveling">Details</button>
-      </div>
-      <div class="book">
-        <img src="/Images/covers/Aot-cover.jpg" alt="AOT" />
-        <h5 class="name">Attack on titan</h5>
-        <button class="previewButton" book-id="AOT">Details</button>
-      </div>
-      <div class="book">
-        <img
-          src="/Images/covers/Moriarty-the-patriot.webp"
-          alt="moriarty the patriot"
-        />
-        <h5 class="name">Moriarty the patriot</h5>
-        <button class="previewButton" book-id="moriarty">Details</button>
-      </div>
-
-
+    <div id="recommended-container">
+      <h1 id="we-recommend">We recommend:</h1>
+      <!-- recommeded section -->
+      <div id="recommended-section"></div>
+    </div>
     <footer></footer>
-    <script src="/JS/Books.js" type="module"></script>
+    <script type="module" src="/js/AvailableBooks.js" defer></script>
+    <script type="module" src="/JS/home.js" defer></script>
+    <script type="module" src="/JS/Books.js" defer></script>
   </body>
 </html>

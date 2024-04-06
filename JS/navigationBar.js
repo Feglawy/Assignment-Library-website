@@ -1,3 +1,4 @@
+// change menu icon
 function ToggleMenu() {
   let menuIcon = document.getElementById("menu");
   if (menuIcon.classList.contains("fa-bars")) {
@@ -9,7 +10,7 @@ function ToggleMenu() {
   }
 }
 
-// add the navigation bar dynamicaly with js
+// as soon as the window load it will do this function
 document.addEventListener("DOMContentLoaded", function () {
   // the HTML content for the navigation bar
   const navbarHtml = `
@@ -68,7 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add the navigation bar HTML to the navbarContainer
   navbarContainer.innerHTML = navbarHtml;
 
-  // Select all elements with the 'navbar' class
+  // --------- get the avtive page and add .active class to it ------------
+
   const navbarElements = document.querySelectorAll(".pages");
 
   // Get the current URL path without query parameters
@@ -76,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Loop over each navbar element
   navbarElements.forEach(function (navbar) {
-    // Find all anchor tags within the current navbar element
+    // Find all <a> tags within the current navbar element
     const navLinks = navbar.querySelectorAll("a");
 
     // Add 'active' class to the link whose URL matches the current path

@@ -1,4 +1,4 @@
-.recommended-section,
+#recommended-section,
 .books-section {
   border-radius: 15px;
   background-color: #eeeeee49;
@@ -69,7 +69,7 @@
 }
 
 @media (max-width: 540px) {
-  .recommended-section,
+  #recommended-section,
   .books-section {
     width: 100%;
   }

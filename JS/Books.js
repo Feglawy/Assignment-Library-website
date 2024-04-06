@@ -1,9 +1,11 @@
+// checls if the device is a mobile device or not
 function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|SamsungBrowser/i.test(
     navigator.userAgent
   );
 }
 
+// disable the hover effect of the books if the device is a mobile device
 var bookDivs = document.querySelectorAll(".book");
 if (isMobileDevice()) {
   bookDivs.forEach(function (bookDiv) {
@@ -29,15 +31,16 @@ BorrowedBtns.forEach(function (anchor) {
   });
 });
 
-var previewButtons = document.querySelectorAll(".previewButton");
+document.addEventListener("BooksAdded", function () {
+  var previewButtons = document.querySelectorAll(".previewButton");
+  previewButtons.forEach(function (button) {
+    // Add click event listener to the button
+    button.addEventListener("click", function () {
+      // Get the book ID from the custom 'data-book-id' attribute
+      var bookId = button.getAttribute("book-id");
 
-previewButtons.forEach(function (button) {
-  // Add click event listener to the button
-  button.addEventListener("click", function () {
-    // Get the book ID from the custom 'data-book-id' attribute
-    var bookId = button.getAttribute("book-id");
-
-    // Redirect to the preview page with the corresponding book ID
-    window.location.href = "HTML/preview.html?bookId=" + bookId;
+      // Redirect to the preview page with the corresponding book ID
+      window.location.href = "HTML/preview.html?bookId=" + bookId;
+    });
   });
 });
