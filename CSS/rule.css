@@ -15,3 +15,21 @@
   list-style: none;
   font-family: "Madimi One";
 }
+
+button {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: var(--dark-color);
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  margin: auto;
+  padding: 15px;
+}
+
+button:hover {
+  background-color: var(--Green-color);
+  transition: all 0.3s ease;
+}

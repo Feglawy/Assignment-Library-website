@@ -51,6 +51,10 @@
 #Search-by h1 {
   font-size: 28px;
 }
+
+#search-button {
+  margin-top: 20px;
+}
 .radio {
   display: flex;
   align-items: center;
