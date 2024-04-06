@@ -14,23 +14,30 @@ if (isMobileDevice()) {
 }
 
 // Get all anchor elements with the specified class name
-var BorrowedBtns = document.querySelectorAll(".Borrowed");
+let BorrowedBtns = document.querySelectorAll(".Borrowed");
 
 // Loop through each anchor element
-BorrowedBtns.forEach(function (anchor) {
+BorrowedBtns.forEach(function (button) {
   // Add mouseover event listener
-  anchor.addEventListener("mouseover", function () {
-    // Change the text of the hovered anchor
-    anchor.textContent = "\u00D7 Remove"; // Using Unicode for '×' symbol
+  button.addEventListener("mouseover", function () {
+    // Change the text of the hovered button
+    button.textContent = "\u00D7 Remove"; // Unicode for '×' symbol
   });
 
-  // Add mouseout event listener
-  anchor.addEventListener("mouseout", function () {
+  // mouseout event listener
+  button.addEventListener("mouseout", function () {
     // Restore the original text when the mouse moves out
-    anchor.textContent = "Borrowed";
+    button.textContent = "Borrowed";
+  });
+
+  button.addEventListener("click", function () {
+    // Get the parent element
+    const parentDiv = button.parentNode;
+    parentDiv.remove();
   });
 });
 
+// wait until the book is loaded
 document.addEventListener("BooksAdded", function () {
   var previewButtons = document.querySelectorAll(".previewButton");
   previewButtons.forEach(function (button) {
