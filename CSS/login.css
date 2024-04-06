@@ -45,6 +45,8 @@ body {
   cursor: pointer;
   border-radius: 15px;
   color: black;
+  font-size: 22px;
+  width: 15px;
 }
 
 #show-pass :hover {
