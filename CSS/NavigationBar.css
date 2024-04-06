@@ -49,6 +49,7 @@ nav ul li a {
   padding: 7px 13px;
   border-radius: 15px;
   text-transform: uppercase;
+  transition: 0.3s ease-in;
 }
 
 #user-profile-icon {
