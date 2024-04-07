@@ -72,7 +72,7 @@ body {
   transition: 0.5s;
 }
 
-.loginForm a,
+#login-button,
 #signup-button {
   /* #signup-button { */
   display: inline-block;
