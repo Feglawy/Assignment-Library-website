@@ -15,7 +15,7 @@
     </div>
   </head>
   <body>
-    <div class="main-page">
+    <form action="" autocomplete="off">
       <div class="search">
         <img src="/Images//icons/observation.png" alt="Search" />
         <div class="search-area">
@@ -58,12 +58,18 @@
             <label for="search-by-category">category</label>
           </div>
         </div>
-        <button type="submit" class="btn" id="search-button">
+        <button type="submit" class="btn" id="search-button" onclick="Search()">
           <i class="fa-solid fa-magnifying-glass"></i>
           Search
         </button>
       </div>
+    </form>
+    <div class="results">
+      <div class="books-section" id="The-result-Books-section">
+        <h1 style="margin-top: 1vh">The results</h1>
+      </div>
     </div>
     <script src="/JS/Books.js"></script>
+    <script src="/JS/search.js"></script>
   </body>
 </html>
