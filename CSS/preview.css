@@ -125,6 +125,8 @@
   margin: auto;
   padding: 5px;
   border-radius: 15px;
+  max-width: 80px;
+  text-align: center;
 }
 
 @media (max-width: 1000px) {
