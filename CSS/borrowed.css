@@ -1,10 +1,18 @@
 #borrowed-Books-section {
-  margin-top: 18vh;
+  margin-top: 5vh;
   min-height: 50rem;
 }
 
 .Borrowed {
   text-align: center;
+}
+
+.remove-borrowed-book {
+  position: fixed;
+  top: 8px;
+  right: 16px;
+  background-color: red !important;
+  transition: 0.3s ease !important;
 }
 
 .book .Borrowed a:hover {
@@ -15,13 +23,13 @@
   background-color: var(--Green-color);
 }
 
-.book .Borrowed:hover {
-  background-color: red;
-  transition: color 0.3s, transform 0.3s;
+#no-borrow-books {
+  margin-top: 5vh;
+  text-wrap: wrap;
 }
 
 @media (max-width: 540px) {
-  .book a {
-    font-size: 15px;
+  #no-borrow-books {
+    font-size: medium;
   }
 }

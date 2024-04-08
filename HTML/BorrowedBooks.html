@@ -16,41 +16,20 @@
     </div>
   </head>
   <body>
-    <!-- main page body -->
-    <div class="books-section" id="borrowed-Books-section">
-      <div class="book">
-        <img src="/Images/covers/TPN-cover-18.webp" alt="TPN" />
-        <h5 class="name">The promised neverland</h5>
-        <button class="Borrowed">Borrowed</button>
-        <button>Notify when Available!</button>
-      </div>
-      <div class="book">
-        <img src="/Images/covers/TPN-cover-14.jpg" alt="TPN" />
-        <h5 class="name">The promised neverland</h5>
-        <button class="Borrowed">Borrowed</button>
-        <button>Notify when Available!</button>
-      </div>
-      <div class="book">
-        <img src="/Images/covers/TPN-cover-20.jpg" alt="TPN" />
-        <h5 class="name">The promised neverland</h5>
-        <button class="Borrowed">Borrowed</button>
-        <button>Notify when Available!</button>
-      </div>
-      <div class="book">
-        <img src="/Images/covers/jjk-cover.webp" alt="jjk" />
-        <h5 class="name">Jujutsu kaisen</h5>
-        <button class="Borrowed">Borrowed</button>
-        <button>Notify when Available!</button>
-      </div>
-
-      <div class="book">
-        <img src="/Images/covers/solo-leveling-vol-3.jpg" alt="solo leveling" />
-        <h5 class="name">Solo leveling</h5>
-        <button class="Borrowed">Borrowed</button>
-        <button href="#">Notify when Available!</button>
-      </div>
+    <!-- greeting user -->
+    <div class="user">
+      <h1>Hello!</h1>
+      <h2 id="user-name">Feglawy</h2>
     </div>
-    <script src="/JS/Books.js"></script>
-    <script src="/JS/BorrowedBooks.js"></script>
+
+    <!-- books section -->
+    <div class="books-section" id="borrowed-Books-section">
+      
+    </div>
+
+    <!-- scripts -->
+    <script type="module" src="/js/AvailableBooks.js" defer></script>
+    <script type="module" src="/JS/borrowedBooks.js" defer></script>
+    <script type="module" src="/JS/Books.js" defer></script>
   </body>
 </html>
