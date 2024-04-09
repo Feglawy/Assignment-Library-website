@@ -1,108 +1,109 @@
-.user-pic{
-    width: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-left: 30px;
-    margin-top: 15px;
+.user-pic {
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 30px;
+  margin-top: 15px;
 }
-body, html{
-    height: 100%;
-}
-
-.cont{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 12%;
-}
-.user-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 10px;
-    padding: 40px;
-    width: 650px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 2px 20px -5px rgba(0, 0, 0, .5);
+body,
+html {
+  height: 100%;
 }
 
-.user-card::before{
-    content: '';
-    position: absolute;
-    height: 300%;
-    width: 180px;
-    background: var(--dark-color);
-    top: -60px;
-    left: -125px;
-    z-index: 0;
-    transform: rotate(17deg);
+.cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 21%;
+}
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  width: 650px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 20px -5px rgba(0, 0, 0, 0.5);
 }
 
-.user-card-img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-}
-.user-card-img img{
-    /* 150, 200 */
-    width: 150px;
-    height: 200px;
-    object-fit: cover;
-}
-
-.user-info{
-    text-align: center;
+.user-card::before {
+  content: "";
+  position: absolute;
+  height: 300%;
+  width: 180px;
+  background: var(--dark-color);
+  top: -60px;
+  left: -125px;
+  z-index: 0;
+  transform: rotate(17deg);
 }
 
-.user-info h2{
-    font-size: 24px;
-    margin: 0;
-    margin-bottom: 10px;
+.user-card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+.user-card-img img {
+  /* 150, 200 */
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
 }
 
-.user-info p{
-    font-size: 14px;
-    margin-bottom: 2px;
-}
-.user-info p span{
-    font-weight: 700;
-    margin-right: 10px;
+.user-info {
+  text-align: center;
 }
 
-@media only screen and (min-width: 770px){
-    .user-card{
-        flex-direction: row;
-        align-items: flex-start;
-    }
-    .user-card-img{
-        margin-right: 20px;
-        margin-bottom: 0;
-    }
-    .user-info{
-        text-align: left;
-    }
+.user-info h2 {
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.user-info p {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.user-info p span {
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+@media only screen and (min-width: 770px) {
+  .user-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .user-card-img {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+  .user-info {
+    text-align: left;
+  }
 }
 
 @media only screen and (max-width: 770px) {
-    .cont{
-        padding-top: 3%;
-    }
-    .user-card::before{
-        width: 300%;
-        height: 200px;
-        transform: rotate(0);
-    }
-    .user-info h2{
-        margin-top: 25px;
-        font-size: 35px;
-    }
-    .user-info p span {
-        display: block;
-        margin-bottom: 15px;
-        font-size: 18px;
-    }
+  .cont {
+    padding-top: 24%;
+  }
+  .user-card::before {
+    width: 300%;
+    height: 200px;
+    transform: rotate(0);
+  }
+  .user-info h2 {
+    margin-top: 25px;
+    font-size: 35px;
+  }
+  .user-info p span {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
 }
