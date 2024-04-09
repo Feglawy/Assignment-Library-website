@@ -15,6 +15,7 @@ nav {
   height: 80px;
   justify-content: flex-end;
   box-shadow: rgba(0, 0, 0, 0.58) 0px 4px 20px;
+  position: sticky;
 }
 
 .logo {
@@ -27,6 +28,7 @@ nav {
   line-height: 80px;
   padding: 0 80px;
   cursor: pointer;
+  z-index: inherit;
 }
 .logo img {
   margin-bottom: 10px;
@@ -84,25 +86,27 @@ nav ul li a {
 nav ul li a.active,
 nav ul li a:hover {
   background-color: var(--Green-color);
-  transition: 0.75s;
+  transition: 0.75s ease;
 }
 
 .logo:hover {
   transform: translateY(-10px);
-  transition: all 0.7s;
+  transition: all 0.7s ease;
 }
 
 @media (max-width: 1250px) {
   #menu {
     display: block;
-    transition: all 0.5s;
+    transition: all 0.5s ease;
   }
 
   nav ul {
+    list-style-type: none;
     position: absolute;
     width: 50%;
     height: 63vh;
-    min-height: 600px;
+    min-height: 300px;
+    max-height: 650px;
     background: var(--dark-color);
     text-align: center;
     top: -1000%;
@@ -110,11 +114,13 @@ nav ul li a:hover {
     border-radius: 0px 0px 15px 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    transition: all 0.5s;
+    transition: all 0.5s ease;
     z-index: 5;
+    overflow-y: auto;
   }
 
   nav ul li {
+    position: relative;
     display: block;
   }
 
@@ -136,5 +142,11 @@ nav ul li a:hover {
   }
   #website-name {
     display: none;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  nav {
+    position: relative;
   }
 }
