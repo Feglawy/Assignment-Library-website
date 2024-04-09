@@ -16,6 +16,7 @@
 }
 
 .book {
+  position: relative;
   width: 15%;
   min-width: 198px;
   min-height: 193px;

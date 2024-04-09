@@ -8,17 +8,19 @@
 }
 
 .remove-borrowed-book {
-  position: fixed;
+  position: absolute;
   top: 8px;
   right: 16px;
   background-color: red !important;
   transition: 0.3s ease !important;
+  width: 25% !important;
+  opacity: 0.2;
 }
 
-.book .Borrowed a:hover {
-  transform: translateY(-10px) scale(1.1);
-  transition: 0.7s all;
+.book:hover .remove-borrowed-book {
+  opacity: 1;
 }
+
 .book .Borrowed {
   background-color: var(--Green-color);
 }
