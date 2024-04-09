@@ -60,3 +60,9 @@
   align-items: center;
   margin-left: 1vw;
 }
+
+#results-text {
+  margin-top: 1vh;
+  text-align: center;
+  font-size: 40px;
+}
