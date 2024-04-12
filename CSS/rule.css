@@ -6,6 +6,26 @@
   --Green-color: #76abae;
   --white-color: #eeeeee;
 }
+.white-theme {
+  --nav-bg-color: var(--dark-color);
+  --text-color: black;
+  --btn-bg-color: var(--dark-color);
+  --button-text-color: white;
+  --btn-hover-effect-color: var(--Green-color);
+  --login-form-bg-color: var(--gray-color);
+  --login-form-text-color: white;
+  --body-bg-color: var(--white-color);
+  --book-bg-color: var(--white-color);
+  --search-bg-color: white;
+  --glassy-bg-color: rgba(255, 255, 255, 0.36);
+  --popup-bg-color: var(--white-color);
+}
+.dark-theme {
+  --dark-color: #2a2335;
+  --gray-color: #584f64;
+  --white-color: #faeaff;
+  --Green-color: #00c9a5;
+}
 
 * {
   padding: 0;

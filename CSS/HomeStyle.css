@@ -1,15 +1,19 @@
+body {
+  background-color: var(--body-bg-color);
+}
+
 .first-section {
   display: block;
   height: fit-content;
 }
 .first-section .website-text {
   position: absolute;
-  color: black;
+  color: var(--text-color);
   width: 50%;
   height: 60vh;
   height: fit-content;
   font-size: 20px;
-  background: rgba(255, 255, 255, 0.36);
+  background: var(--glassy-bg-color);
   border-radius: 16px;
   box-shadow: rgba(61, 61, 61, 0.2) 0px 2px 8px 0px;
   backdrop-filter: blur(8.7px);
