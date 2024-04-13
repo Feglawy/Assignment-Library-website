@@ -23,6 +23,21 @@ function cancelDelete() {
   hidePopup();
 }
 
+function handlePopup(button) {
+  return function (event) {
+    let btn = button;
+    let confirm = document.getElementById("ConfirmDeletion");
+    let cancel = document.getElementById("cancelDeletion");
+
+    showPopup();
+    confirm.addEventListener("click", function () {
+      removeBtnParent(btn);
+      hidePopup();
+    });
+    cancel.addEventListener("click", cancelDelete);
+  };
+}
+
 // wait until the book is loaded
 document.addEventListener("BooksAdded", function () {
   // Get all anchor elements with the specified class name
@@ -44,18 +59,7 @@ document.addEventListener("BooksAdded", function () {
   }
 
   RemoveBorrowedBtns.forEach(function (button) {
-    button.addEventListener("click", function () {
-      let btn = button;
-      let confirm = document.getElementById("ConfirmDeletion");
-      let cancel = document.getElementById("cancelDeletion");
-
-      showPopup();
-      confirm.addEventListener("click", function () {
-        removeBtnParent(btn);
-        hidePopup();
-      });
-      cancel.addEventListener("click", cancelDelete);
-    });
+    button.addEventListener("click", handlePopup(button));
   });
 
   // show book's details

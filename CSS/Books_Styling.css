@@ -65,7 +65,7 @@
 }
 .book:hover {
   transform: translateY(-20px) scale(1.1);
-  transition: 0.3s all;
+  transition: 0.5s all;
 }
 
 .no-hover:hover {
@@ -84,7 +84,7 @@
   }
   .book:hover {
     transform: translateY(-30px) scale(1.05);
-    transition: 0.3s all;
+    transition: 0.5s all;
   }
   .no-hover:hover {
     transform: none;
