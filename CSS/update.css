@@ -38,3 +38,7 @@
     transition: 1s;
   }
 }
+.book button.Delete:hover {
+  background-color: red;
+  /* Change background color to red */
+}
