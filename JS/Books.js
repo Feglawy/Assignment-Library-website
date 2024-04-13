@@ -19,21 +19,24 @@ function hidePopup() {
   }, 200);
 }
 
+function confirmDelete(btn) {
+  return function (event) {
+    removeBtnParent(btn);
+    hidePopup();
+  };
+}
+
 function cancelDelete() {
   hidePopup();
 }
 
-function handlePopup(button) {
+function handleRemoveBookPopup(button) {
   return function (event) {
-    let btn = button;
     let confirm = document.getElementById("ConfirmDeletion");
     let cancel = document.getElementById("cancelDeletion");
 
     showPopup();
-    confirm.addEventListener("click", function () {
-      removeBtnParent(btn);
-      hidePopup();
-    });
+    confirm.addEventListener("click", confirmDelete(button));
     cancel.addEventListener("click", cancelDelete);
   };
 }
@@ -42,8 +45,9 @@ function handlePopup(button) {
 document.addEventListener("BooksAdded", function () {
   // Get all anchor elements with the specified class name
   let RemoveBorrowedBtns = document.querySelectorAll(".remove-borrowed-book");
+  let RemoveBookAdminBtns = document.querySelectorAll(".Delete");
 
-  let popupElements = `<div id="overlay">
+  let RemoveBookPopupElements = `<div id="overlay">
         <div id="confirmationPopup">
           <h1>Are you sure you want to delete the book?</h1>
           <div class="inputs">
@@ -55,13 +59,20 @@ document.addEventListener("BooksAdded", function () {
 
   let popupDiv = document.getElementById("popup");
   if (popupDiv != null) {
-    popupDiv.innerHTML = popupElements;
+    popupDiv.innerHTML = RemoveBookPopupElements;
   }
 
-  RemoveBorrowedBtns.forEach(function (button) {
-    button.addEventListener("click", handlePopup(button));
-  });
+  if (RemoveBorrowedBtns != null) {
+    RemoveBorrowedBtns.forEach(function (button) {
+      button.addEventListener("click", handleRemoveBookPopup(button));
+    });
+  }
 
+  if (RemoveBookAdminBtns != null) {
+    RemoveBookAdminBtns.forEach(function (button) {
+      button.addEventListener("click", handleRemoveBookPopup(button));
+    });
+  }
   // show book's details
   var previewButtons = document.querySelectorAll(".previewButton");
   previewButtons.forEach(function (button) {

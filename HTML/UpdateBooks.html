@@ -23,56 +23,12 @@
         <!-- add new book button -->
         <button class="btn" id="add-new">Add new book</button>
       </div>
-      <div class="books-section">
-        <!-- avilable books -->
-
-        <div class="book">
-          <img src="/Images/covers/TPN-cover-18.webp" alt="TPN" />
-          <h5 class="name">The promised neverland</h5>
-          <button>Edit</button>
-          <button class="Delete">Delete</button>
-        </div>
-        <div class="book">
-          <img src="/Images/covers/TPN-cover-12.jpg" alt="TPN" />
-          <h5 class="name">The promised neverland</h5>
-          <button>Edit</button>
-          <button class="Delete">Delete</button>
-        </div>
-        <div class="book">
-          <img src="/Images/covers/TPN-cover-14.jpg" alt="TPN" />
-          <h5 class="name">The promised neverland</h5>
-          <button>Edit</button>
-          <button class="Delete">Delete</button>
-        </div>
-        <div class="book">
-          <img src="/Images/covers/TPN-cover-20.jpg" alt="TPN" />
-          <h5 class="name">The promised neverland</h5>
-          <button>Edit</button>
-          <button class="Delete">Delete</button>
-        </div>
-        <div class="book">
-          <img src="/Images/covers/jjk-cover.webp" alt="jjk" />
-          <h5 class="name">Jujutsu kaisen</h5>
-          <button>Edit</button>
-          <button class="Delete">Delete</button>
-        </div>
-        <div class="book">
-          <img src="/Images/covers/TokyoGhoul-Vol-11.jpg" alt="TG" />
-          <h5 class="name">Tokyo Ghoul</h5>
-          <button>Edit</button>
-          <button class="Delete">Delete</button>
-        </div>
-        <div class="book">
-          <img
-            src="/Images/covers/solo-leveling-vol-3.jpg"
-            alt="solo leveling"
-          />
-          <h5 class="name">Solo leveling</h5>
-          <button>Edit</button>
-          <button class="Delete">Delete</button>
-        </div>
-      </div>
+      <div class="books-section" id="Update-books-section"></div>
+      <div id="popup"></div>
     </div>
-    <script src="/JS/Books.js"></script>
+    <!-- scripts -->
+    <script type="module" src="/js/AvailableBooks.js" defer></script>
+    <script type="module" src="/JS/UpdateBooks.js" defer></script>
+    <script type="module" src="/JS/Books.js" defer></script>
   </body>
 </html>
