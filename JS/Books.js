@@ -39,7 +39,9 @@ document.addEventListener("BooksAdded", function () {
       </div>`;
 
   let popupDiv = document.getElementById("popup");
-  popupDiv.innerHTML = popupElements;
+  if (popupDiv != null) {
+    popupDiv.innerHTML = popupElements;
+  }
 
   RemoveBorrowedBtns.forEach(function (button) {
     button.addEventListener("click", function () {
