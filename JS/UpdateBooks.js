@@ -18,3 +18,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const BooksAdded = new Event("BooksAdded");
   document.dispatchEvent(BooksAdded);
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // access the add_new_book btn
+    let addBtn = document.getElementById("add-new");
+   
+    addBtn.addEventListener('click', addBook);
+
+    function addBook(value , key) {
+        
+        let bk = `
+<div class="book">
+    <img src="Images\covers\blank.png">
+    <h5 class="name">Blank </h5>
+    <button>Edit</button>
+    <button>Delete</button>
+</div>
+`;
+ // add the book to the page
+        let booksSection = document.getElementById("Update-books-section");
+        booksSection.innerHTML += bk;
+
+
+      // just to check function is working will delete later
+      console.log('worked');
+    }
+});
