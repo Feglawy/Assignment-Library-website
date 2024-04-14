@@ -1,9 +1,3 @@
-function removeBtnParent(button) {
-  // Get the parent element
-  const parentDiv = button.parentNode;
-  parentDiv.remove();
-}
-
 function showPopup() {
   let popup = document.getElementById("popup");
   popup.style.display = "block";
@@ -21,7 +15,9 @@ function hidePopup() {
 
 function confirmDelete(btn) {
   return function (event) {
-    removeBtnParent(btn);
+    // Get the parent element
+    const parentDiv = btn.parentNode;
+    parentDiv.remove();
     hidePopup();
   };
 }
@@ -86,5 +82,3 @@ document.addEventListener("BooksAdded", function () {
     });
   });
 });
-
-
