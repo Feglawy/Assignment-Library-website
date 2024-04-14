@@ -93,6 +93,7 @@ let moriarty = new Book(
   "manga",
   true
 );
+
 bookMap.set("TPN", tpn);
 bookMap.set("JJK", jjk);
 bookMap.set("TG", TG);

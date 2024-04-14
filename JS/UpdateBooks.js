@@ -19,8 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
   document.dispatchEvent(BooksAdded);
 });
 
+let addNewBtn = document.getElementById("add-new");
 
-document.addEventListener("DOMContentLoaded", function() {
+addNewBtn.addEventListener("click" , addNew);
+//add new button
+function addNew(){
     // access the add_new_book btn
     let addBtn = document.getElementById("add-new");
    
@@ -30,10 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
         
         let bk = `
 <div class="book">
-    <img src="Images\covers\blank.png">
+    <img src="/Images/covers/Blank.png">
     <h5 class="name">Blank </h5>
     <button>Edit</button>
-    <button>Delete</button>
+    <button class="Delete">Delete</button>
 </div>
 `;
  // add the book to the page
@@ -44,4 +47,4 @@ document.addEventListener("DOMContentLoaded", function() {
       // just to check function is working will delete later
       console.log('worked');
     }
-});
+  }
