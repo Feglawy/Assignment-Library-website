@@ -37,5 +37,67 @@
 }
 .book button.Delete:hover {
   background-color: red;
-  /* Change background color to red */
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 150ms ease-in-out;
+  border: 1px solid var(--dark-color);
+  border-radius: 10px;
+  z-index: 10;
+  background-color: var(--white-color);
+  width: 500px;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--dark-color);
+  background-color: var(--Green-color);
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .closeBtn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-right:10px ;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+#overlay-modal {
+  position: fixed;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(78, 78, 78, 0.575);
+  pointer-events: none;
+}
+
+#overlay-modal.active {
+  opacity: 1;
+  pointer-events: all;
 }

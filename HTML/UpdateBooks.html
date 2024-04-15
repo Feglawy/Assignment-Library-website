@@ -21,11 +21,23 @@
         <h1>Hello!</h1>
         <h2 id="user-name">Feglawy</h2>
         <!-- add new book button -->
-        <button class="btn" id="add-new">Add new book</button>
-      </div>
-      <div class="books-section" id="Update-books-section"></div>
-      <div id="popup"></div>
+  <!-- HTML -->
+  <button class="btn" id="add-new" data-modal-target="#modal">Add new book</button>
+  <div class="books-section" id="Update-books-section"></div>
+  <div id="popup"></div>
+  
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="insertInfo">Enter the book information</div>
+      <button data-close-btn class="closeBtn">&times;</button>
     </div>
+    <div class="modal-body">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, debitis.
+    </div>
+  </div>
+  <div id="overlay-modal"></div>
+
     <!-- scripts -->
     <script type="module" src="/js/AvailableBooks.js" defer></script>
     <script type="module" src="/JS/UpdateBooks.js" defer></script>
