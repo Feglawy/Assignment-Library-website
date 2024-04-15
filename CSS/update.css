@@ -81,6 +81,11 @@
   margin-right:10px ;
 }
 
+.modal-header .closeBtn:hover {
+  background-color: red;
+  transition: 0.3s ease
+}
+
 .modal-body {
   padding: 10px 15px;
 }
