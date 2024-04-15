@@ -26,14 +26,46 @@
   <div class="books-section" id="Update-books-section"></div>
   <div id="popup"></div>
   
-  <!-- Modal -->
+  
   <div class="modal" id="modal">
     <div class="modal-header">
       <div class="insertInfo">Enter the book information</div>
       <button data-close-btn class="closeBtn">&times;</button>
     </div>
     <div class="modal-body">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, debitis.
+      <div class="bookform">
+        <h5 class="book-info">Book's Title</h5>
+        <input type="title"
+        placeholder="Enter the book's title...."
+        class="book-input"
+        required>
+
+        <h5 class="book-info">Author</h5>
+        <input type="author"
+        placeholder="Enter Author's name...." 
+        class="book-input"
+        
+        >
+        <h5 class="book-info">Book's description</h5>
+        <input type="description"
+        placeholder="Enter book description...."
+        class="book-input"
+        >
+        <h5 class="book-info">Book's Type</h5>
+        <input type="type" 
+        placeholder="Enter the book's type...."
+        class="book-input"
+        >
+        <h5 class="book-info">Book's image</h5>
+        <label for="input-file">Upload Image</label>
+        <input type="file"
+        name="uploadImage"
+        class="book-input"
+        accept="image/jpeg ,image/png , image/jpg"
+        id="input-file"            >
+        <br>
+  <button id="Submit-book">Submit</button>
+      </div>
     </div>
   </div>
   <div id="overlay-modal"></div>

@@ -45,8 +45,7 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 150ms ease-in-out;
-  border: 1px solid var(--dark-color);
-  border-radius: 10px;
+  border-radius: 15px;
   z-index: 10;
   background-color: var(--white-color);
   width: 500px;
@@ -58,12 +57,17 @@
 }
 
 .modal-header {
+
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
+  border-radius: 15px 15px 0 0;
   align-items: center;
-  border-bottom: 1px solid var(--dark-color);
-  background-color: var(--Green-color);
+  background-color: var(--dark-color);
+}
+
+.insertInfo{
+  color : var(--white-color);
 }
 
 .modal-header .title {
@@ -88,6 +92,8 @@
 
 .modal-body {
   padding: 10px 15px;
+  min-height: 800px;
+
 }
 
 #overlay-modal {
@@ -106,3 +112,41 @@
   opacity: 1;
   pointer-events: all;
 }
+
+
+.bookform {
+  position: fixed;
+    
+}
+
+.book-info{
+  font-size: 20px;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+.book-input{
+  width: 70% ;
+  outline: none;
+  border: none;
+  background: none;
+  border-bottom: 2px solid var(--dark-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: var(--dark-color);
+  font-size: 25px;
+}
+
+/* label{
+  display: block;
+  background-color: var(--Green-color);
+  padding: 12px;
+  margin: 10px auto;
+  cursor: pointer;
+  border-radius: 5px;
+} */
+
+ /* #input-file{
+  display: none;
+}  */
