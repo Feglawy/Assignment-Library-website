@@ -40,7 +40,7 @@ button {
   cursor: pointer;
   display: inline-block;
   border-radius: 15px;
-  background-color: var(--dark-color);
+  background-color: var(--btn-bg-color);
   color: #fff;
   font-size: 20px;
   border: none;
@@ -51,7 +51,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--Green-color);
+  background-color: var(--btn-hover-effect-color);
   transition: all 0.3s ease;
 }
 .books-section {
