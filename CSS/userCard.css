@@ -73,6 +73,22 @@ html {
   font-weight: 700;
   margin-right: 10px;
 }
+#edit-profile:hover{
+  background-color: var(--btn-hover-effect-color);
+  transition: 0.5s;
+}
+#edit-profile{
+  display: inline-block;
+  width: 100%;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: var(--btn-bg-color);
+  color: #fff;
+  font-size: 20px;
+  margin-top: 20px;
+  border: none;
+  text-align: center;
+}
 
 @media only screen and (min-width: 770px) {
   .user-card {
