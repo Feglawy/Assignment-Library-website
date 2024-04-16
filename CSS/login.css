@@ -51,14 +51,12 @@
   color: var(--btn-hover-effect-color);
 }
 
-#login-button:hover,
-#signup-button:hover {
+#login-button:hover, #signup-button:hover{
   background-color: var(--btn-hover-effect-color);
   transition: 0.5s;
 }
 
-#login-button,
-#signup-button {
+#login-button, #signup-button{
   display: inline-block;
   width: 100%;
   border-radius: 15px;
