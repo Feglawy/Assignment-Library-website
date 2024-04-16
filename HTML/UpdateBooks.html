@@ -34,17 +34,19 @@
     </div>
     <div class="modal-body">
       <div class="bookform">
+        <label for="uploadInput" id="imagePreview">
+          <img id="uploadedImage" src="#" alt="Preview Image">
+          <input type="file" id="uploadInput" accept="image/*">
+        </label>
         <h5 class="book-info">Book's Title</h5>
         <input type="title"
         placeholder="Enter the book's title...."
         class="book-input"
         required>
-
         <h5 class="book-info">Author</h5>
         <input type="author"
         placeholder="Enter Author's name...." 
         class="book-input"
-        
         >
         <h5 class="book-info">Book's description</h5>
         <input type="description"
@@ -56,15 +58,7 @@
         placeholder="Enter the book's type...."
         class="book-input"
         >
-        <h5 class="book-info">Book's image</h5>
-        <label for="input-file">Upload Image</label>
-        <input type="file"
-        name="uploadImage"
-        class="book-input"
-        accept="image/jpeg ,image/png , image/jpg"
-        id="input-file"            >
-        <br>
-  <button id="Submit-book">Submit</button>
+        <button id="Submit-book">Submit</button>
       </div>
     </div>
   </div>

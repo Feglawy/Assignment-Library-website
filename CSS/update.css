@@ -50,6 +50,7 @@
   background-color: var(--white-color);
   width: 500px;
   max-width: 80%;
+  overflow-y: auto;
 }
 
 .modal.active {
@@ -57,7 +58,6 @@
 }
 
 .modal-header {
-
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
@@ -66,8 +66,8 @@
   background-color: var(--dark-color);
 }
 
-.insertInfo{
-  color : var(--white-color);
+.insertInfo {
+  color: var(--white-color);
 }
 
 .modal-header .title {
@@ -82,18 +82,19 @@
   background: none;
   font-size: 1.25rem;
   font-weight: bold;
-  margin-right:10px ;
+  margin-right: 10px;
 }
 
 .modal-header .closeBtn:hover {
   background-color: red;
-  transition: 0.3s ease
+  transition: 0.3s ease;
 }
 
 .modal-body {
-  padding: 10px 15px;
-  min-height: 800px;
-
+  padding: 10px;
+  min-height: 625px;
+  display: flex;
+  justify-content: center;
 }
 
 #overlay-modal {
@@ -113,20 +114,19 @@
   pointer-events: all;
 }
 
-
 .bookform {
   position: fixed;
-    
 }
 
-.book-info{
+.book-info {
   font-size: 20px;
-    color: var(--dark-color);
-    margin-bottom: 5px;
+  color: var(--dark-color);
+  margin-bottom: 5px;
+  margin-top: 2px;
 }
 
-.book-input{
-  width: 70% ;
+.book-input {
+  width: 70%;
   outline: none;
   border: none;
   background: none;
@@ -138,15 +138,30 @@
   font-size: 25px;
 }
 
-/* label{
-  display: block;
-  background-color: var(--Green-color);
-  padding: 12px;
-  margin: 10px auto;
+#imagePreview {
+  margin-top: 20px;
+  display: contents;
   cursor: pointer;
-  border-radius: 5px;
-} */
+  position: relative;
+  box-shadow: 0.04px 6.8px 8px hsla(0, 40%, 30%, 0.5);
+}
 
- /* #input-file{
+#imagePreview img {
+  height: 400px;
+  width: calc(400px * 0.7032967033);
+  object-fit: cover;
+  border-radius: 15px;
+  background-color: var(--gray-color);
+  color: white;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+#uploadInput {
   display: none;
-}  */
+}
+
+#Submit-book {
+  width: 50%;
+  margin-bottom: 15%;
+}

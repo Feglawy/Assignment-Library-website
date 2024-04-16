@@ -19,46 +19,50 @@ document.addEventListener("DOMContentLoaded", function () {
   document.dispatchEvent(BooksAdded);
 });
 
-
 ////////////////////// POPUP /////////////////////
 
-const openModalBtn = document.querySelectorAll('[data-modal-target]');
-const closeModalBtn = document.querySelectorAll('[data-close-btn]');
-const overlayModal = document.getElementById('overlay-modal');
+const openModalBtn = document.querySelectorAll("[data-modal-target]");
+const closeModalBtn = document.querySelectorAll("[data-close-btn]");
+const overlayModal = document.getElementById("overlay-modal");
 
-openModalBtn.forEach(button => {
-  button.addEventListener('click', () => {
-    const modalId = button.getAttribute('data-modal-target');
+openModalBtn.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modalId = button.getAttribute("data-modal-target");
     const modal = document.querySelector(modalId);
     openModal(modal);
   });
 });
 
-
-overlayModal.addEventListener('click', () => {
-  const modals = document.querySelectorAll('.modal.active');
-  modals.forEach(modal => {
+overlayModal.addEventListener("click", () => {
+  const modals = document.querySelectorAll(".modal.active");
+  modals.forEach((modal) => {
     closeModal(modal);
   });
 });
 
-closeModalBtn.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = button.closest('.modal');
+closeModalBtn.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = button.closest(".modal");
     closeModal(modal);
   });
 });
 
 function openModal(modal) {
-  if(modal == null) {return}
-  modal.classList.add('active');
-  overlayModal.classList.add('active');
+  if (modal == null) {
+    return;
+  }
+  document.body.style.overflow = "hidden"; // disable page scrolling
+  modal.classList.add("active");
+  overlayModal.classList.add("active");
 }
 
 function closeModal(modal) {
-  if(modal == null) {return}
-  modal.classList.remove('active');
-  overlayModal.classList.remove('active');
+  if (modal == null) {
+    return;
+  }
+  document.body.style.overflow = "auto"; // enable page scrolling
+  modal.classList.remove("active");
+  overlayModal.classList.remove("active");
 }
 
 // let addNewBtn = document.getElementById("Submit-book");
@@ -81,3 +85,17 @@ function closeModal(modal) {
 //   const BooksAdded = new Event("BooksAdded");                                              WILL DO IT LATER
 //   document.dispatchEvent(BooksAdded);
 // }
+
+document.querySelector("#uploadInput").addEventListener("change", function () {
+  const file = this.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const imgElement = document.querySelector("#uploadedImage");
+    imgElement.src = e.target.result;
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+});
