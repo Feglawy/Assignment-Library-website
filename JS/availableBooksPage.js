@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="book">
     <img src=${value.cover} alt="${key}" />
     <h5 class="name">${value.tittle}</h5>
+    <button class="Borrow" type="button">Borrow</button>
     <button class="previewButton" book-id="${key}">Details</button>
 </div>
 `;
