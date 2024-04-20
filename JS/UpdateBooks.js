@@ -65,26 +65,6 @@ function closeModal(modal) {
   overlayModal.classList.remove("active");
 }
 
-// let addNewBtn = document.getElementById("Submit-book");
-
-// addNewBtn.addEventListener("click", addBook);
-// //add new button
-// function addBook(value, key) {
-//   let bk = `
-// <div class="book">
-//     <img src="/Images/covers/Blank.png">
-//     <h5 class="name">Blank </h5>
-//     <button>Edit</button>
-//     <button class="Delete">Delete</button>
-// </div>
-// `;
-//   // add the book to the page
-//   let booksSection = document.getElementById("Update-books-section");
-//   booksSection.innerHTML += bk;
-//   // event listner to ensure that the books added
-//   const BooksAdded = new Event("BooksAdded");                                              WILL DO IT LATER
-//   document.dispatchEvent(BooksAdded);
-// }
 
 document.querySelector("#uploadInput").addEventListener("change", function () {
   const file = this.files[0];
@@ -99,3 +79,27 @@ document.querySelector("#uploadInput").addEventListener("change", function () {
     reader.readAsDataURL(file);
   }
 });
+
+document.getElementById("Submit-book").addEventListener("click", addBook);
+
+function addBook() {
+  const title = document.querySelector("#modal input[type='title']").value;
+  const author = document.querySelector("#modal input[type='author']").value;
+  const description = document.querySelector("#modal input[type='description']").value;
+  const type = document.querySelector("#modal input[type='type']").value;
+  const cover = document.querySelector("#uploadedImage").src;
+
+  let bookHTML = `
+    <div class="book">
+      <img src="${cover}" alt="${title}" />
+      <h5 class="name">${title}</h5>
+      <button>Edit</button>
+      <button class="Delete">Delete</button>
+    </div>
+  `;
+
+  let booksSection = document.getElementById("Update-books-section");
+  booksSection.innerHTML += bookHTML;
+
+  const modal = document.getElementById("modal");
+  closeModal(modal);}
