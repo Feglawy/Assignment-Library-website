@@ -1,3 +1,4 @@
+// _____ Remove book popup _____
 function showPopup() {
   let popup = document.getElementById("popup");
   popup.style.display = "block";
@@ -13,28 +14,8 @@ function hidePopup() {
   }, 200);
 }
 
-function confirmDelete(btn) {
-  return function (event) {
-    // Get the parent element
-    const parentDiv = btn.parentNode;
-    parentDiv.remove();
-    hidePopup();
-  };
-}
-
 function cancelDelete() {
   hidePopup();
-}
-
-function handleRemoveBookPopup(button) {
-  return function (event) {
-    let confirm = document.getElementById("ConfirmDeletion");
-    let cancel = document.getElementById("cancelDeletion");
-
-    showPopup();
-    confirm.addEventListener("click", confirmDelete(button));
-    cancel.addEventListener("click", cancelDelete);
-  };
 }
 
 // wait until the book is loaded
@@ -60,15 +41,50 @@ document.addEventListener("BooksAdded", function () {
 
   if (RemoveBorrowedBtns != null) {
     RemoveBorrowedBtns.forEach(function (button) {
-      button.addEventListener("click", handleRemoveBookPopup(button));
+      button.addEventListener("click", function () {
+        let confirm = document.getElementById("ConfirmDeletion");
+        let cancel = document.getElementById("cancelDeletion");
+
+        showPopup();
+        // Get the parent element
+        let parentDiv = button.parentNode;
+
+        confirm.addEventListener("click", function () {
+          parentDiv.remove();
+          hidePopup();
+        });
+        cancel.addEventListener("click", function () {
+          parentDiv = null;
+          hidePopup();
+        });
+      });
     });
   }
 
   if (RemoveBookAdminBtns != null) {
     RemoveBookAdminBtns.forEach(function (button) {
-      button.addEventListener("click", handleRemoveBookPopup(button));
+      button.addEventListener("click", function () {
+        let confirm = document.getElementById("ConfirmDeletion");
+        let cancel = document.getElementById("cancelDeletion");
+
+        showPopup();
+        // Get the parent element
+        let parentDiv = button.parentNode;
+
+        confirm.addEventListener("click", function () {
+          parentDiv.remove();
+          parentDiv = null;
+          hidePopup();
+        });
+        cancel.addEventListener("click", function () {
+          parentDiv = null;
+          hidePopup();
+        });
+      });
     });
   }
+
+  // ________________________
   // show book's details
   var previewButtons = document.querySelectorAll(".previewButton");
   previewButtons.forEach(function (button) {

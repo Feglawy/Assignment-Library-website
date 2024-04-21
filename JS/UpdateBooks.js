@@ -106,6 +106,10 @@ function addBook() {
   let booksSection = document.getElementById("Update-books-section");
   booksSection.innerHTML += bookHTML;
 
+  // event listner to ensure that the books added
+  const BooksAdded = new Event("BooksAdded");
+  document.dispatchEvent(BooksAdded);
+
   const modal = document.getElementById("modal");
   closeModal(modal);
 
