@@ -63,6 +63,25 @@
   </div>
   <div id="overlay-modal"></div>
 
+  <!-- Edit popup -->
+  <div class="modal" id="edit-modal">
+    <div class="modal-header">
+      <div class="insertInfo">Edit Book Information</div>
+      <button data-close-btn class="closeBtn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="bookform">
+        <label for="edit-uploadInput" id="edit-imagePreview">
+          <img id="edit-uploadedImage" src="#" alt="Upload book Cover">
+          <input type="file" id="edit-uploadInput" accept="image/*">
+        </label>
+        <h5 class="book-info">Book's Title</h5>
+        <input type="title" id="edit-book-title" class="book-input" required>
+        <button id="save-edit">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
     <!-- scripts -->
     <script type="module" src="/js/AvailableBooks.js" defer></script>
     <script type="module" src="/JS/UpdateBooks.js" defer></script>
