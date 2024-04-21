@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
   let booksSection = document.getElementById("Update-books-section");
   bookMap.forEach((value, key) => {
     let Book = `
-      <div class="book">
-        <img src=${value.cover} alt="${key}" />
-        <h5 class="name">${value.title}</h5>
-        <button class="Edit">Edit</button>
-        <button class="Delete">Delete</button>
-      </div>
-    `;
+<div class="book">
+    <img src=${value.cover} alt="${key}" />
+    <h5 class="name">${value.tittle}</h5>
+    <button class="Edit">Edit</button>
+    <button class="Delete">Delete</button>
+</div>
+`;
     booksSection.innerHTML += Book;
   });
 
@@ -72,7 +72,7 @@ document.querySelector("#uploadInput").addEventListener("change", function () {
   const reader = new FileReader();
 
   reader.onload = function (e) {
-    const imgElement = document.querySelector("#uploadedImage");                                //To display the book's cover
+    const imgElement = document.querySelector("#uploadedImage"); //To display the book's cover
     imgElement.src = e.target.result;
   };
 
@@ -87,8 +87,10 @@ document.getElementById("Submit-book").addEventListener("click", addBook);
 
 function addBook() {
   const title = document.querySelector("#modal input[type='title']").value;
-  const author = document.querySelector("#modal input[type='author']").value;                             
-  const description = document.querySelector("#modal input[type='description']").value;
+  const author = document.querySelector("#modal input[type='author']").value;
+  const description = document.querySelector(
+    "#modal input[type='description']"
+  ).value;
   const type = document.querySelector("#modal input[type='type']").value;
   const cover = document.querySelector("#uploadedImage").src;
 
@@ -106,8 +108,8 @@ function addBook() {
 
   const modal = document.getElementById("modal");
   closeModal(modal);
-  
-  // to be able to use the edit on the new added books 
+
+  // to be able to use the edit on the new added books
   editFunction();
 }
 
@@ -120,7 +122,7 @@ function editFunction() {
       const title = bookDiv.querySelector(".name").textContent;
       const cover = bookDiv.querySelector("img").src;
 
-      // putting the existing data in the popup 
+      // putting the existing data in the popup
       document.getElementById("edit-uploadedImage").src = cover;
       document.getElementById("edit-book-title").value = title;
 
