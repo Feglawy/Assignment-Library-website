@@ -106,6 +106,10 @@ function addBook() {
   let booksSection = document.getElementById("Update-books-section");
   booksSection.innerHTML += bookHTML;
 
+  // event listner to ensure that the books added
+  const BooksAdded = new Event("BooksAdded");
+  document.dispatchEvent(BooksAdded);
+
   const modal = document.getElementById("modal");
   closeModal(modal);
 
@@ -150,16 +154,18 @@ function saveEdit() {
   closeModal(modal);
 }
 
-document.querySelector("#edit-uploadInput").addEventListener("change", function () {
-  const file = this.files[0];
-  const reader = new FileReader();
+document
+  .querySelector("#edit-uploadInput")
+  .addEventListener("change", function () {
+    const file = this.files[0];
+    const reader = new FileReader();
 
-  reader.onload = function (e) {
-    const imgElement = document.querySelector("#edit-uploadedImage"); //To display the book's cover
-    imgElement.src = e.target.result;
-  };
+    reader.onload = function (e) {
+      const imgElement = document.querySelector("#edit-uploadedImage"); //To display the book's cover
+      imgElement.src = e.target.result;
+    };
 
-  if (file) {
-    reader.readAsDataURL(file);
-  }
-});
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  });
