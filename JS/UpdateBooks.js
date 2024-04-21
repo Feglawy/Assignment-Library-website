@@ -122,6 +122,10 @@ function editFunction() {
       const title = bookDiv.querySelector(".name").textContent;
       const cover = bookDiv.querySelector("img").src;
 
+
+       // Add the "editing" class to the book element
+      bookDiv.classList.add("editing");
+
       // putting the existing data in the popup
       document.getElementById("edit-uploadedImage").src = cover;
       document.getElementById("edit-book-title").value = title;
@@ -133,33 +137,48 @@ function editFunction() {
   });
 }
 
-// save changes
-document.getElementById("save-edit").addEventListener("click", saveEdit);
+document.getElementById("save-edit").addEventListener("click", editSave);
 
-function saveEdit() {
-  const newTitle = document.getElementById("edit-book-title").value;
-  const newCover = document.getElementById("edit-uploadedImage").src;
-
-  // update the title,cover of the book
-  const editedBook = document.querySelector(".book.editing");
-  editedBook.querySelector(".name").textContent = newTitle;
-  editedBook.querySelector("img").src = newCover;
-
-  // close popup
-  const modal = document.getElementById("edit-modal");
-  closeModal(modal);
-}
 
 document.querySelector("#edit-uploadInput").addEventListener("change", function () {
   const file = this.files[0];
   const reader = new FileReader();
 
-  reader.onload = function (e) {
-    const imgElement = document.querySelector("#edit-uploadedImage"); //To display the book's cover
-    imgElement.src = e.target.result;
-  };
+ reader.onload = function (e) {
+  console.log("File read successfully:", e.target.result);
+  const imgElement = document.querySelector("#edit-uploadedImage");
+  console.log("Image element:", imgElement);
+  imgElement.src = e.target.result;
+};
 
   if (file) {
     reader.readAsDataURL(file);
   }
 });
+function editSave(){
+  const newCover = document.getElementById("edit-uploadInput").src ;
+  const newTitle = document.getElementById("edit-book-title").value; 
+  console.log("test");
+  
+  const editedBook = document.querySelector(".book.editing");
+  console.log("editedBook:", editedBook);
+  const coverElement = editedBook.querySelector("img");
+  console.log("edited img");
+  
+  const titleElement = editedBook.querySelector(".name");
+  console.log("edited naame");
+  
+  
+  coverElement.src = newCover;
+  titleElement.textContent = newTitle;
+  
+  
+  editedBook.classList.remove("editing");
+  
+  // close popup
+  const modal = document.getElementById("edit-modal");
+  closeModal(modal);
+  console.log("Changes saved successfully!");
+  
+}
+
