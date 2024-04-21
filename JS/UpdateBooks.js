@@ -160,7 +160,7 @@ document.querySelector("#edit-uploadInput").addEventListener("change", function 
   }
 });
 function editSave(){
-  const newCover = document.getElementById("edit-uploadInput").src ;
+  const newCover = document.getElementById("edit-uploadedImage").src ;
   const newTitle = document.getElementById("edit-book-title").value; 
   console.log("test");
   
