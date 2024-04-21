@@ -149,3 +149,17 @@ function saveEdit() {
   const modal = document.getElementById("edit-modal");
   closeModal(modal);
 }
+
+document.querySelector("#edit-uploadInput").addEventListener("change", function () {
+  const file = this.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const imgElement = document.querySelector("#edit-uploadedImage"); //To display the book's cover
+    imgElement.src = e.target.result;
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+});

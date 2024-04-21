@@ -97,6 +97,7 @@
   justify-content: center;
 }
 
+
 #overlay-modal {
   position: fixed;
   opacity: 0;
@@ -164,4 +165,28 @@
 #Submit-book {
   width: 50%;
   margin-bottom: 15%;
+}
+
+#edit-modal .modal-body #edit-imagePreview {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+#edit-modal .modal-body #edit-imagePreview img {
+  height: 400px;
+  width: calc(400px * 0.7032967033);
+  object-fit: cover;
+  border-radius: 15px;
+  background-color: var(--gray-color);
+  color: white;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+#edit-uploadInput {
+  display: none;
 }
