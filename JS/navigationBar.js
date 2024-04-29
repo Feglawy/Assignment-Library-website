@@ -1,3 +1,5 @@
+document.body.classList.toggle("white-theme");
+
 // change menu icon
 function ToggleMenu() {
   let menuIcon = document.getElementById("menu");

@@ -90,7 +90,7 @@ nav ul li a:hover {
 }
 
 .logo:hover {
-  transform: translateY(-10px);
+  transform: scale(1.1);
   transition: all 0.7s ease;
 }
 

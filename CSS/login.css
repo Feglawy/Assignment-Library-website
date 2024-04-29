@@ -1,12 +1,9 @@
 @import url(rule.css);
-body {
-  background-color: var(--white-color);
-}
 
 .loginForm {
   width: 700px;
   margin: 200px auto; /* Adjust margin to create space around the form */
-  background-color: var(--gray-color);
+  background-color: var(--login-form-bg-color);
   padding: 150px;
   border-radius: 15px;
   box-shadow: rgba(50, 50, 93, 0.25) 40px 20px 27px 20px,
@@ -15,7 +12,7 @@ body {
 
 .info {
   font-size: 30px;
-  color: #ffffff;
+  color: var(--login-form-text-color);
   margin-bottom: 5px;
 }
 .input {
@@ -44,42 +41,27 @@ body {
   display: block;
   cursor: pointer;
   border-radius: 15px;
-  color: black;
+  color: var(--login-form-text-color);
   font-size: 22px;
   width: 15px;
 }
 
 #show-pass :hover {
   transition: 0.5s;
-  color: var(--Green-color);
+  color: var(--btn-hover-effect-color);
 }
-/* 
-#login-button {
-  width: 100%;
-  padding: 10px;
-  background-color: var(--dark-color);
-  color: #fff;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 20px;
-  margin-top: 50px;
-} */
 
-#login-button:hover,
-#signup-button:hover {
-  background-color: var(--Green-color);
+#login-button:hover, #signup-button:hover{
+  background-color: var(--btn-hover-effect-color);
   transition: 0.5s;
 }
 
-#login-button,
-#signup-button {
-  /* #signup-button { */
+#login-button, #signup-button{
   display: inline-block;
   width: 100%;
   border-radius: 15px;
   padding: 10px;
-  background-color: var(--dark-color);
+  background-color: var(--btn-bg-color);
   color: #fff;
   font-size: 20px;
   margin-top: 20px;
