@@ -17,6 +17,25 @@ Assignment web 2024
 
 ---
 
+### phase 2 js and css
+- [ ] make the password and confirm pass if they don't match make a pop up to tell the user the passwords should be the same
+- [ ] make the local and session storage
+---
+
+### phase 3 backend
+- [x] django app structure
+- [ ] make the database 
+  - [ ] users database 
+  - [ ] books database 
+  - [ ] authors database 
+  - [ ] geners database 
+  - [ ] types database
+  - [ ] borrowed books database 
+
+... 
+
+---
+
 - [x] TO-DO add to css some checks to screen width and hight
 - [x] TO-DO add the tags and author name to the book preview page
 
