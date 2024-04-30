@@ -1,29 +1,16 @@
+{% extends "library/base.html" %} 
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- page title -->
-    <title>Online Library website</title>
 
-    <!-- css -->
-    <link rel="stylesheet" href="{% static "website.css" %}" />
+{% block content %} 
+<!-- greeting user -->
+<div class="user">
+  <h1>Hello!</h1>
+    <h2 id="user-name">{{username|default:"not Found"}}</h2>
+</div>
+<!-- books section -->
+<div class="books-section" id="borrowed-Books-section"></div>
+<div id="popup"></div>
 
-    <!-- the navigation bar container -->
-    <div id="nav-container">{% include "library/navbar_admin.html" %}</div>
-  </head>
-  <body>
-    <!-- greeting user -->
-    <div class="user">
-      <h1>Hello!</h1>
-      <h2 id="user-name">Feglawy</h2>
-    </div>
-    <!-- books section -->
-    <div class="books-section" id="borrowed-Books-section"></div>
-    <div id="popup"></div>
-
-    <!-- scripts -->
-    <script type="module" src="{% static "JS/Books.js" %}" defer></script>
-  </body>
-</html>
+<!-- scripts -->
+<script type="module" src="{% static "JS/Books.js" %}" defer></script>
+{% endblock content %}

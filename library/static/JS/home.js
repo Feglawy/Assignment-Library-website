@@ -18,9 +18,13 @@
 //   document.dispatchEvent(BooksAdded);
 // });
 
+let loadingAnimation = document.getElementById("loading-animation");
 fetch("random/quote/")
   .then((response) => response.json())
   .then((data) => {
+    // hide the animation
+    loadingAnimation.style.display = "none";
+    // adding the quote data to the html page
     document.getElementById("quote").innerHTML = `
                     <blockquote>
                         <p>“${data.quote}”</p>
@@ -28,4 +32,9 @@ fetch("random/quote/")
                     </blockquote>
                 `;
   })
-  .catch((error) => console.error("Error:", error));
+  .catch((error) => {
+    // hide the animation
+    loadingAnimation.style.display = "none";
+
+    console.error("Error:", error);
+  });
