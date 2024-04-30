@@ -2,6 +2,24 @@
 
 Assignment web 2024
 
+# How to run the django project 
+
+1. clone the rep 
+   - `git clone https://github.com/Feglawy/Assignment-Library-website.git`
+2. make sure to have python installed 
+  - check by typing `python` in terminal if it opened python then its all good 
+3. open the terminal in the project directory 
+4. make the venv
+   - type in the terminal `python -m venv .venv` this is for windows 
+5. activate the venv 
+   - `./.venv/scripts/Activate.ps1` for powershell
+   - `./.venv/scripts/activate.bat` for cmd
+
+6. install the requirements
+   - `pip install -r ./requirements.txt`
+7. run the server
+  - `python manage.py runserver`
+
 ### phase 1 html
 
 - [x] navigation bar
