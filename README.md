@@ -5,7 +5,7 @@ Assignment web 2024
 ### phase 1 html
 
 - [x] navigation bar
-- [ ] home page (working on it) --Abdallah
+- [x] home page (working on it) --Abdallah
 - [x] login and signup pages (Done) --Islam
 - [x] about page
 - [x] preview page
@@ -21,8 +21,8 @@ Assignment web 2024
 - [x] TO-DO add the tags and author name to the book preview page
 
 ---
-[Database structure](https://drawsql.app/teams/feglawy/diagrams/library)
----
+
+## [Database structure](https://drawsql.app/teams/feglawy/diagrams/library)
 
 ### good assits
 

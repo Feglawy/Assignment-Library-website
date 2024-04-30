@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="utf-8" />
+    <title>login</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static "website.css" %}" />
+
+    <!-- the navigation bar container -->
+    <div id="nav-container">{% include "library/navbar_admin.html" %}</div>
+  </head>
+  <body>
+    <!-- login form -->
+    <div class="loginForm">
+      <form>
+        <h1 class="info">Email</h1>
+        <!-- user name input box -->
+        <input
+          class="input"
+          id="inp-username"
+          type="email"
+          placeholder="enter your E-mail"
+          required
+        />
+        <h1 class="info">Password</h1>
+
+        <!-- password container for the password input and show pass -->
+        <div id="password-container">
+          <!-- password input box -->
+          <input
+            class="input"
+            id="inp-pass"
+            type="password"
+            placeholder="enter your Password"
+            required
+          />
+          <!-- Show password click -->
+          <div id="show-pass" onclick="ShowPassword()">
+            <i class="fa-regular fa-eye" id="visibility"></i>
+          </div>
+          <script src="{% static "JS/login.js" %}"></script>
+        </div>
+
+        <!-- login button -->
+        <button id="login-button" class="btn" onclick="openProfilePage()">
+          Login
+        </button>
+        <!-- <button id="login-button" class="btn" >Login</button> -->
+        <a id="signup-button" class="btn" href="/signup/">Sign Up</a>
+      </form>
+    </div>
+  </body>
+</html>

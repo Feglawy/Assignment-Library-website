@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- page title -->
+    <title>Online Library website</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static "website.css" %}" />
+
+    <!-- the navigation bar container -->
+    <div id="nav-container">{% include "library/navbar_admin.html" %}</div>
+  </head>
+  <body id="home-body">
+    <!-- Home section start -->
+    <div class="first-section">
+      <div class="website-text">
+        <h1>Online Library website</h1>
+        <p id="quote" style="margin-top: 7vh"></p>
+      </div>
+      <img src="{% static "Images/cover1.png" %}" class="cover-page-home" />
+    </div>
+
+    <div id="recommended-container">
+      <h1 id="we-recommend">We recommend:</h1>
+      <!-- recommeded section -->
+      <div id="recommended-section"></div>
+    </div>
+    <footer></footer>
+    {% comment %}
+    <script type="module" src="/js/AvailableBooks.js" defer></script>
+    <script type="module" src="/JS/Books.js" defer></script>
+    {% endcomment %}
+    <script type="module" src="{% static "JS/home.js" %}" defer></script>
+  </body>
+</html>

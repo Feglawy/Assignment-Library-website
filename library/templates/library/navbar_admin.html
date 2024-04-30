@@ -1,0 +1,42 @@
+{% load static %}
+<!-- page icon -->
+<link rel="shortcut icon" href="{% static "Images/icons/storytelling.ico" %}"
+type="image/x-icon" />
+<!-- Font awsome icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<!-- navigation bar -->
+<!-- logo -->
+<a href="/" class="logo">
+  <img src="{% static "Images/icons/storytelling.ico" %}" width="40" height="40"
+  />
+  <span id="website-name">Library</span>
+</a>
+<!-- Pages -->
+<nav>
+  <!-- menu button -->
+  <input type="checkbox" id="check" />
+  <label for="check">
+    <i class="fa-solid fa-bars show-menu" onclick="ToggleMenu()" id="menu"></i>
+  </label>
+
+  <ul class="pages">
+    <li><a href="/">Home</a></li>
+    <li><a href="/search/">Search</a></li>
+    <li><a href="/borrowed">Borrowed Books</a></li>
+    <li><a href="/update-books">Update Books</a></li>
+    <li><a href="/available-books">Available Books</a></li>
+    <li><a href="/about-us/">About</a></li>
+    <li><a href="/login/">login</a></li>
+  </ul>
+  <!-- user profile -->
+  <div id="user-profile-icon" style="display: none">
+    <a class="active" href="userCard.html"></a>
+  </div>
+  <script src="{% static "JS/navigationBar.js" %}"></script>
+</nav>
