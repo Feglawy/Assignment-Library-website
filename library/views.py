@@ -2,15 +2,16 @@ import requests
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse, HttpRequest, JsonResponse
-from .models import Book
+from .models import Book, RecommendedBooks
 import os
 # Create your views here.
 
-books = {'books': Book.objects.all()}
+books = {'books': Book.objects.all(),}
+recommended = {'recommended': RecommendedBooks.objects.all(),}
 
 def index(request) -> HttpResponse:
     indexHTML = loader.get_template('library/index.html')
-    return HttpResponse(indexHTML.render())
+    return HttpResponse(indexHTML.render(recommended))
 
 def about(request) -> HttpResponse:
     aboutHTML = loader.get_template('library/about.html')

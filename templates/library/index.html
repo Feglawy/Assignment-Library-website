@@ -18,7 +18,17 @@
 <div id="recommended-container">
   <h1 id="we-recommend">We recommend:</h1>
   <!-- recommeded section -->
-  <div id="recommended-section"></div>
+  <div id="recommended-section">
+    {% for rec in recommended %}
+      <div class="book">
+        <img src="{{rec.book.cover.url}}" alt="{{rec.book.id}}" />
+        <h5 class="name">
+          {{rec.book.title}}
+        </h5>
+        <button class="previewButton" book-id="{{rec.book.id}}">Details</button>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 <script type="module" src="{% static "JS/home.js" %}" defer></script>
 {% endblock content %}

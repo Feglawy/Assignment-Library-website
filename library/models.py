@@ -18,7 +18,7 @@ class Author(models.Model):
         return f"{self.name}"
 
 class Book(models.Model):
-    title = models.CharField(max_length=255,null=False)
+    title = models.CharField(max_length=255,null=False,unique=True)
     desc = models.TextField()
     cover = models.ImageField(upload_to='book_covers/')
     authors = models.ManyToManyField(Author)
@@ -36,3 +36,9 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse("Book_detail", kwargs={"pk": self.pk})
+
+class RecommendedBooks(models.Model):
+    book = models.OneToOneField(Book, on_delete=models.CASCADE, unique=True)
+
+    def __str__(self) -> str:
+        return self.book.title

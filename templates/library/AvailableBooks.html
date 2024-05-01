@@ -6,10 +6,11 @@
   <div class="books-section" id="available-books-section">
     {% for book in books %}
       <div class="book">
-      <img src="{{book.cover.url}}" alt="{{book.id}}" />
-      <h5 class="name">{{book.title}}</h5>
-      <button class="Borrow" type="button">Borrow</button>
-      <button class="previewButton" book-id="{{book.id}}">Details</button>
+        <img src="{{book.cover.url}}" alt="{{book.id}}" />
+        <h5 class="name">{{book.title}}</h5>
+        <button class="Borrow" type="button">Borrow</button>
+        <button class="previewButton" book-id="{{book.id}}">Details</button>
+      </div>
     {% endfor %}
 </div>
   </div>
