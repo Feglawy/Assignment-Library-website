@@ -2,9 +2,12 @@ import requests
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse, HttpRequest, JsonResponse
-
-
+from .models import Book
+import os
 # Create your views here.
+
+books = {'books': Book.objects.all()}
+
 def index(request) -> HttpResponse:
     indexHTML = loader.get_template('library/index.html')
     return HttpResponse(indexHTML.render())
@@ -31,7 +34,7 @@ def borrowed(request) -> HttpResponse:
 
 def available(request) -> HttpResponse:
     availableHTML = loader.get_template('library/AvailableBooks.html')
-    return HttpResponse(availableHTML.render())
+    return HttpResponse(availableHTML.render(context=books))
 
 def update(request) -> HttpResponse:
     updateHTML = loader.get_template('library/UpdateBooks.html')
@@ -45,7 +48,7 @@ def preview(request) -> HttpResponse:
 # end point using https://github.com/Sumansourabh14/recite api 
 def random_quote(request) -> JsonResponse:
     try:
-        response = requests.get("https://recite.onrender.com/random/quote-from-db")
+        response = requests.get("https://stoic.tekloon.net/stoic-quote")
         response.raise_for_status()
 
         # Parse the JSON response
@@ -53,7 +56,6 @@ def random_quote(request) -> JsonResponse:
 
         response_data = {
             "quote": quote_data["quote"],
-            "book": quote_data["book"],
             "author": quote_data["author"],
         }
         return JsonResponse(response_data)

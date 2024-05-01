@@ -3,6 +3,16 @@
 
 {% block content %} 
   <h2 id="available-header">Available Books</h2>
-  <div class="books-section" id="available-books-section"></div>
+  <div class="books-section" id="available-books-section">
+    {% for book in books %}
+      <div class="book">
+      <img src="{{book.cover.url}}" alt="{{book.id}}" />
+      <h5 class="name">{{book.title}}</h5>
+      <button class="Borrow" type="button">Borrow</button>
+      <button class="previewButton" book-id="{{book.id}}">Details</button>
+    {% endfor %}
+</div>
+  </div>
   <script type="module" src="{% static "JS/Books.js" %}" defer></script>
+
 {% endblock content %}

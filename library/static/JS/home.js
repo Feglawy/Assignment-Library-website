@@ -28,7 +28,7 @@ fetch("random/quote/")
     document.getElementById("quote").innerHTML = `
                     <blockquote>
                         <p>“${data.quote}”</p>
-                        <footer>Book: ${data.book} - author : ${data.author}</footer>
+                        <footer>author : ${data.author}</footer>
                     </blockquote>
                 `;
   })
