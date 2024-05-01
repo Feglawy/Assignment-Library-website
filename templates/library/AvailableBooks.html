@@ -9,7 +9,7 @@
         <img src="{{book.cover.url}}" alt="{{book.id}}" />
         <h5 class="name">{{book.title}}</h5>
         <button class="Borrow" type="button">Borrow</button>
-        <button class="previewButton" book-id="{{book.id}}">Details</button>
+        <a class="previewButton" href="{{book.get_absolute_url}}">Details</a>
       </div>
     {% endfor %}
 </div>

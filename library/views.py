@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse, HttpRequest, JsonResponse
-from .models import Book, RecommendedBooks
+from .models import *
 import os
 # Create your views here.
 
@@ -41,9 +41,10 @@ def update(request) -> HttpResponse:
     updateHTML = loader.get_template('library/UpdateBooks.html')
     return HttpResponse(updateHTML.render())
 
-def preview(request) -> HttpResponse:
+def preview(request, book_id) -> HttpResponse:
     previewHTML = loader.get_template('library/preview.html')
-    return HttpResponse(previewHTML.render())
+    book = Book.objects.get(pk=book_id)
+    return HttpResponse(previewHTML.render({'book':book}))
 
 #_______________________________________________________________
 # end point using https://github.com/Sumansourabh14/recite api 

@@ -25,7 +25,7 @@
         <h5 class="name">
           {{rec.book.title}}
         </h5>
-        <button class="previewButton" book-id="{{rec.book.id}}">Details</button>
+        <a class="previewButton" book-id="{{rec.book.id}}" href="{{rec.book.get_absolute_url}}">Details</a>
       </div>
     {% endfor %}
   </div>

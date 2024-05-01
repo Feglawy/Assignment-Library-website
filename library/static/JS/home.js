@@ -24,6 +24,9 @@ fetch("random/quote/")
   .then((data) => {
     // hide the animation
     loadingAnimation.style.display = "none";
+
+    // the api might return the quote with '@' char in the end i dont know why
+
     // adding the quote data to the html page
     document.getElementById("quote").innerHTML = `
                     <blockquote>

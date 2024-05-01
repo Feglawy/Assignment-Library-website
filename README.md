@@ -2,23 +2,27 @@
 
 Assignment web 2024
 
-# How to run the django project 
+# How to run the django project
 
-1. clone the rep 
+1. clone the rep
    - `git clone https://github.com/Feglawy/Assignment-Library-website.git`
-2. make sure to have python installed 
-  - check by typing `python` in terminal if it opened python then its all good 
-3. open the terminal in the project directory 
+2. make sure to have python installed
+
+- check by typing `python` in terminal if it opened python then its all good
+
+3. open the terminal in the project directory
 4. make the venv
-   - type in the terminal `python -m venv .venv` this is for windows 
-5. activate the venv 
+   - type in the terminal `python -m venv .venv` this is for windows
+5. activate the venv
+
    - `./.venv/scripts/Activate.ps1` for powershell
    - `./.venv/scripts/activate.bat` for cmd
 
 6. install the requirements
    - `pip install -r ./requirements.txt`
 7. run the server
-  - `python manage.py runserver`
+
+- `python manage.py runserver`
 
 ### phase 1 html
 
@@ -36,21 +40,24 @@ Assignment web 2024
 ---
 
 ### phase 2 js and css
+
 - [ ] make the password and confirm pass if they don't match make a pop up to tell the user the passwords should be the same
 - [ ] make the local and session storage
+
 ---
 
 ### phase 3 backend
-- [x] django app structure
-- [ ] make the database 
-  - [ ] users database 
-  - [ ] books database 
-  - [ ] authors database 
-  - [ ] geners database 
-  - [ ] types database
-  - [ ] borrowed books database 
 
-... 
+- [x] django app structure
+- [ ] make the database
+  - [ ] users database
+  - [ ] books database
+  - [ ] authors database
+  - [ ] geners database
+  - [ ] types database
+  - [ ] borrowed books database
+
+...
 
 ---
 
@@ -70,3 +77,5 @@ Assignment web 2024
 [Fonts website](https://fonts.google.com/)
 
 [icons website](https://fonts.google.com/icons)
+
+[quotes api](https://publicapi.dev/quotes-on-design-api)

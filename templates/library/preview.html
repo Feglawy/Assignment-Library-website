@@ -1,42 +1,37 @@
+{% extends "library/base.html" %} 
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>online liberary website</title>
 
-    <!-- css -->
-    <link rel="stylesheet" href="{% static "website.css" %}" />
-
-    <!-- the navigation bar container -->
-    <div id="nav-container">{% include "Library/navbar_admin.html" %}</div>
-  </head>
-  <body>
+{% block content %}
     <div class="book-image">
-      <img id="bg-img" src="" />
-      <img id="preview-img" src="" />
+      <img id="bg-img" src="{{book.cover.url}}" />
+      <img id="preview-img" src="{{book.cover.url}}" />
       <br />
     </div>
     <div class="info-container">
       <div id="info">
         <h5>Author</h5>
-        <ul id="author"></ul>
+        <ul id="author">
+          {% for author in book.authors.all %}
+            <li id="{{author.id}}">{{author.name}}</li>
+          {% endfor %}
+        </ul>
         <h5>Type</h5>
         <div>
-          <ul id="types"></ul>
+          <ul id="types">{{book.book_type}}</ul>
         </div>
-        <h5>categories</h5>
-        <ul id="categories"></ul>
+        <h5>genres</h5>
+        <ul id="categories">
+          {% for genre in book.genres.all %}
+            <li id="{{genre.id}}">{{genre.name}}</li>
+          {% endfor %}
+        </ul>
       </div>
       <div id="name-description-container">
         <div class="text">
-          <h1 id="book-name"></h1>
-          <p id="book-description"></p>
+          <h1 id="book-name">{{book.title}}</h1>
+          <p id="book-description">{{book.desc}}</p>
           <button id="borrow-btn">Borrow</button>
         </div>
       </div>
     </div>
-    <script type="module" src="{% static "JS/booksPreview.js" %}"></script>
-  </body>
-</html>
+{% endblock content %}
