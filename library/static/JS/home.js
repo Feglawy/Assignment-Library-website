@@ -1,24 +1,13 @@
-// import { bookMap } from "./AvailableBooks.js";
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   let recommended = document.getElementById("recommended-section");
-//   bookMap.forEach((value, key) => {
-//     let Book = `
-// <div class="book">
-//     <img src=${value.cover} alt="${key}" />
-//     <h5 class="name">${value.tittle}</h5>
-//     <button class="previewButton" book-id="${key}">Details</button>
-// </div>
-// `;
-//     recommended.innerHTML += Book;
-//   });
-
-//   // event listner to ensure that the books added
-//   const BooksAdded = new Event("BooksAdded");
-//   document.dispatchEvent(BooksAdded);
-// });
-
 let loadingAnimation = document.getElementById("loading-animation");
+
+function removeLastAtSymbol(str) {
+  // Check if the string is not empty and the last character is '@'
+  if (str.length > 0 && str[str.length - 1] === "@") {
+    return str.slice(0, -1);
+  }
+  return str;
+}
+
 fetch("random/quote/")
   .then((response) => response.json())
   .then((data) => {
@@ -26,11 +15,12 @@ fetch("random/quote/")
     loadingAnimation.style.display = "none";
 
     // the api might return the quote with '@' char in the end i dont know why
+    let quote = removeLastAtSymbol(data.quote);
 
     // adding the quote data to the html page
     document.getElementById("quote").innerHTML = `
                     <blockquote>
-                        <p>“${data.quote}”</p>
+                        <p>“${quote}”</p>
                         <footer>author : ${data.author}</footer>
                     </blockquote>
                 `;
