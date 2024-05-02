@@ -18,8 +18,21 @@ def about(request) -> HttpResponse:
     return HttpResponse(aboutHTML.render())
 
 def search(request) -> HttpResponse:
+    search_input = request.GET.get('search-bar', '')
+    search_by = request.GET.get('search-by', '')
+
+    books = Book.objects.all()
+
+    if search_input and search_by:
+        if search_by == 'title':
+            books = books.filter(title__icontains=search_input)
+        elif search_by == 'author':
+            books = books.filter(authors__name__icontains=search_input)
+        elif search_by == 'genre':
+            books = books.filter(genres__name__icontains=search_input)
+        
     searchHTML = loader.get_template('library/Search.html')
-    return HttpResponse(searchHTML.render())
+    return HttpResponse(searchHTML.render({'books': books}))
 
 def login(request) -> HttpResponse:
     loginHTML = loader.get_template('library/login.html')

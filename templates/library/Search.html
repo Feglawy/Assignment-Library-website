@@ -27,7 +27,7 @@
           type="radio"
           name="search-by"
           id="search-by-author"
-          value="Author"
+          value="author"
         />
         <label for="search-by-author">author</label>
       </div>
@@ -35,10 +35,10 @@
         <input
           type="radio"
           name="search-by"
-          id="search-by-category"
-          value="category"
+          id="search-by-genre"
+          value="genre"
         />
-        <label for="search-by-category">category</label>
+        <label for="search-by-genre">genre</label>
       </div>
     </div>
     <button type="submit" class="btn" id="search-button">
@@ -49,6 +49,22 @@
 </form>
 <div class="results">
   <h1 id="results-text">The results</h1>
-  <div class="books-section" id="The-result-Books-section"></div>
+  <div class="books-section" id="The-result-Books-section">
+
+    {% for res in books %}
+      <div class="book">
+        <img src="{{res.cover.url}}" alt="{{res.id}}" />
+        <h5 class="name">
+          {{res.title}}
+        </h5>
+        <a class="previewButton" book-id="{{res.id}}" href="{{res.get_absolute_url}}">Details</a>
+      </div>
+    {% endfor %}
+
+    {% if not books %}
+      <h1 style="text-align: center">No books found</h2>
+      <p></p>
+    {% endif %}
+  </div>
 </div>
 {% endblock content %}
