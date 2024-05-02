@@ -51,10 +51,10 @@ Assignment web 2024
 - [x] django app structure
 - [ ] make the database
   - [ ] users database
-  - [ ] books database
-  - [ ] authors database
-  - [ ] geners database
-  - [ ] types database
+  - [x] books database
+  - [x] authors database
+  - [x] geners database
+  - [x] types database
   - [ ] borrowed books database
 
 ...
