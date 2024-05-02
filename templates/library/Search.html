@@ -1,5 +1,5 @@
 {% extends "library/base.html" %} {% load static %} {% block content %}
-<form action="" autocomplete="off">
+<form method="GET" autocomplete="off">
   <div class="search">
     <img src="{% static "Images/icons/observation.png" %}" alt="Search" />
     <div class="search-area">
@@ -12,7 +12,6 @@
     </div>
     <div id="Search-by">
       <h1>Search by</h1>
-
       <div class="radio">
         <input
           type="radio"
@@ -42,7 +41,7 @@
         <label for="search-by-category">category</label>
       </div>
     </div>
-    <button type="submit" class="btn" id="search-button" onclick="Search()">
+    <button type="submit" class="btn" id="search-button">
       <i class="fa-solid fa-magnifying-glass"></i>
       Search
     </button>
