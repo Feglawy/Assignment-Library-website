@@ -7,73 +7,38 @@
   <form>
     <h1 class="info">Fullname</h1>
     <div id="fullname">
-      <input
-        class="input"
-        id="first-name-inp"
-        type="text"
-        placeholder="First name"
-        required
-      />
-      <input
-        class="input"
-        id="last-name-inp"
-        type="text"
-        placeholder="Last name"
-      />
+      <input class="input" id="first-name-inp" type="text" placeholder="First name" required />
+      <input class="input" id="last-name-inp" type="text" placeholder="Last name" />
     </div>
+
     <h1 class="info">Email</h1>
     <!-- Email input box -->
-    <input
-      class="input"
-      id="inp-email"
-      type="email"
-      placeholder="enter your email"
-      required
-    />
+    <input class="input" id="inp-email" type="email" placeholder="enter your email" required />
 
     <h1 class="info">Password</h1>
 
     <!-- password container for the password input and show pass -->
     <div id="password-container">
       <!-- password input box -->
-      <input
-        class="input"
-        id="inp-pass"
-        type="password"
-        placeholder="enter your Password"
-        required
-      />
+      <input class="input" id="inp-pass" type="password" placeholder="enter your Password" required />
       <!-- Show password click -->
       <div id="show-pass" onclick="ShowPassword()">
         <i class="fa-regular fa-eye" id="visibility"></i>
       </div>
     </div>
-    <div id="confirm-password">
-      <input
-        class="input"
-        id="confirm-inp-pass"
-        type="password"
-        placeholder="confirm your Password"
-        required
-      />
-    </div>
+    <input class="input" id="confirm-inp-pass" type="password" placeholder="confirm your Password" required />
     <div id="Authority">
       <h1 class="Admin">Authority</h1>
       <input type="radio" name="user_type" id="is_admin" value="Admin" />
       <label for="is_admin">Admin</label>
-      <input
-        type="radio"
-        name="user_type"
-        id="is_guest"
-        value="Guest"
-        checked="checked"
-      />
+
+      <input type="radio" name="user_type" id="is_guest" value="Guest" checked="checked" />
       <label for="is_guest">Guest</label>
     </div>
 
     <!-- login button -->
     <button id="signup-button" class="btn">Sign Up</button>
-    <a id="signup-button" class="btn" href="{% url "signup" %}">login</a>
+    <a id="signup-button" class="btn" href="{% url "login" %}">login</a>
     <p id="have-account">already have an account?</p>
   </form>
   <script src="{% static "JS/login.js" %}"></script>
