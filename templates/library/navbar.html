@@ -32,7 +32,11 @@ type="image/x-icon" />
     <li><a href="{% url "update" %}">Update Books</a></li>
     <li><a href="{% url "available" %}">Available Books</a></li>
     <li><a href="{% url "about" %}">About</a></li>
-    <li><a href="{% url "login" %}">login</a></li>
+    {% if user.is_authenticated %}
+      <li><a href="{% url "logout" %}">logout</a></li>
+    {% else %}
+      <li><a href="{% url "login" %}">login</a></li>
+    {% endif %}
   </ul>
   <!-- user profile -->
   <div id="user-profile-icon" style="display: none">

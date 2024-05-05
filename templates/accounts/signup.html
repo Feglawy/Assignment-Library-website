@@ -5,6 +5,8 @@
 <!-- signup form -->
 <div class="loginForm" id="signupForm">
   <form method="post">
+    {% csrf_token %}
+
     <h1 class="info">Fullname</h1>
     <div id="fullname">
       {{form.first_name}}

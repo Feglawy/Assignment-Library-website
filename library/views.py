@@ -6,16 +6,14 @@ from .models import *
 import os
 # Create your views here.
 
-books = {'books': Book.objects.all(),}
-recommended = {'recommended': RecommendedBooks.objects.all(),}
+books = Book.objects.all()
+recommended =  RecommendedBooks.objects.all()
 
-def index(request) -> HttpResponse:
-    indexHTML = loader.get_template('library/index.html')
-    return HttpResponse(indexHTML.render(recommended))
+def index(request):
+    return render(request, 'library/index.html', context={'recommended':recommended, 'user':request.user})
 
-def about(request) -> HttpResponse:
-    aboutHTML = loader.get_template('library/about.html')
-    return HttpResponse(aboutHTML.render())
+def about(request):
+    return render(request, 'library/about.html', context={'user': request.user})
 
 def search(request) -> HttpResponse:
     search_input = request.GET.get('search-bar', '')
@@ -32,25 +30,25 @@ def search(request) -> HttpResponse:
             books = books.filter(genres__name__icontains=search_input)
         
     searchHTML = loader.get_template('library/Search.html')
-    return HttpResponse(searchHTML.render({'books': books}))
+    return HttpResponse(searchHTML.render({'books': books, 'user':request.user}))
 
 
 def borrowed(request) -> HttpResponse:
     borrowedHTML = loader.get_template('library/BorrowedBooks.html')
-    return HttpResponse(borrowedHTML.render())
+    return HttpResponse(borrowedHTML.render({'user':request.user}))
 
 def available(request) -> HttpResponse:
     availableHTML = loader.get_template('library/AvailableBooks.html')
-    return HttpResponse(availableHTML.render(context=books))
+    return HttpResponse(availableHTML.render(context={'books':books, 'user':request.user}))
 
 def update(request) -> HttpResponse:
     updateHTML = loader.get_template('library/UpdateBooks.html')
-    return HttpResponse(updateHTML.render())
+    return HttpResponse(updateHTML.render(context={'user':request.user}))
 
 def preview(request, book_id) -> HttpResponse:
     previewHTML = loader.get_template('library/preview.html')
     book = Book.objects.get(pk=book_id)
-    return HttpResponse(previewHTML.render({'book':book}))
+    return HttpResponse(previewHTML.render({'book':book, 'user':request.user}))
 
 #_______________________________________________________________
 # end point using https://github.com/Sumansourabh14/recite api 
