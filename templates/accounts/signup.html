@@ -4,37 +4,43 @@
 {% block content %} 
 <!-- signup form -->
 <div class="loginForm" id="signupForm">
-  <form>
+  <form method="post">
     <h1 class="info">Fullname</h1>
     <div id="fullname">
-      <input class="input" id="first-name-inp" type="text" placeholder="First name" required />
-      <input class="input" id="last-name-inp" type="text" placeholder="Last name" />
+      {{form.first_name}}
+      {{form.last_name}}
     </div>
+
+    <h1 class="info">Username</h1>
+    {{form.username}}
 
     <h1 class="info">Email</h1>
     <!-- Email input box -->
-    <input class="input" id="inp-email" type="email" placeholder="enter your email" required />
+    {{form.email}}
 
     <h1 class="info">Password</h1>
-
     <!-- password container for the password input and show pass -->
     <div id="password-container">
       <!-- password input box -->
-      <input class="input" id="inp-pass" type="password" placeholder="enter your Password" required />
+      {{form.password1}}
       <!-- Show password click -->
       <div id="show-pass" onclick="ShowPassword()">
         <i class="fa-regular fa-eye" id="visibility"></i>
       </div>
     </div>
-    <input class="input" id="confirm-inp-pass" type="password" placeholder="confirm your Password" required />
+    {{form.password2}}
     <div id="Authority">
       <h1 class="Admin">Authority</h1>
-      <input type="radio" name="user_type" id="is_admin" value="Admin" />
-      <label for="is_admin">Admin</label>
-
-      <input type="radio" name="user_type" id="is_guest" value="Guest" checked="checked" />
-      <label for="is_guest">Guest</label>
+      {{form.user_type}}
     </div>
+
+    {% if  messages%}
+      <ul class="errors">
+        {% for error in messages %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
 
     <!-- login button -->
     <button id="signup-button" class="btn">Sign Up</button>

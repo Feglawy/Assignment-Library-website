@@ -6,22 +6,31 @@
 <div class="loginForm">
   <form method="post">
     {% csrf_token %}
+  
     <h1 class="info">Email</h1>
     <!-- user name input box -->
-    <input class="input" id="inp-username" type="email" placeholder="enter your E-mail" required />
-    <h1 class="info">Password</h1>
+    {{form.username}}
 
+    <h1 class="info">Password</h1>
     <!-- password container for the password input and show pass -->
     <div id="password-container">
       <!-- password input box -->
-      <input class="input" id="inp-pass" type="password" placeholder="enter your Password" required />
+      {{form.password}}
+    
       <!-- Show password click -->
       <div id="show-pass" onclick="ShowPassword()">
         <i class="fa-regular fa-eye" id="visibility"></i>
       </div>
       <script src="{% static "JS/login.js" %}"></script>
+    
     </div>
-
+    {% if  messages%}
+      <ul class="errors">
+        {% for error in messages %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
     <!-- login button -->
     <button type="submit" id="login-button" class="btn">Login</button>
     <!-- <button id="login-button" class="btn" >Login</button> -->

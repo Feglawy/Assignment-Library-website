@@ -51,12 +51,14 @@
   color: var(--btn-hover-effect-color);
 }
 
-#login-button:hover, #signup-button:hover{
+#login-button:hover,
+#signup-button:hover {
   background-color: var(--btn-hover-effect-color);
   transition: 0.5s;
 }
 
-#login-button, #signup-button{
+#login-button,
+#signup-button {
   display: inline-block;
   width: 100%;
   border-radius: 15px;
@@ -67,6 +69,13 @@
   margin-top: 20px;
   border: none;
   text-align: center;
+}
+
+.errors {
+  background-color: red;
+  padding: 13px;
+  border-radius: 5px;
+  color: white;
 }
 
 @media (max-width: 700px) {

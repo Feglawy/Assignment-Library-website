@@ -34,13 +34,6 @@ def search(request) -> HttpResponse:
     searchHTML = loader.get_template('library/Search.html')
     return HttpResponse(searchHTML.render({'books': books}))
 
-def login(request) -> HttpResponse:
-    loginHTML = loader.get_template('library/login.html')
-    return HttpResponse(loginHTML.render())
-
-def signup(request) -> HttpResponse:
-    signupHTML = loader.get_template('library/signup.html')
-    return HttpResponse(signupHTML.render())
 
 def borrowed(request) -> HttpResponse:
     borrowedHTML = loader.get_template('library/BorrowedBooks.html')

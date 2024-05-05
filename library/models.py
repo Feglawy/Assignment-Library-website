@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.conf import settings
 
+
 class Genre(models.Model):
     name = models.CharField(max_length=255, null=False, unique=True)
     
@@ -54,8 +55,8 @@ class RecommendedBooks(models.Model):
     book = models.OneToOneField(Book, on_delete=models.CASCADE, unique=True)
 
     class Meta:
-        verbose_name = ("Recomended Book")
-        verbose_name_plural = ("Recomended Books")
+        verbose_name = ("Recommended Book")
+        verbose_name_plural = ("Recommended Books")
 
     def __str__(self) -> str:
         return self.book.title
