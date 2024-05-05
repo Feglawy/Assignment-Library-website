@@ -1,4 +1,9 @@
 {% extends "base.html" %} {% load static %} {% block content %}
+
+{% block title %} 
+{{book.title}} 
+{% endblock title %} 
+
 <div class="book-image">
   <img id="bg-img" src="{{book.cover.url}}" />
   <img id="preview-img" src="{{book.cover.url}}" />

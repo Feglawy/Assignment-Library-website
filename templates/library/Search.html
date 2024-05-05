@@ -1,4 +1,11 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %} {% load static %}
+
+{% block title %} 
+search 
+{% endblock title %} 
+
+
+{% block content %}
 <form method="GET" autocomplete="off">
   <div class="search">
     <img src="{% static "Images/icons/observation.png" %}" alt="Search" />
