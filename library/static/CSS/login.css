@@ -76,6 +76,7 @@
   padding: 13px;
   border-radius: 5px;
   color: white;
+  margin-top: 10px;
 }
 
 @media (max-width: 700px) {

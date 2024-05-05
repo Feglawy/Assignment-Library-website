@@ -12,6 +12,11 @@ def Signup(request):
             form.save()
             return redirect('login')
         
+        else: # the form is invalid there is an issue/s
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field} : {error}")
+        
     else: # the user method is get  
         form = SignupForm()
     return render(request, 'accounts/signup.html', {'form': form})
