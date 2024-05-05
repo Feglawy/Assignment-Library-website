@@ -6,10 +6,10 @@
       <img src="{{user.profile_icon.url}}" />
     </div>
     <div class="user-info">
-      <h2></h2>
-      <p><span>Email: </span> {{user.email}}</p>
+      <h2>{{user.get_full_name}}</h2>
+      <p><span>Email: </span> {{user.email|default:"None provided"}}</p>
       <p><span>Profile Type: </span> {{user.user_type}}</p>
-      <p><span>About Me</span> {{user.bio}}</p>
+      <p><span>About Me</span> {{user.bio|default:"None provided"}}</p>
       <a id="edit-profile" class="btn" href="editProfile.html">Edit Profile</a>
     </div>
   </div>

@@ -53,6 +53,7 @@ html {
   width: 150px;
   height: 200px;
   object-fit: cover;
+  border-radius: 15px;
 }
 
 .user-info {
@@ -73,11 +74,11 @@ html {
   font-weight: 700;
   margin-right: 10px;
 }
-#edit-profile:hover{
+#edit-profile:hover {
   background-color: var(--btn-hover-effect-color);
   transition: 0.5s;
 }
-#edit-profile{
+#edit-profile {
   display: inline-block;
   width: 100%;
   border-radius: 15px;
