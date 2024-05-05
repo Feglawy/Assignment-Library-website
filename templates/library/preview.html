@@ -16,7 +16,7 @@
     <h5>Author</h5>
     <ul id="author">
       {% for author in book.authors.all %}
-      <li id="{{author.id}}">{{author.name}}</li>
+      <li id="{{author.id}}"><a href="{% url 'search' %}?search={{author.name}}&searchBy=author">{{author.name}}</a></li>
       {% endfor %}
     </ul>
     <h5>Type</h5>
@@ -28,7 +28,7 @@
     <h5>Genres</h5>
     <ul id="categories">
       {% for genre in book.genres.all %}
-      <li id="{{genre.id}}">{{genre.name}}</li>
+      <li id="{{genre.id}}"><a href="{% url 'search' %}?search={{genre.name}}&searchBy=genre">{{genre.name}}</a></li>
       {% endfor %}
     </ul>
     <h5>Language</h5>

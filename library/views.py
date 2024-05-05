@@ -18,8 +18,8 @@ def about(request):
     return render(request, 'library/about.html', context={'user': request.user})
 
 def search(request) -> HttpResponse:
-    search_input = request.GET.get('search-bar', '')
-    search_by = request.GET.get('search-by', '')
+    search_input = request.GET.get('search', '')
+    search_by = request.GET.get('searchBy', '')
 
     books = Book.objects.all()
 
