@@ -1,37 +1,36 @@
-{% extends "library/base.html" %} 
-{% load static %}
-
-{% block content %}
-    <div class="book-image">
-      <img id="bg-img" src="{{book.cover.url}}" />
-      <img id="preview-img" src="{{book.cover.url}}" />
-      <br />
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="book-image">
+  <img id="bg-img" src="{{book.cover.url}}" />
+  <img id="preview-img" src="{{book.cover.url}}" />
+  <br />
+</div>
+<div class="info-container">
+  <div id="info">
+    <h5>Author</h5>
+    <ul id="author">
+      {% for author in book.authors.all %}
+      <li id="{{author.id}}">{{author.name}}</li>
+      {% endfor %}
+    </ul>
+    <h5>Type</h5>
+    <div>
+      <ul id="types">
+        {{book.book_type}}
+      </ul>
     </div>
-    <div class="info-container">
-      <div id="info">
-        <h5>Author</h5>
-        <ul id="author">
-          {% for author in book.authors.all %}
-            <li id="{{author.id}}">{{author.name}}</li>
-          {% endfor %}
-        </ul>
-        <h5>Type</h5>
-        <div>
-          <ul id="types">{{book.book_type}}</ul>
-        </div>
-        <h5>genres</h5>
-        <ul id="categories">
-          {% for genre in book.genres.all %}
-            <li id="{{genre.id}}">{{genre.name}}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div id="name-description-container">
-        <div class="text">
-          <h1 id="book-name">{{book.title}}</h1>
-          <p id="book-description">{{book.desc}}</p>
-          <button id="borrow-btn">Borrow</button>
-        </div>
-      </div>
+    <h5>genres</h5>
+    <ul id="categories">
+      {% for genre in book.genres.all %}
+      <li id="{{genre.id}}">{{genre.name}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div id="name-description-container">
+    <div class="text">
+      <h1 id="book-name">{{book.title}}</h1>
+      <p id="book-description">{{book.desc}}</p>
+      <button id="borrow-btn">Borrow</button>
     </div>
+  </div>
+</div>
 {% endblock content %}
