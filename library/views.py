@@ -2,6 +2,8 @@ import requests
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse, HttpRequest, JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from .models import *
 import os
 # Create your views here.
@@ -32,18 +34,19 @@ def search(request) -> HttpResponse:
     searchHTML = loader.get_template('library/Search.html')
     return HttpResponse(searchHTML.render({'books': books, 'user':request.user}))
 
-
+@login_required
 def borrowed(request) -> HttpResponse:
     borrowedHTML = loader.get_template('library/BorrowedBooks.html')
     return HttpResponse(borrowedHTML.render({'user':request.user}))
 
-def available(request) -> HttpResponse:
-    availableHTML = loader.get_template('library/AvailableBooks.html')
-    return HttpResponse(availableHTML.render(context={'books':books, 'user':request.user}))
-
+@staff_member_required
 def update(request) -> HttpResponse:
     updateHTML = loader.get_template('library/UpdateBooks.html')
     return HttpResponse(updateHTML.render(context={'user':request.user}))
+
+def available(request) -> HttpResponse:
+    availableHTML = loader.get_template('library/AvailableBooks.html')
+    return HttpResponse(availableHTML.render(context={'books':books, 'user':request.user}))
 
 def preview(request, book_id) -> HttpResponse:
     previewHTML = loader.get_template('library/preview.html')

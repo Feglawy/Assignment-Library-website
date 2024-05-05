@@ -28,10 +28,15 @@ type="image/x-icon" />
   <ul class="pages">
     <li><a href="{% url "index" %}">Home</a></li>
     <li><a href="{% url "search" %}">Search</a></li>
-    <li><a href="{% url "borrowed" %}">Borrowed Books</a></li>
-    <li><a href="{% url "update" %}">Update Books</a></li>
+    {% if user.is_authenticated %}
+      <li><a href="{% url "borrowed" %}">Borrowed Books</a></li>
+      {% if user.is_admin %}
+        <li><a href="{% url "update" %}">Update Books</a></li>
+      {% endif %}
+    {% endif %}
     <li><a href="{% url "available" %}">Available Books</a></li>
     <li><a href="{% url "about" %}">About</a></li>
+
     {% if user.is_authenticated %}
       <li><a href="{% url "logout" %}">logout</a></li>
     {% else %}

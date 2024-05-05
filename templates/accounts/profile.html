@@ -1,0 +1,17 @@
+{% extends "library/base.html" %} {% load static %} {% block content %}
+<!-- user card form -->
+<div class="cont">
+  <div class="user-card">
+    <div class="user-card-img">
+      <img src="{{user.profile_icon.url}}" />
+    </div>
+    <div class="user-info">
+      <h2></h2>
+      <p><span>Email: </span> {{user.email}}</p>
+      <p><span>Profile Type: </span> {{user.user_type}}</p>
+      <p><span>About Me</span> {{user.bio}}</p>
+      <a id="edit-profile" class="btn" href="editProfile.html">Edit Profile</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}
