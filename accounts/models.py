@@ -11,7 +11,7 @@ class CustomUser(AbstractUser):
         (CUSTOMER, 'CUSTOMER')
     ]
 
-    profile_icon = models.ImageField(upload_to='profile_icons/', default='profile_icon/default.png', blank=True, null=True)
+    profile_icon = models.ImageField(upload_to='profile_icons/', default='profile_icons\default.png', blank=True, null=True)
     user_type = models.CharField(max_length=10, choices=USER_TYPES, default=CUSTOMER)
     bio = models.TextField(blank=True, null=True)
 

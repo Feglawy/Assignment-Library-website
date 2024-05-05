@@ -9,6 +9,7 @@ class LoginForm(AuthenticationForm):
 
         self.fields['username'].widget.attrs.update({
             'class': 'input',
+            'autocomplete' : "off",
             'id': 'inp-username',
             'placeholder': 'Enter your username'
         })
