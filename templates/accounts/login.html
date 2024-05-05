@@ -13,7 +13,7 @@ login
   <form method="post">
     {% csrf_token %}
   
-    <h1 class="info">Email</h1>
+    <h1 class="info">Username</h1>
     <!-- user name input box -->
     {{form.username}}
 
@@ -40,7 +40,9 @@ login
     <!-- login button -->
     <button type="submit" id="login-button" class="btn">Login</button>
     <!-- <button id="login-button" class="btn" >Login</button> -->
-    <a id="signup-button" class="btn" href="{% url "signup" %}">Sign Up</a>
+    <div id="signup">
+      <span>Don't have an account  </span><a href="{% url "signup" %}"> Create one</a>
+    </div>
   </form>
 </div>
 {% endblock content %}

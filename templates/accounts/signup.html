@@ -51,8 +51,9 @@ signup
 
     <!-- login button -->
     <button id="signup-button" class="btn">Sign Up</button>
-    <a id="signup-button" class="btn" href="{% url "login" %}">login</a>
-    <p id="have-account">already have an account?</p>
+    <div id="login">
+      <span>already have an account? </span><a href="{% url "login" %}"> login</a>
+    </div>
   </form>
   <script src="{% static "JS/login.js" %}"></script>
 </div>

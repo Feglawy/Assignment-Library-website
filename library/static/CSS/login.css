@@ -71,6 +71,11 @@
   text-align: center;
 }
 
+#signup {
+  margin: 10px;
+  color: white;
+}
+
 .errors {
   background-color: red;
   padding: 13px;
