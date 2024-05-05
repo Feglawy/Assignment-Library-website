@@ -1,9 +1,11 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %} {% load static %} 
+{% load book_filter %}
 
 {% block title %} 
 {{book.title}} 
 {% endblock title %} 
 
+{% block content %}
 <div class="book-image">
   <img id="bg-img" src="{{book.cover.url}}" />
   <img id="preview-img" src="{{book.cover.url}}" />
@@ -23,19 +25,31 @@
         {{book.book_type}}
       </ul>
     </div>
-    <h5>genres</h5>
+    <h5>Genres</h5>
     <ul id="categories">
       {% for genre in book.genres.all %}
       <li id="{{genre.id}}">{{genre.name}}</li>
       {% endfor %}
     </ul>
+    <h5>Language</h5>
+    <div>
+      <ul id="language">
+        {{book.language|get_human_readable_language}}
+      </ul>
+    </div>
   </div>
   <div id="name-description-container">
     <div class="text">
       <h1 id="book-name">{{book.title}}</h1>
-      <p id="book-description">{{book.desc}}</p>
-      <button id="borrow-btn">Borrow</button>
+      <p id="book-description" class="{{book.language}}-lang">{{book.desc}}</p>
+      {% if user.is_authenticated %}
+        <button id="borrow-btn">Borrow</button>
+      {% endif %}
     </div>
   </div>
 </div>
+
+<script>
+  
+</>
 {% endblock content %}

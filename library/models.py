@@ -30,6 +30,7 @@ class Author(models.Model):
     def __str__(self) -> str:
         return f"{self.name}"
 
+
 class Book(models.Model):
     title = models.CharField(max_length=255,null=False,unique=True)
     desc = models.TextField()
@@ -39,6 +40,14 @@ class Book(models.Model):
     genres = models.ManyToManyField(Genre)
     is_available = models.BooleanField(default=True)
 
+
+    LANGUAGES = [
+        ('en', 'English'),
+        ('ar', 'Arabic'),
+    ]
+    DEFAULT_LANGUAGE = 'en'
+
+    language = models.CharField(max_length=2, choices=LANGUAGES, default=DEFAULT_LANGUAGE)
 
     class Meta:
         verbose_name = ("Book")

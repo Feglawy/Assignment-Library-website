@@ -71,7 +71,8 @@
 
 #author,
 #types,
-#categories {
+#categories,
+#language {
   transition: 0.3s ease;
 }
 #info {
@@ -96,7 +97,8 @@
 }
 
 #author,
-#types {
+#types,
+#language {
   text-align: center;
   padding: 1vh;
   border-radius: 15px;
@@ -108,7 +110,8 @@
 
 #author:hover,
 #types:hover,
-#categories li:hover {
+#categories li:hover,
+#language:hover {
   background-color: var(--Green-color);
   transition: 0.5s ease;
   cursor: default;

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap"); /* "Madimi One font from google fonts" */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Madimi+One&family=Noto+Naskh+Arabic:wght@400..700&display=swap");
 
 :root {
   --dark-color: #222831;
@@ -34,6 +35,15 @@
   box-sizing: border-box;
   list-style: none;
   font-family: "Madimi One";
+}
+
+.en-lang {
+  font-family: "Madimi One";
+}
+
+.ar-lang {
+  font-family: "Noto Naskh Arabic";
+  direction: rtl;
 }
 
 button {
