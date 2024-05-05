@@ -30,7 +30,7 @@ def Login(request):
             user = form.get_user()
             login(request, user)
             print(f"{user.username} has logged in successfully")
-            return redirect('index')
+            return redirect('profile')
 
         else: # the form is invalid there is an issue/s
             for field, errors in form.errors.items():
