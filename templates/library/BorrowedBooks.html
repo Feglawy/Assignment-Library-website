@@ -16,6 +16,8 @@ Borrowed books
 <div class="books-section" id="borrowed-Books-section"></div>
 <div id="popup"></div>
 
-<!-- scripts -->
-<script type="module" src="{% static "JS/Books.js" %}" defer></script>
 {% endblock content %}
+
+{% block script %}
+<script type="module" src="{% static "JS/Books.js" %}" defer></script>
+{% endblock script %}

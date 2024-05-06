@@ -14,6 +14,7 @@
     <!-- the navigation bar container -->
     <div id="nav-container">{% include "navbar.html" %}</div>
 
-    {% block content%} {% endblock%}
+    {% block content%} {% endblock content %}
+    {% block script %}{% endblock script %}
   </body>
 </html>

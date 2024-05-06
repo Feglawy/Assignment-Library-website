@@ -19,8 +19,8 @@ Available Books
         <a class="previewButton" href="{{book.get_absolute_url}}">Details</a>
       </div>
     {% endfor %}
-</div>
   </div>
-  <script type="module" src="{% static "JS/Books.js" %}" defer></script>
 
 {% endblock content %}
+
+{% block script %}  <script type="module" src="{% static "JS/Books.js" %}" defer></script>{% endblock script %}
