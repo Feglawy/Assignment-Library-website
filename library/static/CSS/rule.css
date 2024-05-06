@@ -7,7 +7,7 @@
   --Green-color: #76abae;
   --white-color: #eeeeee;
 }
-.white-theme {
+.light-theme {
   --nav-bg-color: var(--dark-color);
   --text-color: black;
   --btn-bg-color: var(--dark-color);
@@ -35,6 +35,7 @@
   box-sizing: border-box;
   list-style: none;
   font-family: "Madimi One";
+  transition: all 0.2s;
 }
 
 .en-lang {

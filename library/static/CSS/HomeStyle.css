@@ -2,6 +2,86 @@ body {
   background-color: var(--body-bg-color);
 }
 
+.news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(255, 255, 255, 0.37);
+  max-width: 500px;
+  margin: auto;
+  margin-top: 18px;
+  margin-bottom: 20px;
+}
+
+.news h1 {
+  text-align: center;
+}
+.news p {
+  text-align: center;
+}
+
+/* The check box for changing theme */
+.container {
+  --color: #a5a5b0;
+  --size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--size);
+  user-select: none;
+  fill: var(--color);
+  margin: 30px;
+}
+
+.container .moon {
+  scale: 1.5;
+  animation: keyframes-fill 0.5s;
+}
+
+.container .sun {
+  scale: 1.5;
+  display: none;
+  animation: keyframes-fill 0.5s;
+}
+
+/* ------ On check event ------ */
+.container input:checked ~ .moon {
+  display: none;
+}
+
+.container input:checked ~ .sun {
+  display: block;
+}
+
+/* ------ Hide the default checkbox ------ */
+.container input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* ------ Animation ------ */
+@keyframes keyframes-fill {
+  0% {
+    transform: rotate(-360deg) scale(0);
+    opacity: 0;
+  }
+
+  75% {
+    transform: rotate(25deg);
+  }
+}
+/* The end of the change theme checkbox */
+
 .first-section {
   display: block;
   height: fit-content;

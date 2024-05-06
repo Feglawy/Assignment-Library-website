@@ -1,3 +1,23 @@
+const themeToggle = document.getElementById("theme-toggler");
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme === "dark" && themeToggle) {
+  themeToggle.checked = true;
+}
+
+function setTheme(theme) {
+  document.body.className = theme;
+  localStorage.setItem("theme", theme);
+}
+
+themeToggle.addEventListener("change", function () {
+  if (this.checked) {
+    setTheme("dark-theme");
+  } else {
+    setTheme("light-theme");
+  }
+});
+
 let loadingAnimation = document.getElementById("loading-animation");
 
 function removeLastAtSymbol(str) {

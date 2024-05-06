@@ -1,4 +1,16 @@
-document.body.classList.toggle("white-theme");
+const currentTheme = localStorage.getItem("theme");
+
+function setTheme(theme) {
+  document.body.className = theme;
+  localStorage.setItem("theme", theme);
+}
+
+if (currentTheme) {
+  setTheme(currentTheme);
+  if (currentTheme === "dark" && themeToggle) {
+    themeToggle.checked = true;
+  }
+}
 
 // change menu icon
 function ToggleMenu() {
@@ -14,7 +26,7 @@ function ToggleMenu() {
 
 // as soon as the window load it will do this function
 document.addEventListener("DOMContentLoaded", function () {
-  // --------- get the avtive page and add .active class to it ------------
+  // --------- get the active page and add .active class to it ------------
   const navbarElements = document.querySelectorAll(".pages");
 
   // Get the current URL path without query parameters
