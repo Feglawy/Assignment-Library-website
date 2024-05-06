@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import LoginForm, SignupForm
+from .forms import LoginForm, SignupForm, EditProfileForm
 
 
 
@@ -49,3 +49,20 @@ def Logout(request):
 @login_required
 def profile(request):
     return render(request, 'accounts/profile.html', context={'user':request.user})
+
+@login_required
+def EditProfile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, request.FILES, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field} : {error}")
+    else:
+        form = EditProfileForm(instance=request.user)
+    
+    return render(request, 'accounts/editProfile.html', context={'form': form, 'user':request.user})

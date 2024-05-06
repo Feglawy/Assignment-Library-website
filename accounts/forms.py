@@ -82,4 +82,11 @@ class SignupForm(UserCreationForm):
         model = CustomUser
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'user_type']
 
-        
+
+class EditProfileForm(forms.ModelForm):
+    def __ini__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = CustomUser
+        fields = ("profile_icon","first_name","last_name","email","bio","user_type")

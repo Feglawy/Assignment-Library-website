@@ -16,7 +16,7 @@
       <p><span>Email: </span> {{user.email|default:"None provided"}}</p>
       <p><span>Profile Type: </span> {{user.user_type}}</p>
       <p><span>About Me</span> {{user.bio|default:"None provided"}}</p>
-      <a id="edit-profile" class="btn" href="editProfile.html">Edit Profile</a>
+      <a id="edit-profile" class="btn" href="{% url "edit profile" %}">Edit Profile</a>
     </div>
   </div>
 </div>
