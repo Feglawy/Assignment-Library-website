@@ -38,27 +38,44 @@
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-#Search-by {
-  margin-top: 1rem;
+.search-by-container {
+  position: relative;
   display: flex;
-  justify-content: center;
-}
-#Search-by label {
-  margin: 1px;
-  display: flex;
-  align-items: center;
-}
-#Search-by h1 {
-  font-size: 28px;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #eee;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  width: 300px;
+  font-size: 14px;
+  margin: 10px;
 }
 
-#search-button {
-  margin-top: 20px;
+.search-by-container .radio {
+  flex: 1 1 auto;
+  text-align: center;
 }
-.radio {
+
+.search-by-container .radio input {
+  display: none;
+}
+
+.search-by-container .radio .name {
   display: flex;
+  cursor: pointer;
   align-items: center;
-  margin-left: 1vw;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 0;
+  color: rgba(51, 65, 85, 1);
+  transition: all 0.15s ease-in-out;
+}
+
+.search-by-container .radio input:checked + .name {
+  background-color: #fff;
+  font-weight: 600;
 }
 
 #results-text {

@@ -17,36 +17,20 @@ search
         placeholder="Search for a book..."
       />
     </div>
-    <div id="Search-by">
-      <h1>Search by</h1>
-      <div class="radio">
-        <input
-          type="radio"
-          name="searchBy"
-          id="search-by-title"
-          value="title"
-          checked="checked"
-        />
-        <label for="search-by-title">title</label>
-      </div>
-      <div class="radio">
-        <input
-          type="radio"
-          name="searchBy"
-          id="search-by-author"
-          value="author"
-        />
-        <label for="search-by-author">author</label>
-      </div>
-      <div class="radio">
-        <input
-          type="radio"
-          name="searchBy"
-          id="search-by-genre"
-          value="genre"
-        />
-        <label for="search-by-genre">genre</label>
-      </div>
+    <div class="search-by-container">
+      <label class="radio">
+        <input type="radio" name="searchBy" value="title" checked="" />
+        <span class="name">Title</span>
+      </label>
+      <label class="radio">
+        <input type="radio" name="searchBy" value="author" />
+        <span class="name">Author</span>
+      </label>
+
+      <label class="radio">
+        <input type="radio" name="searchBy" value="genre" />
+        <span class="name">Genre</span>
+      </label>
     </div>
     <button type="submit" class="btn" id="search-button">
       <i class="fa-solid fa-magnifying-glass"></i>
