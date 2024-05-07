@@ -86,7 +86,11 @@ class SignupForm(UserCreationForm):
 class EditProfileForm(forms.ModelForm):
     def __ini__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
+        self.fields['profile_icon'].widget.attrs.update({
+            'class' : 'image-input',
+            'type' : 'file',
+            'accept' : 'image/*',
+        })
     class Meta:
         model = CustomUser
         fields = ("profile_icon","first_name","last_name","email","bio","user_type")

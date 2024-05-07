@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'livereload',
     'django.contrib.staticfiles',
     'library.apps.LibraryConfig',
     'accounts.apps.AccountsConfig',
@@ -61,7 +62,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'accounts.middleware.RedirectAuthenticatedUsersMiddleware'
+    'accounts.middleware.RedirectAuthenticatedUsersMiddleware',
+    'livereload.middleware.LiveReloadScript',
 ]
 
 AUTHENTICATION_BACKENDS = [
