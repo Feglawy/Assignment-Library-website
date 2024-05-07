@@ -32,10 +32,10 @@ search
         <span class="name">Genre</span>
       </label>
     </div>
-    <button type="submit" class="btn" id="search-button">
+    {% comment %} <button type="submit" class="btn" id="search-button">
       <i class="fa-solid fa-magnifying-glass"></i>
       Search
-    </button>
+    </button> {% endcomment %}
   </div>
 </form>
 <div class="results">
@@ -59,3 +59,7 @@ search
   </div>
 </div>
 {% endblock content %}
+
+{% block script %}
+<script src="{% static "JS/search.js" %}"></script>
+{% endblock script %}
