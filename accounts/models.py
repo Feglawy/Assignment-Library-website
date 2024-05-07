@@ -1,7 +1,8 @@
-import os
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+import os
+from datetime import datetime
 
 class CustomUser(AbstractUser):
     ADMIN = 'admin'
@@ -21,10 +22,13 @@ class CustomUser(AbstractUser):
             self.is_staff = True
             self.is_superuser = True
 
+
         if self.profile_icon:
-            image_name, ext = os.path.splitext(self.profile_icon.name)
-            saved_image_name = f"{self.username}{ext}"
+            dir_path, file = os.path.split(self.profile_icon.name)
+            image_name, ext = os.path.splitext(file)
+            saved_image_name = f"{dir_path + "/" if dir_path else ""}{self.username}{ext}"
             self.profile_icon.name = saved_image_name
+
 
         super().save(*args, **kwargs)
 
