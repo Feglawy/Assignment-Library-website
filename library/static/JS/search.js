@@ -27,7 +27,6 @@ function add_search_results(results) {
       '<h1 style="text-align:center">Sorry the books you are searching for not found.</h1>';
   }
   results.forEach(function (res) {
-    console.log(res);
     result_section.innerHTML +=
       '<div class="book"> <img src="' +
       res.cover +

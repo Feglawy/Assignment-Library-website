@@ -1,22 +1,3 @@
-const currentTheme = localStorage.getItem("theme");
-
-function setTheme(theme) {
-  document.body.className = theme;
-  localStorage.setItem("theme", theme);
-}
-if (currentTheme === "auto") {
-  localStorage.setItem("theme", "light-theme");
-}
-
-if (currentTheme) {
-  setTheme(currentTheme);
-  if (currentTheme === "dark") {
-    themeToggle.checked = true;
-  }
-} else {
-  setTheme("light-theme");
-}
-
 // change menu icon
 function ToggleMenu() {
   let menuIcon = document.getElementById("menu");

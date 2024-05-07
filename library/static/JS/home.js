@@ -1,13 +1,3 @@
-const themeToggle = document.getElementById("theme-toggler");
-const currentTheme = localStorage.getItem("theme");
-
-if (currentTheme === "dark" && themeToggle) {
-  themeToggle.checked = true;
-}
-if (currentTheme === "light" || (currentTheme === "auto" && themeToggle)) {
-  themeToggle.checked = false;
-}
-
 function setTheme(theme) {
   document.body.className = theme;
   localStorage.setItem("theme", theme);
@@ -15,9 +5,9 @@ function setTheme(theme) {
 
 themeToggle.addEventListener("change", function () {
   if (this.checked) {
-    setTheme("light-theme");
+    setTheme("dark");
   } else {
-    setTheme("dark-theme");
+    setTheme("light");
   }
 });
 

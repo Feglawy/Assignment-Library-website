@@ -10,15 +10,36 @@
     <!-- css -->
     <link rel="stylesheet" href="{% static "website.css" %}" />
     <!-- page icon -->
-    <link rel="shortcut icon" href="{% static "Images/icons/storytelling.ico" %}"
-    type="image/x-icon" />
+    <link rel="shortcut icon" href="{% static "Images/icons/storytelling.ico"%}" type="image/x-icon" />
   </head>
-  <body id="home-body">
+  <body>
     <!-- the navigation bar container -->
     <div id="nav-container">{% include "navbar.html" %}</div>
     <div style="margin-top: 80px"></div>
 
-    {% block content%} {% endblock content %}
-    {% block script %}{% endblock script %}
+    {% block content%} {% endblock content %} 
+    {% block script %} {% endblock script %}
+    <script>
+      const themeToggle = document.getElementById("theme-toggler");
+      let currentTheme = localStorage.getItem("theme");
+
+      function setTheme(theme) {
+        document.body.className = theme;
+        localStorage.setItem("theme", theme);
+      }
+      if (currentTheme) {
+        setTheme(currentTheme);
+      }
+      else {
+        setTheme("light");
+      }
+
+      if (currentTheme === "dark" && themeToggle) {
+        themeToggle.checked = true;
+      }
+      if (currentTheme === "light" && themeToggle) {
+        themeToggle.checked = false;
+      }
+    </script>
   </body>
 </html>
