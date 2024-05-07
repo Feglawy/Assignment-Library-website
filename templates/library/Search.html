@@ -15,20 +15,21 @@ search
         name="search"
         id="search-bar"
         placeholder="Search for a book..."
+        oninput="search_the_db()"
       />
     </div>
     <div class="search-by-container">
       <label class="radio">
-        <input type="radio" name="searchBy" value="title" checked="" />
+        <input type="radio" name="searchBy" value="title" onchange="search_the_db()" checked="" />
         <span class="name">Title</span>
       </label>
       <label class="radio">
-        <input type="radio" name="searchBy" value="author" />
+        <input type="radio" name="searchBy" value="author" onchange="search_the_db()" />
         <span class="name">Author</span>
       </label>
 
       <label class="radio">
-        <input type="radio" name="searchBy" value="genre" />
+        <input type="radio" name="searchBy" value="genre"  onchange="search_the_db()"/>
         <span class="name">Genre</span>
       </label>
     </div>
