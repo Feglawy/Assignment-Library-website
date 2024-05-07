@@ -3,7 +3,7 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import LoginForm, SignupForm, EditProfileForm
-
+from .models import CustomUser
 
 
 def Signup(request):
@@ -58,6 +58,7 @@ def EditProfile(request):
         if form.is_valid():
             form.save()
             return redirect('profile')
+        
         else:
             for field, errors in form.errors.items():
                 for error in errors:
