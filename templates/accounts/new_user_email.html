@@ -4,9 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap");
+      * {
+        padding: 0;
+        color: white;
+        margin: 10px;
+        text-decoration: none;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: "Madimi One";
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        font-size: 25px;
+      }
+      h1 {
+        font-size: 50px;
+      }
+      h1 + p {
+        margin-top: 50px;
+      }
+      .message-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      body {
+        position: absolute;
+        /* Basic dimensions and centering */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Dark mode colors and gradient */
+        background: #121212; /* Fallback for browsers that don't support gradients */
+        background: linear-gradient(
+          135deg,
+          #121212 25%,
+          #1a1a1a 25%,
+          #1a1a1a 50%,
+          #121212 50%,
+          #121212 75%,
+          #1a1a1a 75%,
+          #1a1a1a
+        );
+        background-size: 40px 40px;
+
+        /* Animation */
+        animation: move 4s linear infinite;
+      }
+      @keyframes move {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 40px 40px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1 style="text-align: center">Welcome {{user.first_name}}</h1>
-    <p style="text-align: center">خش سخن رغيفين التموين يمتناك</p>
+    <div class="message-body">
+      <h1>Welcome {{user.first_name}}</h1>
+      <p>Welcome to our library website hope you find what you need.</p>
+      <p>You can find a variety of books in our available books page</p>
+      <p>
+        <cite
+          >“A reader lives a thousand lives before he dies. The man who never
+          reads lives only one.”</cite
+        >
+        ~ George R.R. Martin
+      </p>
+    </div>
   </body>
 </html>

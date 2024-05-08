@@ -3,19 +3,31 @@ from django.dispatch import receiver
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
 from .models import CustomUser
 import os
 
 
-
 @receiver(post_save, sender=CustomUser)
 def send_welcoming_email(sender, instance, created, **kwargs):
     if (not created): # checks if the user is created for the first time if not don't send the email
         return
-    ... # todo: send a welcome email to new signed users 
+    
+    user = instance
+    html_message = render_to_string(template_name='accounts/new_user_email.html',context={'user':user})
+    subject = "Welcome to our website"
+    email_from  = settings.EMAIL_HOST_USER
+    recipient_list = [instance.email]
+    email = EmailMessage(subject=subject, body=html_message, from_email=email_from, to=recipient_list)
+    email.content_subtype = 'html'
+
+    try:
+        email.send(fail_silently=False)
+    except Exception as e:
+        print(f"An error occurred while user signup: {e}")
+
 
 
 @receiver(pre_save, sender=CustomUser)
