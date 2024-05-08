@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
-
+import os
 
 class Genre(models.Model):
     name = models.CharField(max_length=255, null=False, unique=True)
@@ -34,7 +34,7 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=255,null=False,unique=True)
     desc = models.TextField()
-    cover = models.ImageField(upload_to='book_covers/', default='book_covers/default.png')
+    cover = models.ImageField(upload_to='book_covers/', default='book_covers/default.png', null=False)
     authors = models.ManyToManyField(Author)
     book_type = models.ForeignKey(Type, on_delete=models.CASCADE)
     genres = models.ManyToManyField(Genre)
@@ -59,6 +59,21 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse("preview", kwargs={"book_id": self.pk})
+
+    def save(self, *args, **kwargs):
+
+        if self.cover:
+            dir_path, file = os.path.split(self.cover.name)
+            image_name, ext = os.path.splitext(file)
+            
+            if image_name == "default": # checks if the image is the default one so it doesn't change it
+                super().save(*args, **kwargs)
+                return
+
+            saved_image_name = f"{dir_path + "/" if dir_path else ""}{self.title}{ext}"
+            self.cover.name = saved_image_name
+
+        super().save(*args,**kwargs)
 
 class RecommendedBooks(models.Model):
     book = models.OneToOneField(Book, on_delete=models.CASCADE, unique=True)

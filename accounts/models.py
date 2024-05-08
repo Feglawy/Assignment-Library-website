@@ -26,6 +26,11 @@ class CustomUser(AbstractUser):
         if self.profile_icon:
             dir_path, file = os.path.split(self.profile_icon.name)
             image_name, ext = os.path.splitext(file)
+            
+            if image_name == "default": # checks if the image is the default one so it doesn't change it
+                super().save(*args, **kwargs)
+                return
+            
             saved_image_name = f"{dir_path + "/" if dir_path else ""}{self.username}{ext}"
             self.profile_icon.name = saved_image_name
 

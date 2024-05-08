@@ -1,6 +1,8 @@
 @import url(rule.css);
 
-.loginForm {
+.loginForm,
+.signupForm,
+.edit-profile-form {
   width: 700px;
   margin: 200px auto; /* Adjust margin to create space around the form */
   background-color: var(--login-form-bg-color);

@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- page title -->
     <title>{% block title %}{% endblock title %}</title>
-
-    <!-- css -->
-    <link rel="stylesheet" href="{% static "website.css" %}" />
     <!-- page icon -->
     <link rel="shortcut icon" href="{% static "Images/icons/storytelling.ico"%}" type="image/x-icon" />
+    
+    <!-- css -->
+    <link rel="stylesheet" href="{% static "website.css" %}" />
+    {% block style %}
+    {% endblock style %}
   </head>
   <body>
     <!-- the navigation bar container -->

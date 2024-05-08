@@ -1,6 +1,6 @@
 {% extends "base.html" %} 
 {% load static %}
-
+{% load widget_tweaks %}
 {% block title %} 
 signup 
 {% endblock title %} 
@@ -8,41 +8,42 @@ signup
 
 {% block content %} 
 <!-- signup form -->
-<div class="loginForm" id="signupForm">
+<div class="signupForm" id="signupForm">
   <form method="post">
     {% csrf_token %}
 
     <h1 class="info">Fullname</h1>
     <div id="fullname">
-      {{form.first_name}}
-      {{form.last_name}}
+      {% render_field form.first_name class="input" id="first-name-inp" placeholder="First name" required="on" %}
+      {% render_field form.last_name class="input" id="last-name-inp" placeholder="Last name" %}
     </div>
 
     <h1 class="info">Username</h1>
-    {{form.username}}
+    {% render_field form.username class="input" id="inp-username" placeholder="Enter your username" required="on"%}
 
     <h1 class="info">Email</h1>
     <!-- Email input box -->
-    {{form.email}}
+    {% render_field form.email class="input" id="inp-email" placeholder="Enter your email" required="on"%}
 
     <h1 class="info">Password</h1>
     <!-- password container for the password input and show pass -->
     <div id="password-container">
       <!-- password input box -->
-      {{form.password1}}
+      {% render_field form.password1 class="input" id="inp-pass" placeholder="Enter your password" required="on"%}
       <!-- Show password click -->
       <div id="show-pass" onclick="ShowPassword()">
         <i class="fa-regular fa-eye" id="visibility"></i>
       </div>
     </div>
-    {{form.password2}}
+    {% render_field form.password2 class="input" id="confirm-inp-pass" placeholder="Confirm your password" required="on"%}
+
     <div id="Authority">
       <label class="Admin" for="user_type" style="text-align: center;padding: 10px;">Authority</label>
-      {{form.user_type}}
+      {% render_field form.user_type class="input" id="inp-user-type" required="on"%}
     </div>
 
     {% if  messages%}
-      <ul class="errors">
+      <ul class="errors" style="text-align:center">
         {% for error in messages %}
           <li>{{error}}</li>
         {% endfor %}

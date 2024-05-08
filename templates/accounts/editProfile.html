@@ -1,10 +1,78 @@
-{% extends "base.html" %} {% load static %} {% block title %}
-{{user.first_name}}'s profile {% endblock title %} {% block content %}
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %} {% comment %} {{ form.as_p }} {% endcomment %}
-  {{form.profile_icon}} {{form.first_name}} {{form.last_name}} {{form.email}}
-  {{form.bio}} {{form.user_type}}
+{% extends "base.html" %} {% load static %} 
 
-  <button type="submit">Save Changes</button>
-</form>
+{% load widget_tweaks %}
+
+{% block title %}
+{{user.first_name}}'s profile 
+{% endblock title %} 
+
+{% block style %}
+<style>
+  #inp-user-bio {
+    width: 600px;
+    height: 72px;
+  }
+  .edit-profile-img {
+    display: flex;
+    justify-content: center;
+  }
+  #preview-profile-img {
+    border-radius:15px; 
+    width: 200px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+</style>
+{% endblock style %} 
+
+{% block content %}
+<div class="edit-profile-form" style="padding: 50px;margin-top: 100px;">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="edit-profile-img">
+      <img src="{{user.profile_icon.url}}" alt="profile icon" id="preview-profile-img" style="" onclick="document.getElementById('profile-img-upload').click();">  
+    </div>
+    
+    <div id="img-upload-input" style="display:none">
+      {% render_field form.profile_icon class="upload" id="profile-img-upload"%}
+    </div>
+    <h1 class="info">Fullname</h1>
+    <div id="fullname">
+      {% render_field form.first_name class="input" id="first-name-inp" placeholder="First name" required="on" %}
+      {% render_field form.last_name class="input" id="last-name-inp" placeholder="Last name" %}
+    </div>
+    <h1 class="info">Email</h1>
+    <!-- Email input box -->
+    {% render_field form.email class="input" id="inp-email" placeholder="Enter your email" required="on"%}
+
+    <div id="Authority">
+      <label class="Admin" for="user_type" style="text-align: center;padding: 10px;">Authority</label>
+      {% render_field form.user_type class="input" id="inp-user-type" required="on"%}
+    </div>
+    
+    <h1 class="info">bio</h1>
+    {% render_field form.bio class="input" id="inp-user-bio" placeholder="Enter your bio here"%}
+
+    <button type="submit" style="display: flex;">Save Changes</button>
+  </form>
+</div>
 {% endblock content %}
+
+{% block script %}
+<script>
+  document.querySelector("#profile-img-upload").addEventListener("change", function () {
+    const file = this.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const imgElement = document.querySelector("#preview-profile-img"); //To display the book's cover
+      imgElement.src = e.target.result;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
+{% endblock script %}

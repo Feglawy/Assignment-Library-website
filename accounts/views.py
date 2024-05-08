@@ -16,7 +16,7 @@ def Signup(request):
         else: # the form is invalid there is an issue/s
             for field, errors in form.errors.items():
                 for error in errors:
-                    messages.error(request, f"{field} : {error}")
+                    messages.error(request, f"{error}")
         
     else: # the user method is get  
         form = SignupForm()
@@ -35,7 +35,7 @@ def Login(request):
         else: # the form is invalid there is an issue/s
             for field, errors in form.errors.items():
                 for error in errors:
-                    messages.error(request, f"{field} : {error}")
+                    messages.error(request, f"{error}")
 
     else: # the user method is get  
         form = LoginForm()

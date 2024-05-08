@@ -1,6 +1,7 @@
 {% extends "base.html" %} 
 {% load static %}
 
+{% load widget_tweaks %}
 
 {% block title %} 
 login 
@@ -15,13 +16,13 @@ login
   
     <h1 class="info">Username</h1>
     <!-- user name input box -->
-    {{form.username}}
+    {% render_field form.username class="input" id="inp-username" autocomplete="off" placeholder="Enter your name"%}
 
     <h1 class="info">Password</h1>
     <!-- password container for the password input and show pass -->
     <div id="password-container">
       <!-- password input box -->
-      {{form.password}}
+      {% render_field form.password class="input" id="inp-pass" placeholder="Enter your password" %}
     
       <!-- Show password click -->
       <div id="show-pass" onclick="ShowPassword()">
