@@ -20,7 +20,11 @@ Assignment web 2024
 
 6. install the requirements
    - `pip install -r ./requirements.txt`
-7. run the server
+7. add the variables to the .env file see `.evn-example` file
+   1. create a `.env` file then add your variables
+   2. if you added on and used it in the project add the variable you used to the `.env-example` file to let us know
+
+8. run the server
 
 - `python manage.py runserver`
 
@@ -49,8 +53,9 @@ Assignment web 2024
 ### phase 3 backend
 
 - [x] django app structure
+- [ ] dark theme
 - [ ] make the database
-  - [ ] users database
+  - [x] users database
   - [x] books database
   - [x] authors database
   - [x] geners database
