@@ -31,7 +31,6 @@
   text-align: center;
   font-size: 25px;
   padding: 5px;
-  padding-bottom: 200px;
 }
 #Team-members ul li {
   padding: 4px;
@@ -45,10 +44,10 @@
   cursor: default;
 }
 .end {
-  position: fixed;
-  bottom: 0;
+  /* position: fixed;
+  bottom: 0; */
   text-align: center;
-  background-color: #f1efef;
+  /* background-color: #f1efef; */
   width: 100%;
 }
 
