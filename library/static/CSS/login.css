@@ -93,7 +93,9 @@
   .input {
     font-size: 18px;
   }
-  .loginForm {
+  .loginForm,
+  .signupForm,
+  .edit-profile-form {
     padding: 50px;
     width: 90%;
   }

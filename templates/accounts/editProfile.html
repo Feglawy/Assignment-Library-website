@@ -9,7 +9,7 @@
 {% block style %}
 <style>
   #inp-user-bio {
-    width: 600px;
+    width: calc(100% - 10px);
     height: 72px;
   }
   .edit-profile-img {
@@ -21,6 +21,10 @@
     width: 200px;
     object-fit: cover;
     cursor: pointer;
+    margin: 10px;
+  }
+  #inp-user-type {
+    margin-right: 10px;
   }
 </style>
 {% endblock style %} 
