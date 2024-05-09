@@ -21,12 +21,19 @@ Assignment web 2024
 6. install the requirements
    - `pip install -r ./requirements.txt`
 7. add the variables to the .env file see `.evn-example` file
+
    1. create a `.env` file then add your variables
    2. if you added on and used it in the project add the variable you used to the `.env-example` file to let us know
 
 8. run the server
 
 - `python manage.py runserver`
+
+9. run the server on any local device
+
+- `python manage.py runsever 0.0.0.0:8000`
+
+if there was any firewall problems allow the port 8000 by adding the rule in the firewall settings
 
 ### phase 1 html
 
@@ -45,8 +52,10 @@ Assignment web 2024
 
 ### phase 2 js and css
 
-- [ ] make the password and confirm pass if they don't match make a pop up to tell the user the passwords should be the same
-- [ ] make the local and session storage
+- [x] make the password and confirm pass if they don't match make a pop up to tell the user the passwords should be the same
+  - visualized it in the form
+- [x] make the local and session storage
+  - i've made local storage for the theme toggler
 
 ---
 
@@ -61,8 +70,8 @@ Assignment web 2024
   - [x] geners database
   - [x] types database
   - [ ] borrowed books database
-
-...
+- [ ] admin's update books page
+      ...
 
 ---
 

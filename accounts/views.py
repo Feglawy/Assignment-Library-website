@@ -6,6 +6,9 @@ from .forms import LoginForm, SignupForm, EditProfileForm
 from .models import CustomUser
 
 
+def accounts(requests):
+    return redirect('profile')
+
 def Signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)

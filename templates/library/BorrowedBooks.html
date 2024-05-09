@@ -13,7 +13,20 @@ Borrowed books
     <h2 id="user-name">{{user.get_full_name|default:"not Found"}}</h2>
 </div>
 <!-- books section -->
-<div class="books-section" id="borrowed-Books-section"></div>
+<div class="books-section" id="borrowed-Books-section">
+  {% for book in books %}
+    <div class="book">
+      <img src="{{book.cover.url}}" alt="{{book.id}}" />
+      <h5 class="name">{{book.title}}</h5>
+      <button class="remove-borrowed-book" type="button">\u00D7</button>
+      <button class="Borrowed" type="button">Borrowed</button>
+      <a class="previewButton" href="{{book.get_absolute_url}}">Details</a>
+    </div>
+  {% endfor %}
+  {% if not books %}
+    <h1 id="no-borrow-books">Looks like you haven't borrowed any books yet.</h1>
+  {% endif %}
+</div>
 <div id="popup"></div>
 
 {% endblock content %}
