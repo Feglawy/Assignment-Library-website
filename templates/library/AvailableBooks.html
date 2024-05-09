@@ -11,7 +11,7 @@ Available Books
   <div class="books-section" id="available-books-section">
     {% for book in books %}
       <div class="book">
-        <img src="{{book.cover.url}}" alt="{{book.id}}" />
+        <img src="{{book.cover.url}}" alt="{{book.title}}" />
         <h5 class="name">{{book.title}}</h5>
         {% if user.is_authenticated %}
         <button class="Borrow" type="button">Borrow</button>

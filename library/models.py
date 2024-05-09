@@ -58,7 +58,7 @@ class Book(models.Model):
         return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse("preview", kwargs={"book_id": self.pk})
+        return reverse("preview", kwargs={"book_title": self.title})
 
     def save(self, *args, **kwargs):
 

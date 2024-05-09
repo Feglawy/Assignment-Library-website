@@ -51,9 +51,9 @@ def available(request) -> HttpResponse:
 
     return HttpResponse(availableHTML.render(context={'books':books, 'user':request.user}))
 
-def preview(request, book_id) -> HttpResponse:
+def preview(request, book_title) -> HttpResponse:
     previewHTML = loader.get_template('library/preview.html')
-    book = Book.objects.get(pk=book_id)
+    book = Book.objects.get(title=book_title)
     return HttpResponse(previewHTML.render({'book':book, 'user':request.user}))
 
 #_______________________________________________________________

@@ -56,11 +56,11 @@ Online Library website
   <div id="recommended-section">
     {% for rec in recommended %}
       <div class="book">
-        <img src="{{rec.book.cover.url}}" alt="{{rec.book.id}}" />
+        <img src="{{rec.book.cover.url}}" alt="{{rec.book.title}}" />
         <h5 class="name">
           {{rec.book.title}}
         </h5>
-        <a class="previewButton" book-id="{{rec.book.id}}" href="{{rec.book.get_absolute_url}}">Details</a>
+        <a class="previewButton" href="{{rec.book.get_absolute_url}}">Details</a>
       </div>
     {% endfor %}
   </div>

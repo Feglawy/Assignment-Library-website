@@ -46,11 +46,11 @@ search
 
     {% for res in books %}
       <div class="book">
-        <img src="{{res.cover.url}}" alt="{{res.id}}" />
+        <img src="{{res.cover.url}}" alt="{{res.title}}" />
         <h5 class="name">
           {{res.title}}
         </h5>
-        <a class="previewButton" book-id="{{res.id}}" href="{{res.get_absolute_url}}">Details</a>
+        <a class="previewButton" href="{{res.get_absolute_url}}">Details</a>
       </div>
     {% endfor %}
 
