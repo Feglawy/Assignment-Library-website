@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'rest_framework', 
     'library.apps.LibraryConfig',
     'accounts.apps.AccountsConfig',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
     'widget_tweaks',
 ]
 

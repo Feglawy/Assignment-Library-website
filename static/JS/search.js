@@ -2,7 +2,7 @@ function search_the_db() {
   let search_bar = document.getElementById("search-bar");
   let search_by = document.querySelector('input[name="searchBy"]:checked');
   fetch(
-    "/searchAPI/?search=" + search_bar.value + "&searchBy=" + search_by.value,
+    "/api/search/?search=" + search_bar.value + "&searchBy=" + search_by.value,
     {
       headers: {
         "X-Requested-With": "XMLHttpRequest",
