@@ -15,9 +15,16 @@
       <h2>{{user.get_full_name}}</h2>
       <p><span>Email: </span> {{user.email|default:"None provided"}}</p>
       <p><span>Profile Type: </span> {{user.user_type}}</p>
-      <p><span>About Me</span> {{user.bio|default:"None provided"}}</p>
+      <p id="user-bio" style="text-align:center;margin-top:5px;"><span>About Me</span> <br> {{user.bio|default:"None provided"}}</p>
       <a id="edit-profile" class="btn" href="{% url "edit profile" %}">Edit Profile</a>
     </div>
   </div>
 </div>
 {% endblock content %}
+
+{% block script %}
+  <script>
+    let user_bio = document.getElementById('user-bio');
+    user_bio.innerHTML = user_bio.innerHTML.replaceAll('\n', '<br>');
+  </script>
+{% endblock script %}
