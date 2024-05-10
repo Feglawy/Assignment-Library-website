@@ -13,8 +13,10 @@ Available Books
       <div class="book">
         <img src="{{book.cover.url}}" alt="{{book.title}}" />
         <h5 class="name">{{book.title}}</h5>
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated and book.is_available %}
         <button class="Borrow" type="button">Borrow</button>
+        {% elif not book.is_available %}
+        <button class="Borrow" type="button" style="background-color:red;">Out of stock</button>
         {% endif %}
         <a class="previewButton" href="{{book.get_absolute_url}}">Details</a>
       </div>

@@ -31,7 +31,7 @@
         <li><a href="{% url "update" %}">Update Books</a></li>
       {% endif %}
     {% endif %}
-    <li><a href="{% url "available" %}">Available Books</a></li>
+    <li><a href="{% url "available" %}">Books</a></li>
     <li><a href="{% url "about" %}">About</a></li>
 
     {% if user.is_authenticated %}
@@ -39,11 +39,13 @@
       
   </ul>
   <div class="profile">
-          <img
-            src="{{user.profile_icon.url}}"
-            alt="Profile"
-            class="profile-icon"
-          />
+          <a href="{% url "profile" %}">
+            <img
+              src="{{user.profile_icon.url}}"
+              alt="Profile"
+              class="profile-icon"
+            />
+          </a>
           <div class="dropdown-content">
             <a href="{% url "profile" %}">Profile</a>
             <a href="{% url "edit profile" %}">Edit Profile</a>

@@ -23,13 +23,8 @@ load_dotenv(DOTENV_PATH)
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_DIRS = [
-    os.path.join(BASE_DIR, 'library/static'),
-    os.path.join(BASE_DIR, 'accounts/static'),
-]
 
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -43,7 +38,7 @@ SECRET_KEY = 'django-insecure-@)hvoi3r__%%3h(a5^!e662u75u1c%w&)pms@u)1384vm@35l*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.8', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -144,7 +139,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATICFILES_DIRS = [STATIC_DIR, STATIC_URL]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+# STATIC_DIRS = [
+#     STATIC_DIR,
+#     os.path.join(BASE_DIR, 'library/static'),
+#     os.path.join(BASE_DIR, 'accounts/static'),
+# ]
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
