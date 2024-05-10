@@ -51,8 +51,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     # 'livereload',
     'django.contrib.staticfiles',
+    'rest_framework', 
     'library.apps.LibraryConfig',
     'accounts.apps.AccountsConfig',
+    'api.apps.ApiConfig'
     'widget_tweaks',
 ]
 
