@@ -21,7 +21,7 @@ function removeLastAtSymbol(str) {
   return str;
 }
 
-fetch("random/quote/")
+fetch("api/random/quote/")
   .then((response) => response.json())
   .then((data) => {
     // hide the animation

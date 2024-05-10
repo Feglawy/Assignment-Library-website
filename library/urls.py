@@ -9,6 +9,4 @@ urlpatterns = [
     path('books/', views.available, name="available"),
     path('update-books/', views.update, name="update"),
     path('book/<str:book_title>/', views.preview, name="preview"),
-    path('random/quote/', views.random_quote, name="quote"),
-    path('searchAPI/', views.SearchBooksAPI.as_view(), name="search api"),
 ]

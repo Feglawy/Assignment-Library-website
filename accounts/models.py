@@ -22,6 +22,10 @@ class CustomUser(AbstractUser):
             self.is_staff = True
             self.is_superuser = True
 
+        else:
+            self.is_staff = False
+            self.is_superuser = False
+
 
         if self.profile_icon:
             dir_path, file = os.path.split(self.profile_icon.name)

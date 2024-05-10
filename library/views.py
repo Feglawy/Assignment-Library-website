@@ -57,49 +57,4 @@ def preview(request, book_title) -> HttpResponse:
     book = Book.objects.get(title=book_title)
     return HttpResponse(previewHTML.render({'book':book, 'user':request.user}))
 
-#_______________________________________________________________
-# end point using https://github.com/Sumansourabh14/recite api 
-def random_quote(request) -> JsonResponse:
-    try:
-        response = requests.get("https://stoic.tekloon.net/stoic-quote")
-        response.raise_for_status()
-
-        # Parse the JSON response
-        quote_data = response.json()
-
-        response_data = {
-            "quote": quote_data["quote"],
-            "author": quote_data["author"],
-        }
-        return JsonResponse(response_data)
     
-    except requests.RequestException as e:
-        return JsonResponse({"error": str(e)}, status=500)
-    
-class SearchBooksAPI(View):
-    def get(self, request):
-        try:
-            books = Book.objects.all()
-
-            search_query = request.GET.get('search', '')
-            search_by_query = request.GET.get('searchBy', '')
-
-            results = []
-
-            if search_query and search_by_query:
-                if search_by_query == 'title':
-                    books = books.filter(title__icontains=search_query)
-                elif search_by_query == 'author':
-                    books = books.filter(authors__name__icontains=search_query)
-                elif search_by_query == 'genre':
-                    books = books.filter(genres__name__icontains=search_query)
-                elif search_by_query == 'language':
-                    books = books.filter(language__icontains=search_query)
-                elif search_by_query == 'available':
-                    books = books.filter(is_available=1)
-            
-            results = [{"pk":book.pk,"title": book.title, "cover": book.cover.url, "url":book.get_absolute_url()} for book in books]
-            return JsonResponse(results, safe=False)
-        
-        except requests.RequestException as e:
-            return JsonResponse({"error": str(e)})
