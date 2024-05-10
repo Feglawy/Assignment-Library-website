@@ -51,6 +51,7 @@
   width: 500px;
   max-width: 80%;
   overflow-y: auto;
+  max-height: 700px;
 }
 
 .modal.active {
@@ -97,7 +98,6 @@
   justify-content: center;
 }
 
-
 #overlay-modal {
   position: fixed;
   opacity: 0;
@@ -116,7 +116,10 @@
 }
 
 .bookform {
-  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .book-info {
@@ -127,7 +130,6 @@
 }
 
 .book-input {
-  width: 70%;
   outline: none;
   border: none;
   background: none;
@@ -145,10 +147,10 @@
   cursor: pointer;
   position: relative;
   box-shadow: 0.04px 6.8px 8px hsla(0, 40%, 30%, 0.5);
+  text-align: center;
 }
 
 #imagePreview img {
-  height: 400px;
   width: calc(400px * 0.7032967033);
   object-fit: cover;
   border-radius: 15px;

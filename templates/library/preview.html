@@ -1,8 +1,9 @@
-{% extends "base.html" %} {% load static %} 
-{% load book_filter %}
+{% extends "base.html" %} 
+{% load static %} 
+{% load book_filter %} 
 
 {% block title %} 
-{{book.title}} 
+  {{book.title}} 
 {% endblock title %} 
 
 {% block content %}
@@ -16,7 +17,11 @@
     <h5>Author</h5>
     <ul id="author">
       {% for author in book.authors.all %}
-      <li id="{{author.id}}"><a href="{% url 'search' %}?search={{author.name}}&searchBy=author">{{author.name}}</a></li>
+      <li id="{{author.id}}">
+        <a href="{% url 'search' %}?search={{author.name}}&searchBy=author"
+          >{{author.name}}</a
+        >
+      </li>
       {% endfor %}
     </ul>
     <h5>Type</h5>
@@ -28,7 +33,11 @@
     <h5>Genres</h5>
     <ul id="categories">
       {% for genre in book.genres.all %}
-      <li id="{{genre.id}}"><a href="{% url 'search' %}?search={{genre.name}}&searchBy=genre">{{genre.name}}</a></li>
+      <li id="{{genre.id}}">
+        <a href="{% url 'search' %}?search={{genre.name}}&searchBy=genre"
+          >{{genre.name}}</a
+        >
+      </li>
       {% endfor %}
     </ul>
     <h5>Language</h5>
@@ -42,14 +51,14 @@
     <div class="text">
       <h1 id="book-name">{{book.title}}</h1>
       <p id="book-description" class="{{book.language}}-lang">{{book.desc}}</p>
-      {% if user.is_authenticated %}
-        <button id="borrow-btn">Borrow</button>
+      {% if user.is_authenticated and book.is_available %}
+      <button class="Borrow" type="button" id="borrow-btn">Borrow</button>
+      {% elif not book.is_available %}
+      <button class="Borrow" type="button" id="borrow-btn" style="background-color: red">
+        Out of stock
+      </button>
       {% endif %}
     </div>
   </div>
 </div>
-
-<script>
-  
-</>
 {% endblock content %}
