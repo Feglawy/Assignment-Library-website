@@ -35,7 +35,7 @@ class CustomUser(AbstractUser):
                 super().save(*args, **kwargs)
                 return
             
-            saved_image_name = f"{dir_path + "/" if dir_path else ""}{self.username}{ext}"
+            saved_image_name = f"{dir_path + "/" if dir_path else ""}{self.username.replace(' ', '_')}{ext}"
             self.profile_icon.name = saved_image_name
 
 
