@@ -67,5 +67,6 @@
   <script>
     let book_desc = document.getElementById('book-description');
     book_desc.innerHTML = book_desc.innerHTML.replaceAll('\n', '<br>');
+    book_desc.innerHTML = book_desc.innerHTML.replaceAll('\\r\\n', '<br>');
   </script>
 {% endblock script %}
