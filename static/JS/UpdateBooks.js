@@ -1,4 +1,4 @@
-import { bookMap } from "./AvailableBooks.js";
+// import { bookMap } from "./AvailableBooks.js";
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   let booksSection = document.getElementById("Update-books-section");

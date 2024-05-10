@@ -33,8 +33,8 @@ fetch("random/quote/")
     // adding the quote data to the html page
     document.getElementById("quote").innerHTML = `
                     <blockquote>
-                        <p>“${quote}”</p>
-                        <footer>author : ${data.author}</footer>
+                        <p><cite>“${quote}”</cite></p>
+                         ~ ${data.author}
                     </blockquote>
                 `;
   })

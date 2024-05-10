@@ -70,7 +70,7 @@ class Book(models.Model):
                 super().save(*args, **kwargs)
                 return
 
-            saved_image_name = f"{dir_path + "/" if dir_path else ""}{self.title}{ext}"
+            saved_image_name = f"{dir_path + "\\" if dir_path else ""}{self.title}{ext}"
             self.cover.name = saved_image_name
 
         super().save(*args,**kwargs)

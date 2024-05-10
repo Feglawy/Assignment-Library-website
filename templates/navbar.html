@@ -39,11 +39,13 @@
       
   </ul>
   <div class="profile">
-          <img
-            src="{{user.profile_icon.url}}"
-            alt="Profile"
-            class="profile-icon"
-          />
+          <a href="{% url "profile" %}">
+            <img
+              src="{{user.profile_icon.url}}"
+              alt="Profile"
+              class="profile-icon"
+            />
+          </a>
           <div class="dropdown-content">
             <a href="{% url "profile" %}">Profile</a>
             <a href="{% url "edit profile" %}">Edit Profile</a>

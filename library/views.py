@@ -43,12 +43,13 @@ def borrowed(request) -> HttpResponse:
 @staff_member_required
 def update(request) -> HttpResponse:
     updateHTML = loader.get_template('library/UpdateBooks.html')
-    return HttpResponse(updateHTML.render(context={'user':request.user}))
+    books = Book.objects.all()
+    return HttpResponse(updateHTML.render(context={'books':books,'user':request.user}))
 
 def available(request) -> HttpResponse:
     availableHTML = loader.get_template('library/AvailableBooks.html')
     books = Book.objects.all()
-
+    books = books.filter(is_available=True)
     return HttpResponse(availableHTML.render(context={'books':books, 'user':request.user}))
 
 def preview(request, book_title) -> HttpResponse:

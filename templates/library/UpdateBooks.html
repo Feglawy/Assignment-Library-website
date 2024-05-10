@@ -1,87 +1,100 @@
+
 {% extends "base.html" %} 
-{% load static %}
-
-{% block title %} 
+{% load static %} 
+{% block title %}
 Update Books 
-{% endblock title %} 
+{% endblock title %}
 
-{% block content %} 
+{% block content %}
 <!-- main page body -->
 <div class="Update-books-main">
   <div class="user">
     <h1>Hello!</h1>
     <h2 id="user-name">{{user.get_full_name|default:"not Found"}}</h2>
-    <button class="btn" id="add-new" data-modal-target="#modal">Add new book</button>
+    <button class="btn" id="add-new" data-modal-target="#modal">
+      Add new book
+    </button>
   </div>
-    <!-- add new book button -->
-<!-- HTML -->
-<div class="books-section" id="Update-books-section"></div>
-<div id="popup"></div>
-<!-- POPUP -->
-<div class="modal" id="modal">
-<div class="modal-header">
-  <div class="insertInfo">Enter the book information</div>
-  <button data-close-btn class="closeBtn">&times;</button>
-</div>
-<div class="modal-body">
-  <div class="bookform">
-    <label for="uploadInput" id="imagePreview">
-      <img id="uploadedImage" src="#" alt="Upload book Cover">
-      <input type="file" id="uploadInput" accept="image/*">
-    </label>
-    <h5 class="book-info">Book's Title</h5>
-    <input type="title"
-    placeholder="Enter the book's title...."
-    class="book-input"
-    required>
-    <h5 class="book-info">Author</h5>
-    <input type="author"
-    placeholder="Enter Author's name...." 
-    class="book-input"
-    >
-    <h5 class="book-info">Book's description</h5>
-    <input type="description"
-    placeholder="Enter book description...."
-    class="book-input"
-    >
-    <h5 class="book-info">Book's Type</h5>
-    <input type="type" 
-    placeholder="Enter the book's type...."
-    class="book-input"
-    >
-    <button id="Submit-book">Submit</button>
+    <div class="books-section" id="Update-books-section"></div>
+    <div id="popup"></div>
+    <!-- POPUP -->
+
+    <form action="" method="post">
+      <div class="modal" id="modal">
+        <div class="modal-header">
+          <div class="insertInfo">Enter the book information</div>
+          <button data-close-btn class="closeBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="bookform">
+            <label for="uploadInput" id="imagePreview">
+              <img id="uploadedImage" src="#" alt="Upload book Cover" />
+              <input type="file" id="uploadInput" accept="image/*" />
+            </label>
+            <h5 class="book-info">Book's Title</h5>
+            <input
+              type="title"
+              placeholder="Enter the book's title...."
+              class="book-input"
+              required
+            />
+            <h5 class="book-info">Author</h5>
+            <input
+              type="author"
+              placeholder="Enter Author's name...."
+              class="book-input"
+            />
+            <h5 class="book-info">Book's description</h5>
+            <input
+              type="description"
+              placeholder="Enter book description...."
+              class="book-input"
+            />
+            <h5 class="book-info">Book's Type</h5>
+            <input
+              type="type"
+              placeholder="Enter the book's type...."
+              class="book-input"
+            />
+            <button id="Submit-book">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form action="" method="post">
+      <!-- Edit popup -->
+      <div class="modal" id="edit-modal">
+        <div class="modal-header">
+          <div class="insertInfo">Edit Book Information</div>
+          <button data-close-btn class="closeBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="bookform">
+            <label for="edit-uploadInput" id="edit-imagePreview">
+              <img id="edit-uploadedImage" src="#" alt="Upload book Cover" />
+              <input type="file" id="edit-uploadInput" accept="image/*" />
+            </label>
+            <h5 class="book-info">Book's Title</h5>
+            <input
+              type="title"
+              id="edit-book-title"
+              class="book-input"
+              required
+            />
+            <button id="save-edit">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div id="overlay-modal"></div>
   </div>
 </div>
 </div>
-<div id="overlay-modal"></div>
-
-<!-- Edit popup -->
-<div class="modal" id="edit-modal">
-<div class="modal-header">
-  <div class="insertInfo">Edit Book Information</div>
-  <button data-close-btn class="closeBtn">&times;</button>
-</div>
-<div class="modal-body">
-  <div class="bookform">
-    <label for="edit-uploadInput" id="edit-imagePreview">
-      <img id="edit-uploadedImage" src="#" alt="Upload book Cover">
-      <input type="file" id="edit-uploadInput" accept="image/*">
-    </label>
-    <h5 class="book-info">Book's Title</h5>
-    <input type="title" id="edit-book-title" class="book-input" required>
-
-    <h5 class="book-info">Author</h5>
-    <input type="author" placeholder="Enter Author's name...." class="book-input">
-    <h5 class="book-info">Book's description</h5>
-    <input type="description" placeholder="Enter book description...." class="book-input">
-    <h5 class="book-info">Book's Type</h5>
-    <input type="type" placeholder="Enter the book's type...." class="book-input">
-    <button id="save-edit">Save Changes</button>
-  </div>
-</div>
-</div>
-
-<!-- scripts -->
-<script type="module" src="{% static "JS/UpdateBooks.js" %}" defer></script>
-<script type="module" src="{% static "JS/Books.js" %}" defer></script>
 {% endblock content %}
+
+{% block script %}
+<script type="module" src="{% static "JS/UpdateBooks.js" %}" defer></script>
+<script type="module" src="{% static "/JS/Books.js" %}" defer></script>
+{% endblock script %}
