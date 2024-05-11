@@ -71,5 +71,5 @@ def EditProfile(request):
     
     return render(request, 'accounts/editProfile.html', context={'form': form, 'user':request.user})
 
-def forget_password(request):
+def ForgetPassword(request):
     ...
