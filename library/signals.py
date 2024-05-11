@@ -24,7 +24,13 @@ def remove_old_cover(sender, instance, **kwargs):
     old_cover_path = os.path.join(settings.MEDIA_ROOT, book.cover.name)
     new_cover_path = os.path.join(settings.MEDIA_ROOT, instance.cover.name)
 
-    if old_cover_path and old_cover_path != new_cover_path:
+    dir_path, file = os.path.split(book.cover.name)
+    image_name_old, ext = os.path.splitext(file)
+
+    dir_path, file = os.path.split(book.cover.name)
+    image_name_new, ext = os.path.splitext(file)
+
+    if old_cover_path and image_name_old != image_name_new:
         print(f"Old cover path : {old_cover_path}")
         print(f"New cover path : {old_cover_path}")
 

@@ -85,7 +85,7 @@ def search_books(request): # Retrive books
     except requests.RequestException as e:
         return Response({"error": str(e)})
 
-@api_view(['PUT'])
+@api_view(['PATCH'])
 @permission_classes([IsAdminUser])
 def update_book(request, pk):
     try:

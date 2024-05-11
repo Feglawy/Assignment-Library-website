@@ -16,7 +16,7 @@ def send_welcoming_email(sender, instance, created, **kwargs):
         return
     
     user = instance
-    html_message = render_to_string(template_name='accounts/new_user_email.html',context={'user':user})
+    html_message = render_to_string(template_name='accounts/Emails/new_user_email.html',context={'user':user})
     subject = "Welcome to our website"
     email_from  = settings.EMAIL_HOST_USER
     recipient_list = [instance.email]

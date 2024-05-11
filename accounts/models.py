@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 
 import os
@@ -13,6 +14,7 @@ class CustomUser(AbstractUser):
         (CUSTOMER, 'CUSTOMER')
     ]
 
+    email = models.EmailField(unique=True)
     profile_icon = models.ImageField(upload_to='profile_icons/', default='profile_icons\default.png', blank=True, null=True)
     user_type = models.CharField(max_length=10, choices=USER_TYPES, default=CUSTOMER)
     bio = models.TextField(blank=True, null=True)
@@ -35,7 +37,7 @@ class CustomUser(AbstractUser):
                 super().save(*args, **kwargs)
                 return
             
-            saved_image_name = f"{dir_path + "/" if dir_path else ""}{self.username}{ext}"
+            saved_image_name = f"{dir_path + "/" if dir_path else ""}{self.username.replace(' ', '_')}{ext}"
             self.profile_icon.name = saved_image_name
 
 
@@ -44,3 +46,12 @@ class CustomUser(AbstractUser):
     def is_admin(self)->bool:
         return self.is_superuser
 
+
+class PasswordResetToken(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    token = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField()
+
+    def is_expired(self):
+        return self.expires_at < timezone.now()
