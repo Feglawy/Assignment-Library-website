@@ -99,14 +99,14 @@ def ForgetPassword(request):
 
         try:
             email.send(fail_silently=False)
-            return render(request, 'accounts/reset_password/reset-email-sent.html')
+            return render(request, 'accounts/reset_passwrod/reset-email-sent.html')
         
         except Exception as e:
             print(f"An error occurred while sending the email: {e}")
             messages.error(request, f"{e}")
         
 
-    return render(request, 'accounts/reset_password/forgetPassword.html')
+    return render(request, 'accounts/reset_passwrod/forgetPassword.html')
 
 def ResetPassword(request, token):
     if request.method == 'POST':
