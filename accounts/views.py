@@ -70,3 +70,6 @@ def EditProfile(request):
         form = EditProfileForm(instance=request.user)
     
     return render(request, 'accounts/editProfile.html', context={'form': form, 'user':request.user})
+
+def forget_password(request):
+    ...

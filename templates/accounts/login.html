@@ -29,19 +29,20 @@ login
         <i class="fa-regular fa-eye" id="visibility"></i>
       </div>
       <script src="{% static "JS/login.js" %}"></script>
-    
     </div>
     {% if  messages%}
-      <ul class="errors">
-        {% for error in messages %}
-          <li>{{error}}</li>
-        {% endfor %}
-      </ul>
+    <ul class="errors">
+      {% for error in messages %}
+      <li>{{error}}</li>
+      {% endfor %}
+    </ul>
     {% endif %}
     <!-- login button -->
     <button type="submit" id="login-button" class="btn">Login</button>
     <!-- <button id="login-button" class="btn" >Login</button> -->
     <div id="signup">
+      <span>Forget password? </span><a href="{% url "forget-password" %}" name="forget-password"> reset password</a>
+      <br>
       <span>Don't have an account  </span><a href="{% url "signup" %}"> Create one</a>
     </div>
   </form>
