@@ -2,6 +2,8 @@
 
 .loginForm,
 .signupForm,
+.ResetPassForm,
+.RequestResetPassForm,
 .edit-profile-form {
   width: 700px;
   margin: 200px auto; /* Adjust margin to create space around the form */

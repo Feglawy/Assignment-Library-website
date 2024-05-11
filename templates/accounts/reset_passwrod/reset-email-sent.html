@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Email sent successfully{% endblock title %} 
+{% block style %}
+<style>
+  body {
+    background: #eee;
+  }
+  .success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 200px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .success h1 {
+    background-color: green;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    margin:75px
+  }
+  .success p {
+    font-size: larger;
+  }
+</style>
+{% endblock style %} 
+
+{% block content %}
+
+<div class="success">
+  <h1>Email has been sent successfully</h1>
+  <p>
+    please check your email inbox you will find a link to redirect you to the
+    reset password form
+  </p>
+  <p>Note that the link is only available for only 30 minutes</p>
+</div>
+
+{% endblock content %}
