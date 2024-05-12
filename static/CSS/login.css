@@ -97,6 +97,8 @@
   }
   .loginForm,
   .signupForm,
+  .ResetPassForm,
+  .RequestResetPassForm,
   .edit-profile-form {
     padding: 50px;
     width: 90%;

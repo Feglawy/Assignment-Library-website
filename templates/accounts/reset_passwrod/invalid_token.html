@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+{% block title %}Invalid token{% endblock title %} 
+
+{% block style %}
+<style>
+  body {
+    background: #eee;
+    text-align: center;
+  }
+  .invalid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .invalid h1 {
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    margin: 75px;
+  }
+  .invalid p {
+    font-size: larger;
+  }
+  svg {
+    width: 25%;
+  }
+</style>
+{% endblock style %} {% block content %}
+
+<div class="invalid">
+  <h1>Invalid token</h1>
+  <svg viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="notAllowedIconTitle" stroke="#FF0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title id="notAllowedIconTitle">Not Allowed</title> <circle cx="12" cy="12" r="10"></circle> <path stroke-linecap="square" d="M5,5 L19,19"></path> </g></svg>
+  <p>Looks like this token is invalid</p>
+</div>
+
+{% endblock content %}

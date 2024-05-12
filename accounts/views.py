@@ -109,22 +109,30 @@ def ForgetPassword(request):
     return render(request, 'accounts/reset_passwrod/forgetPassword.html')
 
 def ResetPassword(request, token):
+    try:
+        reset_token = PasswordResetToken.objects.get(token=token)
+    except PasswordResetToken.DoesNotExist:
+        return render(request, 'accounts/reset_passwrod/invalid_token.html') # invalid token     
+
+    if reset_token.is_expired():
+        return render(request,'accounts/reset_passwrod/invalid_token.html') # token is expired
+
     if request.method == 'POST':
+        new_password = request.POST.get('new_password')
+        confrim_password = request.POST.get('confirm_new_password')
+
+        if new_password != confrim_password:
+            messages.error(request, "Passwords must be the same")
+            return render(request, 'accounts/reset_passwrod/reset_password.html')
         try:
-            reset_token = PasswordResetToken.objects.get(token=token)
-        except PasswordResetToken.DoesNotExist:
-            render(request, '') # invalid token     
-
-        if not reset_token.is_expired():
-            render(request,'accounts/reset_passwrod/invalid_token.html') # token is expired
-
-        if request.method == 'POST':
-            new_password = request.POST.get('new_password')
-
             reset_token.user.set_password(new_password)
-            reset_token.user.save()
+        except Exception as  e:
+            messages.error(request, f"{e}")
+            return render(request, 'accounts/reset_passwrod/reset_password.html')
 
-            reset_token.delete()
-            return render(request, '') # new password saved successfuly
-        
-        return render(request, 'accounts/reset_password/reset_password.html')
+        reset_token.user.save()
+
+        reset_token.delete()
+        return render(request, 'accounts/reset_passwrod/reset_password.html') # new password saved successfuly
+    
+    return render(request, 'accounts/reset_passwrod/reset_password.html')
