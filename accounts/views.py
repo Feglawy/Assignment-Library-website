@@ -82,6 +82,8 @@ def ForgetPassword(request):
             user = CustomUser.objects.get(email=request.POST.get('email'))
         except CustomUser.DoesNotExist:
             messages.error(request, "It looks like the email you provided us is not in our database would you like to signup")
+            return render(request, 'accounts/reset_passwrod/forgetPassword.html')
+
 
         token = get_random_string(length=32)
         expires_at = timezone.now() + timezone.timedelta(minutes=30)
@@ -89,7 +91,7 @@ def ForgetPassword(request):
         PasswordResetToken.objects.create(user=user, token=token, expires_at=expires_at)
 
         # send email 
-        reset_link = request.build_absolute_uri(f"/reset_password/{token}")
+        reset_link = request.build_absolute_uri(f"/accounts/reset-password/{token}")
         html_message = render_to_string(template_name='accounts/Emails/reset_password.html', context={'reset_link': reset_link, 'user': user})
         subject = "Reset password request"
         email_from = settings.EMAIL_HOST_USER
@@ -133,6 +135,6 @@ def ResetPassword(request, token):
         reset_token.user.save()
 
         reset_token.delete()
-        return render(request, 'accounts/reset_passwrod/reset_password.html') # new password saved successfuly
+        return render(request, 'accounts/reset_passwrod/password_changed.html') # new password saved successfuly
     
     return render(request, 'accounts/reset_passwrod/reset_password.html')
