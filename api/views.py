@@ -11,6 +11,9 @@ from accounts.models import CustomUser
 @api_view(['GET'])
 def ApiOverView(request):
     api_urls = {
+        'Retrive all Authors' : '/authors',
+        'Retrive all Genres' : '/genres',
+        'Retrive all Types' : '/types',
         'Create book': '/book/create/',
         'Retrive book by id': '/book/id',
         'Update book': '/book/update/id',
@@ -36,6 +39,33 @@ def add_book(request): # Create book
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
+@api_view(['GET'])
+def get_authors(requset):
+    try:
+        authors = Author.objects.all()
+        serializer = AuthorSerializer(authors, many=True)
+        return Response(data=serializer.data)
+    except Exception as e:
+        return Response(status=status.HTTP_409_CONFLICT)
+    
+@api_view(['GET'])
+def get_genres(request):
+    try:
+        Genres = Genre.objects.all()
+        serializer = GenreSerializer(Genres, many=True)
+        return Response(data=serializer.data)
+    except Exception as e:
+        return Response(status=status.HTTP_409_CONFLICT)
+    
+@api_view(['GET'])
+def get_types(request):
+    try:
+        Types = Type.objects.all()
+        serializer = TypeSerializer(Types, many=True)
+        return Response(data=serializer.data)
+    except Exception as e:
+        return Response(status=status.HTTP_409_CONFLICT)
+    
 @api_view(['GET'])
 def get_book_by_id(request, id):
     try:
