@@ -36,6 +36,10 @@ signup
       </div>
     </div>
     {% render_field form.password2 class="input" id="confirm-inp-pass" placeholder="Confirm your password" required="on"%}
+    
+    <div class="power-container"> 
+        <div id="power-point"></div> 
+    </div>
 
     <div id="Authority">
       <label class="Admin" for="user_type" style="text-align: center;padding: 10px;">Authority</label>
@@ -59,3 +63,42 @@ signup
   <script src="{% static "JS/login.js" %}"></script>
 </div>
 {% endblock content %}
+
+{% block script %}
+
+<script>
+  let power = document.getElementById("power-point"); 
+  let password = document.getElementById("inp-pass")
+  let confirm_password = document.getElementById("confirm-inp-pass");
+
+  password.oninput = function () { 
+      let point = 0; 
+      let value = password.value; 
+      let widthPower =  
+          ["5%", "25%", "50%", "75%", "100%"];
+      let colorPower =  
+          ["#D73F40", "#DC6551", "#F2B84F", "#BDE952", "#3ba62f"]; 
+    
+      if (value.length >= 6) { 
+          let arrayTest =  
+              [/[0-9]/, /[a-z]/, /[A-Z]/, /[^0-9a-zA-Z]/]; 
+          arrayTest.forEach((item) => { 
+              if (item.test(value)) { 
+                  point += 1; 
+              } 
+          }); 
+      } 
+      power.style.width = widthPower[point]; 
+      power.style.backgroundColor = colorPower[point]; 
+  };
+
+  confirm_password.oninput = function() {
+    if (password.value != confirm_password.value) {
+      confirm_password.style.borderBottom = '2px solid red';
+    }
+    else {
+      confirm_password.style.borderBottom = '';
+    }
+  }
+</script>
+{% endblock script %}
