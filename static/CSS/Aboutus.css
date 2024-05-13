@@ -39,7 +39,7 @@
 
 #Team-members ul li:hover {
   display: inline-block;
-  background-color: var(--Green-color);
+  background-color: var(--hover-color);
   transition: 0.5s;
   cursor: default;
 }

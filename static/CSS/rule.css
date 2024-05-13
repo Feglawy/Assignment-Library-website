@@ -21,12 +21,35 @@
   --search-bg-color: white;
   --glassy-bg-color: rgba(255, 255, 255, 0.36);
   --popup-bg-color: var(--white-color);
+  --hover-color: var(--Green-color);
+  --borrowed-btn-bg-color: var(--Green-color);
+  --input-focus-color: var(--Green-color);
+  --preview-glass-bg-color: rgba(255, 255, 255, 0.47);
+  --search-bg-color: rgba(238, 238, 238, 0.31);
 }
 .dark {
   --dark-color: #2a2335;
   --gray-color: #584f64;
   --white-color: #faeaff;
   --Green-color: #00c9a5;
+
+  --nav-bg-color: var(--dark-color);
+  --text-color: white;
+  --btn-bg-color: var(--dark-color);
+  --button-text-color: white;
+  --btn-hover-effect-color: var(--Green-color);
+  --login-form-bg-color: var(--gray-color);
+  --login-form-text-color: white;
+  --body-bg-color: #0d0c0d;
+  --book-bg-color: var(--white-color);
+  --search-bg-color: white;
+  --glassy-bg-color: rgba(255, 255, 255, 0.36);
+  --popup-bg-color: var(--white-color);
+  --hover-color: var(--Green-color);
+  --borrowed-btn-bg-color: var(--Green-color);
+  --input-focus-color: var(--Green-color);
+  --preview-glass-bg-color: rgba(255, 255, 255, 0.47);
+  --search-bg-color: rgba(238, 238, 238, 0.31);
 }
 
 * {

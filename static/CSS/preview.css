@@ -22,7 +22,7 @@
 }
 
 #name-description-container {
-  background: rgba(255, 255, 255, 0.47);
+  background: var(--preview-glass-bg-color);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(14.8px);
@@ -49,7 +49,7 @@
   width: 50%;
   border-radius: 15px;
   padding: 10px;
-  background-color: var(--dark-color);
+  background-color: var(--btn-bg-color);
   color: #fff;
   font-size: 20px;
   margin: auto;
@@ -59,7 +59,7 @@
 }
 
 #borrow-btn:hover {
-  background-color: var(--Green-color);
+  background-color: var(--hover-color);
   transition: 0.5s;
 }
 
@@ -80,7 +80,7 @@
   min-width: 305px;
   padding: 5vh;
   color: black;
-  background: rgba(255, 255, 255, 0.47);
+  background: var(--preview-glass-bg-color);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(14.8px);
@@ -112,7 +112,7 @@
 #types:hover,
 #categories li:hover,
 #language:hover {
-  background-color: var(--Green-color);
+  background-color: var(--hover-color);
   transition: 0.5s ease;
   cursor: default;
 }

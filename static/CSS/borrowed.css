@@ -22,7 +22,7 @@
 }
 
 .book .Borrowed {
-  background-color: var(--Green-color);
+  background-color: var(--borrowed-btn-bg-color);
 }
 
 #no-borrow-books {

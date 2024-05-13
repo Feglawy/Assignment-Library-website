@@ -11,7 +11,7 @@ nav {
   align-items: center;
   padding: 10px 20px;
   width: 100%;
-  background-color: var(--dark-color);
+  background-color: var(--nav-bg-color);
   height: 80px;
   justify-content: flex-end;
   box-shadow: rgba(0, 0, 0, 0.58) 0px 4px 20px;
