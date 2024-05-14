@@ -28,7 +28,6 @@ login
       <div id="show-pass" onclick="ShowPassword()">
         <i class="fa-regular fa-eye" id="visibility"></i>
       </div>
-      <script src="{% static "JS/login.js" %}"></script>
     </div>
     {% if  messages%}
     <ul class="errors">
@@ -48,3 +47,7 @@ login
   </form>
 </div>
 {% endblock content %}
+
+{% block script %}
+<script src="{% static "JS/login.js" %}"></script>
+{% endblock script %}

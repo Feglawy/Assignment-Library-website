@@ -60,12 +60,11 @@ signup
       <span>already have an account? </span><a href="{% url "login" %}"> login</a>
     </div>
   </form>
-  <script src="{% static "JS/login.js" %}"></script>
 </div>
 {% endblock content %}
 
 {% block script %}
-
+<script src="{% static "JS/login.js" %}"></script>
 <script>
   let power = document.getElementById("power-point"); 
   let password = document.getElementById("inp-pass")
