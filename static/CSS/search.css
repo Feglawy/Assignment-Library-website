@@ -43,7 +43,7 @@
   display: flex;
   flex-wrap: wrap;
   border-radius: 0.5rem;
-  background-color: #eee;
+  background-color: var(--search-by-bg-color);
   box-sizing: border-box;
   box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
   padding: 0.25rem;
@@ -82,4 +82,5 @@
   margin-top: 1vh;
   text-align: center;
   font-size: 40px;
+  color: var(--text-color);
 }

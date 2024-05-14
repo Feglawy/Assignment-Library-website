@@ -23,6 +23,7 @@
 
 #name-description-container {
   background: var(--preview-glass-bg-color);
+  color: var(--text-color);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(14.8px);
@@ -79,7 +80,7 @@
   position: relative;
   min-width: 305px;
   padding: 5vh;
-  color: black;
+  color: var(--text-color);
   background: var(--preview-glass-bg-color);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
