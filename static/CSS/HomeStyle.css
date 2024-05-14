@@ -7,16 +7,16 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--news-bg-color);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
-  border: 1px solid rgba(255, 255, 255, 0.37);
   max-width: 500px;
   margin: auto;
   margin-top: 18px;
   margin-bottom: 20px;
+  color: var(--text-color);
 }
 
 .news h1 {
@@ -88,7 +88,7 @@ body {
 }
 .first-section .website-text {
   position: absolute;
-  color: var(--text-color);
+  color: black;
   width: 50%;
   height: 60vh;
   height: fit-content;
@@ -123,6 +123,8 @@ body {
   margin-top: 1%;
   margin-left: 8%;
   margin-right: 2%;
+  text-align: center;
+  color: var(--text-color);
 }
 
 @media (max-width: 540px) {

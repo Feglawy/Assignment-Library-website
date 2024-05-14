@@ -2,6 +2,7 @@
   margin-top: 100px;
   text-align: center;
   font-size: 50px;
+  color: var(--text-color);
 }
 
 .Main-About {
@@ -15,6 +16,7 @@
   margin-top: 50px;
   height: 45vh;
   font-size: 25px;
+  color: var(--text-color);
 }
 
 .Main-About img {
@@ -31,6 +33,7 @@
   text-align: center;
   font-size: 25px;
   padding: 5px;
+  color: var(--text-color);
 }
 #Team-members ul li {
   padding: 4px;
@@ -54,6 +57,7 @@
 #Contact-us-section {
   font-size: large;
   margin: 20px 0 50px 0;
+  color: var(--text-color);
 }
 
 @media (max-width: 850px) {

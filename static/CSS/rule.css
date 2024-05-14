@@ -26,9 +26,11 @@
   --input-focus-color: var(--Green-color);
   --preview-glass-bg-color: rgba(255, 255, 255, 0.47);
   --search-bg-color: rgba(238, 238, 238, 0.31);
+  --books-section-bg-color: #eeeeee49;
+  --news-bg-color: rgba(255, 255, 255, 0.18);
 }
 .dark {
-  --dark-color: #2a2335;
+  --dark-color: #1a1620;
   --gray-color: #584f64;
   --white-color: #faeaff;
   --Green-color: #00c9a5;
@@ -38,7 +40,7 @@
   --btn-bg-color: var(--dark-color);
   --button-text-color: white;
   --btn-hover-effect-color: var(--Green-color);
-  --login-form-bg-color: var(--gray-color);
+  --login-form-bg-color: var(--dark-color);
   --login-form-text-color: white;
   --body-bg-color: #0d0c0d;
   --book-bg-color: var(--white-color);
@@ -50,6 +52,8 @@
   --input-focus-color: var(--Green-color);
   --preview-glass-bg-color: rgba(255, 255, 255, 0.47);
   --search-bg-color: rgba(238, 238, 238, 0.31);
+  --books-section-bg-color: #130c0c49;
+  --news-bg-color: rgba(31, 31, 31, 0.18);
 }
 
 * {
