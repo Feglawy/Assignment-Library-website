@@ -38,7 +38,8 @@ def search(request) -> HttpResponse:
 @login_required
 def borrowed(request) -> HttpResponse:
     borrowedHTML = loader.get_template('library/BorrowedBooks.html')
-    return HttpResponse(borrowedHTML.render({'user':request.user}))
+    users_borrowed_records = BorrowingRecord.objects.filter(user=request.user)
+    return HttpResponse(borrowedHTML.render({'user':request.user, 'books':users_borrowed_records}))
 
 @staff_member_required
 def update(request) -> HttpResponse:

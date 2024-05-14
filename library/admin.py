@@ -8,7 +8,7 @@ class BookModelAdmin(admin.ModelAdmin):
 
 class BorrowModelAdmin(admin.ModelAdmin):
     readonly_fields = ['id']
-    list_display = ['user', 'borrowed_books','returned']
+    list_display = ['user', 'borrowed_book','returned']
 
 admin.site.register(Type)
 admin.site.register(Genre)

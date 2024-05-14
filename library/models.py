@@ -89,8 +89,8 @@ class RecommendedBooks(models.Model):
 
 class BorrowingRecord(models.Model):
     user = models.ForeignKey(to=CustomUser, on_delete=models.CASCADE)
-    borrowed_books = models.ForeignKey(to=Book, on_delete=models.CASCADE)
+    borrowed_book = models.ForeignKey(to=Book, on_delete=models.CASCADE)
     returned = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return f"{self.user.username} borrowed {self.borrowed_books.title}"
+        return f"{self.user.username} borrowed {self.borrowed_book.title}"
