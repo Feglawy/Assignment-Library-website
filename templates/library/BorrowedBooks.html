@@ -1,29 +1,38 @@
-{% extends "base.html" %} 
-{% load static %}
+{% extends "base.html" %} {% load static %}
 
-{% block title %} 
-Borrowed books 
-{% endblock title %} 
+{% block title %} Borrowed books {%endblock title %} 
 
 
-{% block content %} 
+{% block content %}
 <!-- greeting user -->
 <div class="user">
   <h1>Hello!</h1>
-    <h2 id="user-name">{{user.get_full_name|default:"not Found"}}</h2>
+  <h2 id="user-name">{{user.get_full_name|default:"not Found"}}</h2>
 </div>
 <!-- books section -->
 <div class="books-section" id="borrowed-Books-section">
-  {% for record in books %}
+  {% for record in books %} 
     <div class="book">
-      <img src="{{record.borrowed_book.cover.url}}" alt="{{record.borrowed_book.title}}" />
+      <img
+        src="{{record.borrowed_book.cover.url}}"
+        alt="{{record.borrowed_book.title}}"
+      />
       <h5 class="name">{{record.borrowed_book.title}}</h5>
-      <button class="Borrowed" type="button" onclick="return_book({{record.borrowed_book.id}})">Return</button>
-      <a class="previewButton" href="{{record.borrowed_book.get_absolute_url}}">Details</a>
+      <button
+        class="Borrowed"
+        type="button"
+        onclick="return_book({{record.id}})"
+      >
+        Return
+      </button>
+      <a class="previewButton" href="{{record.borrowed_book.get_absolute_url}}"
+        >Details</a
+      >
     </div>
-  {% endfor %}
+  {% endfor %} 
+
   {% if not books %}
-    <h1 id="no-borrow-books">Looks like you haven't borrowed any books yet.</h1>
+  <h1 id="no-borrow-books">Looks like you haven't borrowed any books yet.</h1>
   {% endif %}
 </div>
 
@@ -38,7 +47,6 @@ Borrowed books
   </div>
 </div>
 
-{% endblock content %}
+{% endblock content %} 
 
-{% block script %}
-{% endblock script %}
+{% block script %} {% endblock script %}

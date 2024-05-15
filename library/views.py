@@ -38,7 +38,7 @@ def search(request) -> HttpResponse:
 @login_required
 def borrowed(request) -> HttpResponse:
     borrowedHTML = loader.get_template('library/BorrowedBooks.html')
-    users_borrowed_records = BorrowingRecord.objects.filter(user=request.user)
+    users_borrowed_records = BorrowingRecord.objects.filter(user=request.user, returned=False)
     return HttpResponse(borrowedHTML.render({'user':request.user, 'books':users_borrowed_records}))
 
 @staff_member_required
@@ -55,6 +55,16 @@ def available(request) -> HttpResponse:
 def preview(request, book_title) -> HttpResponse:
     previewHTML = loader.get_template('library/preview.html')
     book = Book.objects.get(title=book_title)
-    return HttpResponse(previewHTML.render({'book':book, 'user':request.user}))
+    is_borrowed = True
+    borrow_record = BorrowingRecord()
+    try:
+        borrow_record = BorrowingRecord.objects.get(user=request.user, borrowed_book=book, returned=False)
+    except BorrowingRecord.DoesNotExist:
+        is_borrowed = False
+    context = {'book':book, 
+               'user':request.user, 
+               'borrow_record':borrow_record if borrow_record else None,
+               'borrowed':is_borrowed
+               }
 
-    
+    return HttpResponse(previewHTML.render(context))

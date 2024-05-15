@@ -9,9 +9,13 @@ function borrow(bookId) {
       book_id: bookId,
     }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        return Promise.reject(response);
+      }
+      response.json();
+    })
     .then((data) => {
-      console.log(data);
       const successMessage = "Book borrowed!";
       toastr.success(successMessage, "Success", {
         closeButton: true,
@@ -19,11 +23,10 @@ function borrow(bookId) {
       });
     })
     .catch((error) => {
-      console.error("error : ", error);
-      const errorMessage = error
-        ? error.message || "Unknown error occurred"
-        : "Unknown error occurred";
-      toastr.error(errorMessage, "There is an error occurred");
+      error.json().then((json) => {
+        errorMessage = json.error;
+        toastr.error(errorMessage, "There is an error occurred");
+      });
     });
 }
 
@@ -38,9 +41,13 @@ function return_book(bookId) {
       borrow_id: bookId,
     }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        return Promise.reject(response);
+      }
+      response.json();
+    })
     .then((data) => {
-      console.log(data);
       const successMessage = "Book returned!";
       toastr.success(successMessage, "Success", {
         closeButton: true,
@@ -48,11 +55,10 @@ function return_book(bookId) {
       });
     })
     .catch((error) => {
-      console.error("error : ", error);
-      const errorMessage = error
-        ? error.message || "Unknown error occurred"
-        : "Unknown error occurred";
-      toastr.error(errorMessage, "There is an error occurred");
+      error.json().then((json) => {
+        errorMessage = json.error;
+        toastr.error(errorMessage, "There is an error occurred");
+      });
     });
 }
 

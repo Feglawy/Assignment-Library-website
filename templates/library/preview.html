@@ -1,4 +1,5 @@
 {% extends "base.html" %} {% load static %} {% load book_filter %} 
+
 {% block title %} {{book.title}} {% endblock title %} 
 
 {% block content %}
@@ -46,14 +47,29 @@
     <div class="text">
       <h1 id="book-name">{{book.title}}</h1>
       <p id="book-description" class="{{book.language}}-lang">{{book.desc}}</p>
-      {% if user.is_authenticated and book.is_available %}
-      <button class="Borrow" type="button" id="borrow-btn">Borrow</button>
-      {% elif not book.is_available %}
+      {% if user.is_authenticated and book.is_available and not borrowed %}
       <button
         class="Borrow"
         type="button"
         id="borrow-btn"
         onclick="borrow({{book.id}})"
+      >
+        Borrow
+      </button>
+      {% elif borrow_record %}
+      <button
+        class="Borrow"
+        type="button"
+        id="borrow-btn"
+        onclick="return_book({{borrow_record.id}})"
+      >
+        return
+      </button>
+      {% elif not book.is_available %}
+      <button
+        class="Borrow"
+        type="button"
+        id="borrow-btn"
         style="background-color: red"
       >
         Out of stock

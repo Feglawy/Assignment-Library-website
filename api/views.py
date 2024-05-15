@@ -162,6 +162,7 @@ def random_quote(request):
     except requests.RequestException as e:
         return Response({"error": str(e)}, status=response.status_code)
 
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def borrow(request):
@@ -169,17 +170,22 @@ def borrow(request):
     try:
         book = Book.objects.get(pk=book_id)
     except Book.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+        return Response({'error': 'book does not exist'},status=status.HTTP_404_NOT_FOUND)
     
     user = request.user
 
     borrow, created = BorrowingRecord.objects.get_or_create(
         user=user,
-        borrowed_book=book
+        borrowed_book=book,
+        returned = False
     )
-    borrow.save()
+
+    if not created:
+        return Response({'error': f'you already borrowed {book.title}'},status=status.HTTP_400_BAD_REQUEST)
+
     serializer = BorrowedBooksSerializer(borrow)
     return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
@@ -189,7 +195,7 @@ def return_book(request):
     try:
         borrowed_books = BorrowingRecord.objects.get(pk=borrow_id)
     except BorrowingRecord.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+        return Response({'error': 'borrowing record does not exist'},status=status.HTTP_404_NOT_FOUND)
 
     borrowed_books.returned = True
     borrowed_books.save()
