@@ -98,6 +98,10 @@ button:hover {
   min-height: 50rem;
 }
 
+#toast-container {
+  margin-top: 90px;
+}
+
 #toast-container > .toast {
   background-image: none !important;
   border-radius: 15px;

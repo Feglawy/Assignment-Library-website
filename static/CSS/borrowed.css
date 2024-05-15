@@ -28,6 +28,7 @@
 #no-borrow-books {
   margin-top: 5vh;
   text-wrap: wrap;
+  color: var(--text-color);
 }
 
 #popup {
