@@ -28,6 +28,7 @@
   --search-by-bg-color: #eee;
   --books-section-bg-color: #eeeeee49;
   --news-bg-color: rgba(255, 255, 255, 0.18);
+  --profile-card-color: white;
 }
 .dark {
   --dark-color: #1a1620;
@@ -54,6 +55,7 @@
   --search-by-bg-color: #0f0e0e;
   --books-section-bg-color: #130c0c49;
   --news-bg-color: rgba(31, 31, 31, 0.18);
+  --profile-card-color: #c1ceff4f;
 }
 
 * {

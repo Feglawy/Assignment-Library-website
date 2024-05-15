@@ -58,6 +58,7 @@ html {
 
 .user-info {
   text-align: center;
+  color: var(--text-color);
 }
 
 .user-info h2 {
