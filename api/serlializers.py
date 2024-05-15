@@ -3,6 +3,13 @@ from accounts.models import *
 from library.models import *
 
 
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['id' ,'first_name', 'last_name']
+
+
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
@@ -51,6 +58,7 @@ class BookSerializer(serializers.ModelSerializer):
         return book
     
 class BorrowedBooksSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
     borrowed_book = BookSerializer()
     class Meta:
         model = BorrowingRecord
