@@ -11,6 +11,12 @@
     
     <!-- css -->
     <link rel="stylesheet" href="{% static "website.css" %}" />
+
+    <!-- toaster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     {% block style %}
     {% endblock style %}
   </head>
@@ -21,6 +27,7 @@
 
     {% block content%} {% endblock content %} 
     {% block script %} {% endblock script %}
+    <script src="{% static "JS/Books.js" %}"></script>
     <script>
       const themeToggle = document.getElementById("theme-toggler");
       let currentTheme = localStorage.getItem("theme");
