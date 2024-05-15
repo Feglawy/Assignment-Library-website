@@ -1,6 +1,6 @@
 import requests
 from django.shortcuts import get_object_or_404, render
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
@@ -19,7 +19,10 @@ def ApiOverView(request):
         'Update book': '/book/update/id',
         'Delete book': '/book/delete/id',
         'search': '/book/?search=search_query&searchBy=search_by_[title, genre, author, type, language, is_available]',
-        'random quote':'/random/quote/'
+        'random quote':'/random/quote/',
+        'borrow a book':'/borrow/',
+        'return a book':'/return/',
+        'get borrowed books' : '/borrowed_books/'
     }
 
     return Response(api_urls)
@@ -69,7 +72,7 @@ def get_types(request):
 @api_view(['GET'])
 def get_book_by_id(request, id):
     try:
-        book = Book.objects.get(pk=id)
+        book = Book.objects.filter(pk=id)
     except Book.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
@@ -79,7 +82,7 @@ def get_book_by_id(request, id):
 @api_view(['GET'])
 def get_book_by_title(request, title):
     try:
-        book = Book.objects.get(title=title)
+        book = Book.objects.filter(title=title)
     except Book.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
@@ -159,3 +162,45 @@ def random_quote(request):
     except requests.RequestException as e:
         return Response({"error": str(e)}, status=response.status_code)
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def borrow(request):
+    book_id = request.data.get('book_id')
+    try:
+        book = Book.objects.get(pk=book_id)
+    except Book.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    user = request.user
+
+    borrow, created = BorrowingRecord.objects.get_or_create(
+        user=user,
+        borrowed_book=book
+    )
+    borrow.save()
+    serializer = BorrowedBooksSerializer(borrow)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def return_book(request):
+    user = request.user
+    borrow_id = request.data.get('borrow_id')
+    try:
+        borrowed_books = BorrowingRecord.objects.get(pk=borrow_id)
+    except BorrowingRecord.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    borrowed_books.returned = True
+    borrowed_books.save()
+    serializer = BorrowedBooksSerializer(borrowed_books)
+    return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def borrowed_books(request):
+    user = request.user
+    borrowed_books = BorrowingRecord.objects.filter(user=user, returned = False)
+    serializer = BorrowedBooksSerializer(borrowed_books, many=True)
+    return Response(serializer.data)

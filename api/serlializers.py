@@ -20,6 +20,10 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class BookSerializer(serializers.ModelSerializer):
+    authors = AuthorSerializer(many=True)
+    book_type = TypeSerializer()
+    genres = GenreSerializer(many=True)
+
     class Meta:
         model = Book
         fields = ['title', 'desc', 'cover', 'authors', 'book_type', 'genres','is_available', 'language']
@@ -45,3 +49,10 @@ class BookSerializer(serializers.ModelSerializer):
 
         book.save()
         return book
+    
+class BorrowedBooksSerializer(serializers.ModelSerializer):
+    borrowed_book = BookSerializer()
+    class Meta:
+        model = BorrowingRecord
+        fields = '__all__'
+        read_only_fields = ['id']
