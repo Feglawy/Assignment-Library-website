@@ -50,7 +50,6 @@ def update(request) -> HttpResponse:
 def available(request) -> HttpResponse:
     availableHTML = loader.get_template('library/AvailableBooks.html')
     books = Book.objects.all()
-    # books = books.filter(is_available=True)
     return HttpResponse(availableHTML.render(context={'books':books, 'user':request.user}))
 
 def preview(request, book_title) -> HttpResponse:

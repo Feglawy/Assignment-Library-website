@@ -1,28 +1,26 @@
-{% extends "base.html" %} 
-{% load static %}
+{% extends "base.html" %} {% load static %} 
 
+{% block title %} Available Books {%endblock title %} 
 
-{% block title %} 
-Available Books
-{% endblock title %} 
-
-{% block content %} 
-  <h2 id="available-header">Available Books</h2>
-  <div class="books-section" id="available-books-section">
-    {% for book in books %}
-      <div class="book">
-        <img src="{{book.cover.url}}" alt="{{book.title}}" />
-        <h5 class="name">{{book.title}}</h5>
-        {% if user.is_authenticated and book.is_available %}
-        <button class="Borrow" type="button">Borrow</button>
-        {% elif not book.is_available %}
-        <button class="Borrow" type="button" style="background-color:red;">Out of stock</button>
-        {% endif %}
-        <a class="previewButton" href="{{book.get_absolute_url}}">Details</a>
-      </div>
-    {% endfor %}
+{% block content %}
+<h2 id="available-header">Available Books</h2>
+<div class="books-section" id="available-books-section">
+  {% for book in books %}
+  <div class="book">
+    <img src="{{book.cover.url}}" alt="{{book.title}}" />
+    <h5 class="name">{{book.title}}</h5>
+    {% if user.is_authenticated and book.is_available %}
+    <button class="Borrow" type="button" onclick="borrow({{book.id}})">
+      Borrow
+    </button>
+    {% elif not book.is_available %}
+    <button class="Borrow" type="button" style="background-color: red">
+      Out of stock
+    </button>
+    {% endif %}
+    <a class="previewButton" href="{{book.get_absolute_url}}">Details</a>
   </div>
+  {% endfor %}
+</div>
 
 {% endblock content %}
-
-{% block script %}  <script type="module" src="{% static "JS/Books.js" %}" defer></script>{% endblock script %}

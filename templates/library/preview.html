@@ -1,10 +1,5 @@
-{% extends "base.html" %} 
-{% load static %} 
-{% load book_filter %} 
-
-{% block title %} 
-  {{book.title}} 
-{% endblock title %} 
+{% extends "base.html" %} {% load static %} {% load book_filter %} 
+{% block title %} {{book.title}} {% endblock title %} 
 
 {% block content %}
 <div class="book-image">
@@ -54,19 +49,23 @@
       {% if user.is_authenticated and book.is_available %}
       <button class="Borrow" type="button" id="borrow-btn">Borrow</button>
       {% elif not book.is_available %}
-      <button class="Borrow" type="button" id="borrow-btn" style="background-color: red">
+      <button
+        class="Borrow"
+        type="button"
+        id="borrow-btn"
+        onclick="borrow({{book.id}})"
+        style="background-color: red"
+      >
         Out of stock
       </button>
       {% endif %}
     </div>
   </div>
 </div>
-{% endblock content %}
-
-{% block script %}
-  <script>
-    let book_desc = document.getElementById('book-description');
-    book_desc.innerHTML = book_desc.innerHTML.replaceAll('\n', '<br>');
-    book_desc.innerHTML = book_desc.innerHTML.replaceAll('\\r\\n', '<br>');
-  </script>
+{% endblock content %} {% block script %}
+<script>
+  let book_desc = document.getElementById("book-description");
+  book_desc.innerHTML = book_desc.innerHTML.replaceAll("\n", "<br>");
+  book_desc.innerHTML = book_desc.innerHTML.replaceAll("\\r\\n", "<br>");
+</script>
 {% endblock script %}

@@ -1,100 +1,72 @@
-// _____ Remove book popup _____
-function showPopup() {
-  let popup = document.getElementById("popup");
-  popup.style.display = "block";
-  setTimeout(() => {
-    popup.classList.remove("hidden");
-  }, 100);
-}
-function hidePopup() {
-  let popup = document.getElementById("popup");
-  popup.classList.add("hidden");
-  setTimeout(() => {
-    popup.style.display = "none";
-  }, 200);
-}
-
-function cancelDelete() {
-  hidePopup();
-}
-
-// wait until the book is loaded
-document.addEventListener("BooksAdded", function () {
-  // Get all anchor elements with the specified class name
-  let RemoveBorrowedBtns = document.querySelectorAll(".remove-borrowed-book");
-  let RemoveBookAdminBtns = document.querySelectorAll(".Delete");
-
-  let RemoveBookPopupElements = `<div id="overlay">
-        <div id="confirmationPopup">
-          <h1>Are you sure you want to delete the book?</h1>
-          <div class="inputs">
-            <button id="ConfirmDeletion">Yes</button>
-            <button id="cancelDeletion">No</button>
-          </div>
-        </div>
-      </div>`;
-
-  let popupDiv = document.getElementById("popup");
-  if (popupDiv != null) {
-    popupDiv.innerHTML = RemoveBookPopupElements;
-  }
-
-  if (RemoveBorrowedBtns != null) {
-    RemoveBorrowedBtns.forEach(function (button) {
-      button.addEventListener("click", function () {
-        let confirm = document.getElementById("ConfirmDeletion");
-        let cancel = document.getElementById("cancelDeletion");
-
-        showPopup();
-        // Get the parent element
-        let parentDiv = button.parentNode;
-
-        confirm.addEventListener("click", function () {
-          parentDiv.remove();
-          hidePopup();
-        });
-        cancel.addEventListener("click", function () {
-          parentDiv = null;
-          hidePopup();
-        });
+function borrow(bookId) {
+  fetch("/api/borrow/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": getCookie("csrftoken"),
+    },
+    body: JSON.stringify({
+      book_id: bookId,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      const successMessage = "Book borrowed!";
+      toastr.success(successMessage, "Success", {
+        closeButton: true,
+        progressBar: true,
       });
+    })
+    .catch((error) => {
+      console.error("error : ", error);
+      const errorMessage = error
+        ? error.message || "Unknown error occurred"
+        : "Unknown error occurred";
+      toastr.error(errorMessage, "There is an error occurred");
     });
-  }
+}
 
-  if (RemoveBookAdminBtns != null) {
-    RemoveBookAdminBtns.forEach(function (button) {
-      button.addEventListener("click", function () {
-        let confirm = document.getElementById("ConfirmDeletion");
-        let cancel = document.getElementById("cancelDeletion");
-
-        showPopup();
-        // Get the parent element
-        let parentDiv = button.parentNode;
-
-        confirm.addEventListener("click", function () {
-          parentDiv.remove();
-          parentDiv = null;
-          hidePopup();
-        });
-        cancel.addEventListener("click", function () {
-          parentDiv = null;
-          hidePopup();
-        });
+function return_book(bookId) {
+  fetch("/api/return/", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": getCookie("csrftoken"),
+    },
+    body: JSON.stringify({
+      borrow_id: bookId,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      const successMessage = "Book returned!";
+      toastr.success(successMessage, "Success", {
+        closeButton: true,
+        progressBar: true,
       });
+    })
+    .catch((error) => {
+      console.error("error : ", error);
+      const errorMessage = error
+        ? error.message || "Unknown error occurred"
+        : "Unknown error occurred";
+      toastr.error(errorMessage, "There is an error occurred");
     });
+}
+
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
   }
-
-  // ________________________
-  // show book's details
-  var previewButtons = document.querySelectorAll(".previewButton");
-  previewButtons.forEach(function (button) {
-    // click event listener to the button
-    button.addEventListener("click", function () {
-      // Get the book ID from the custom 'book-id' attribute
-      var bookId = button.getAttribute("book-id");
-
-      // Redirect to the preview page with the corresponding book ID
-      window.location.href = "/preview?bookId=" + bookId;
-    });
-  });
-});
+  return cookieValue;
+}
