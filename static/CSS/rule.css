@@ -95,3 +95,20 @@ button:hover {
 .books-section {
   min-height: 50rem;
 }
+
+#toast-container > .toast {
+  background-image: none !important;
+  border-radius: 15px;
+}
+
+#toast-container > .toast:before {
+  position: fixed;
+  font-family: FontAwesome;
+  font-size: 24px;
+  line-height: 18px;
+  float: left;
+  color: #fff;
+  padding-right: 0.5em;
+  margin: auto 0.5em auto -1.5em;
+  margin-top: 10%;
+}
