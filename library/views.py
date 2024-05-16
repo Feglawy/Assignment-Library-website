@@ -52,14 +52,14 @@ def available(request) -> HttpResponse:
     books = Book.objects.all()
 
     borrowed_records = None
-    cart_dict = {}
+    borrow_dict = {}
     
     if request.user.is_authenticated:
         borrowed_records = BorrowingRecord.objects.filter(user=request.user, returned=False).values_list('id','borrowed_book_id')
-        cart_dict = {borrow_id: book_id for book_id, borrow_id in borrowed_records}
+        borrow_dict = {borrow_id: book_id for book_id, borrow_id in borrowed_records}
     context = {'books':books, 
                'user':request.user, 
-               'borrow_records':cart_dict
+               'borrow_records':borrow_dict
                }
 
     return HttpResponse(availableHTML.render(context=context))
@@ -67,18 +67,21 @@ def available(request) -> HttpResponse:
 def preview(request, book_title) -> HttpResponse:
     previewHTML = loader.get_template('library/preview.html')
     book = Book.objects.get(title=book_title)
-    is_borrowed = True
-    borrow_record = BorrowingRecord()
+
+    borrow_record = None
+    borrowed_dict = {}
+
     if request.user.is_authenticated:
         try:
-            borrow_record = BorrowingRecord.objects.get(user=request.user, borrowed_book=book, returned=False)
+            borrow_record = BorrowingRecord.objects.filter(user=request.user, borrowed_book=book, returned=False).values_list('id','borrowed_book_id')
+            borrowed_dict = {borrow_id: book_id for book_id, borrow_id in borrow_record}
         except BorrowingRecord.DoesNotExist or Exception as e:
-            is_borrowed = False
+            print("book not borrowed")
     
     context = {'book':book, 
             'user':request.user, 
             'borrow_record':borrow_record if borrow_record else None,
-            'borrowed':is_borrowed
+            'borrowed_dict':borrowed_dict
             }
 
     return HttpResponse(previewHTML.render(context))

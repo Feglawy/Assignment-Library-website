@@ -47,24 +47,33 @@
     <div class="text">
       <h1 id="book-name">{{book.title}}</h1>
       <p id="book-description" class="{{book.language}}-lang">{{book.desc}}</p>
-      {% if user.is_authenticated and book.is_available and not borrowed %}
-      <button
-        class="Borrow"
-        type="button"
-        id="borrow-btn"
-        onclick="borrow(event, {{book.id}})"
-      >
-        Borrow
-      </button>
+      {% if user.is_authenticated and book.is_available and not book.id in borrowed_dict %}
+        <button
+          class="Borrow"
+          type="button"
+          id="borrow-btn"
+          onclick="borrow(event, {{book.id}})"
+        >
+          Borrow
+        </button>
+      {% elif book.id in borrowed_dict %}
+        <button
+          class="Borrow"
+          type="button"
+          id="borrow-btn"
+          onclick="return_book(event,{{ borrowed_dict|get_item_from_dict:book.id }})"
+        >
+          Return
+        </button>
       {% elif not book.is_available %}
-      <button
-        class="Borrow"
-        type="button"
-        id="borrow-btn"
-        style="background-color: red"
-      >
-        Out of stock
-      </button>
+        <button
+          class="Borrow"
+          type="button"
+          id="borrow-btn"
+          style="background-color: red"
+        >
+          Out of stock
+        </button>
       {% endif %}
     </div>
   </div>
