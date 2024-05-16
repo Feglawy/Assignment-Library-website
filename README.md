@@ -24,12 +24,15 @@ Assignment web 2024
 
    1. create a `.env` file then add your variables
    2. if you added on and used it in the project add the variable you used to the `.env-example` file to let us know
+8. do the migrations
+- `python manage.py makemigrations`
+- `python manage.py migrate`
 
-8. run the server
+9.  run the server
 
 - `python manage.py runserver`
 
-9. run the server on any local device
+10. run the server on any local device
 
 - `python manage.py runsever 0.0.0.0:8000`
 
