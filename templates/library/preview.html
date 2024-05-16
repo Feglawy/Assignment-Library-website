@@ -2,6 +2,7 @@
 
 {% block title %} {{book.title}} {% endblock title %} 
 
+
 {% block content %}
 <div class="book-image">
   <img id="bg-img" src="{{book.cover.url}}" />
@@ -52,7 +53,7 @@
         class="Borrow"
         type="button"
         id="borrow-btn"
-        onclick="borrow({{book.id}})"
+        onclick="borrow(event, {{book.id}})"
       >
         Borrow
       </button>
@@ -61,7 +62,7 @@
         class="Borrow"
         type="button"
         id="borrow-btn"
-        onclick="return_book({{borrow_record.id}})"
+        onclick="return_book(event, {{borrow_record.id}})"
       >
         return
       </button>

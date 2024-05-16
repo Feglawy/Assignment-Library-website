@@ -1,4 +1,4 @@
-function borrow(bookId) {
+function borrow(event, bookId) {
   fetch("/api/borrow/", {
     method: "POST",
     headers: {
@@ -13,9 +13,10 @@ function borrow(bookId) {
       if (!response.ok) {
         return Promise.reject(response);
       }
-      response.json();
+      return response.json();
     })
     .then((data) => {
+      book_borrowed(event, data.id);
       const successMessage = "Book borrowed!";
       toastr.success(successMessage, "Success", {
         closeButton: true,
@@ -30,7 +31,7 @@ function borrow(bookId) {
     });
 }
 
-function return_book(bookId) {
+function return_book(event, borrow_id) {
   fetch("/api/return/", {
     method: "PUT",
     headers: {
@@ -38,16 +39,17 @@ function return_book(bookId) {
       "X-CSRFToken": getCookie("csrftoken"),
     },
     body: JSON.stringify({
-      borrow_id: bookId,
+      borrow_id: borrow_id,
     }),
   })
     .then((response) => {
       if (!response.ok) {
         return Promise.reject(response);
       }
-      response.json();
+      return response.json();
     })
     .then((data) => {
+      book_returned(event, data.borrowed_book.id);
       const successMessage = "Book returned!";
       toastr.success(successMessage, "Success", {
         closeButton: true,
@@ -75,4 +77,20 @@ function getCookie(name) {
     }
   }
   return cookieValue;
+}
+
+function book_borrowed(event, borrow_id) {
+  var button = event.target;
+  button.innerText = "Return";
+  button.onclick = function (event) {
+    return_book(event, borrow_id);
+  };
+}
+
+function book_returned(event, book_id) {
+  var button = event.target;
+  button.innerText = "Borrow";
+  button.onclick = function (event) {
+    borrow(event, book_id);
+  };
 }
