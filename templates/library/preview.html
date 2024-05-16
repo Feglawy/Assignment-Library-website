@@ -2,7 +2,6 @@
 
 {% block title %} {{book.title}} {% endblock title %} 
 
-
 {% block content %}
 <div class="book-image">
   <img id="bg-img" src="{{book.cover.url}}" />
@@ -56,15 +55,6 @@
         onclick="borrow(event, {{book.id}})"
       >
         Borrow
-      </button>
-      {% elif borrow_record %}
-      <button
-        class="Borrow"
-        type="button"
-        id="borrow-btn"
-        onclick="return_book(event, {{borrow_record.id}})"
-      >
-        return
       </button>
       {% elif not book.is_available %}
       <button

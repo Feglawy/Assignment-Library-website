@@ -57,14 +57,16 @@ def preview(request, book_title) -> HttpResponse:
     book = Book.objects.get(title=book_title)
     is_borrowed = True
     borrow_record = BorrowingRecord()
-    try:
-        borrow_record = BorrowingRecord.objects.get(user=request.user, borrowed_book=book, returned=False)
-    except BorrowingRecord.DoesNotExist:
-        is_borrowed = False
+    if request.user.is_authenticated:
+        try:
+            borrow_record = BorrowingRecord.objects.get(user=request.user, borrowed_book=book, returned=False)
+        except BorrowingRecord.DoesNotExist or Exception as e:
+            is_borrowed = False
+    
     context = {'book':book, 
-               'user':request.user, 
-               'borrow_record':borrow_record if borrow_record else None,
-               'borrowed':is_borrowed
-               }
+            'user':request.user, 
+            'borrow_record':borrow_record if borrow_record else None,
+            'borrowed':is_borrowed
+            }
 
     return HttpResponse(previewHTML.render(context))
