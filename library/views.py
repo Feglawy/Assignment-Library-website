@@ -50,7 +50,19 @@ def update(request) -> HttpResponse:
 def available(request) -> HttpResponse:
     availableHTML = loader.get_template('library/AvailableBooks.html')
     books = Book.objects.all()
-    return HttpResponse(availableHTML.render(context={'books':books, 'user':request.user}))
+
+    borrowed_records = None
+    cart_dict = {}
+    
+    if request.user.is_authenticated:
+        borrowed_records = BorrowingRecord.objects.filter(user=request.user, returned=False).values_list('id','borrowed_book_id')
+        cart_dict = {borrow_id: book_id for book_id, borrow_id in borrowed_records}
+    context = {'books':books, 
+               'user':request.user, 
+               'borrow_records':cart_dict
+               }
+
+    return HttpResponse(availableHTML.render(context=context))
 
 def preview(request, book_title) -> HttpResponse:
     previewHTML = loader.get_template('library/preview.html')

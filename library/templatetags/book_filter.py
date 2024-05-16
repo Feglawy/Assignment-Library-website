@@ -9,3 +9,8 @@ def get_language_name(language_code):
         'ar': 'Arabic',
     }
     return LANGUAGES.get(language_code, language_code)
+
+
+@register.filter(name='get_item_from_dict')
+def get_item(dictionary, key):
+    return dictionary.get(key)

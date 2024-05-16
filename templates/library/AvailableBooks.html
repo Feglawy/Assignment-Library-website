@@ -1,6 +1,7 @@
-{% extends "base.html" %} {% load static %} 
+{% extends "base.html" %} {% load static %} {% load book_filter %} 
 
 {% block title %} Available Books {%endblock title %} 
+
 
 {% block content %}
 <h2 id="available-header">Available Books</h2>
@@ -9,10 +10,20 @@
   <div class="book">
     <img src="{{book.cover.url}}" alt="{{book.title}}" />
     <h5 class="name">{{book.title}}</h5>
-    {% if user.is_authenticated and book.is_available %}
-    <button class="Borrow" type="button" onclick="borrow({{book.id}})">
-      Borrow
-    </button>
+    {% if user.is_authenticated and book.is_available %} 
+      {% if book.id in borrow_records %}
+        <button
+          class="Borrow"
+          type="button"
+          onclick="return_book(event,{{ borrow_records|get_item_from_dict:book.id }})"
+        >
+          Return
+        </button>
+      {% else %}
+        <button class="Borrow" type="button" onclick="borrow(event,{{book.id}})">
+          Borrow
+        </button>
+      {% endif %}
     {% elif not book.is_available %}
     <button class="Borrow" type="button" style="background-color: red">
       Out of stock
