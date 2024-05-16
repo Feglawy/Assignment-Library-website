@@ -62,14 +62,14 @@ if there was any firewall problems allow the port 8000 by adding the rule in the
 ### phase 3 backend
 
 - [x] django app structure
-- [ ] dark theme
-- [ ] make the database
+- [x] dark theme
+- [x] make the database
   - [x] users database
   - [x] books database
   - [x] authors database
   - [x] geners database
   - [x] types database
-  - [ ] borrowed books database
+  - [x] borrowed books database
 - [ ] admin's update books page
       ...
 
