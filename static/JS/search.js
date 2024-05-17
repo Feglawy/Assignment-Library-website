@@ -28,11 +28,13 @@ function add_search_results(results) {
   }
   results.forEach(function (res) {
     result_section.innerHTML +=
-      '<div class="book"> <img src="' +
+      '<div class="book"><a href="' +
+      res.url +
+      '"><img src="' +
       res.cover +
       '" alt="' +
-      res.pk +
-      '" /> <h5 class="name">' +
+      res.title +
+      '" /> </a><h5 class="name">' +
       res.title +
       '</h5> <a class="previewButton" book-id="' +
       res.pk +
