@@ -11,9 +11,11 @@ Update Books
 <div class="user">
   <h1>Hello!</h1>
   <h2 id="user-name">{{user.get_full_name|default:"not Found"}}</h2>
-  <button class="btn" id="add-new" data-modal-target="#modal">
-    Add new book
-  </button>
+  <a href="{% url "create_book" %}">  
+    <button class="btn" id="add-new">
+      Add new book
+    </button>
+  </a>
 </div>
 <div class="books-section" id="Update-books-section">
   {% for book in books %}

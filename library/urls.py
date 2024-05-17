@@ -9,4 +9,5 @@ urlpatterns = [
     path('books/', views.available, name="available"),
     path('update-books/', views.update, name="update"),
     path('book/<str:book_title>/', views.preview, name="preview"),
+    path('update-books/new/', views.add_new_book, name="create_book"),
 ]

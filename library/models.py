@@ -35,7 +35,7 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=255,null=False,unique=True)
     desc = models.TextField()
-    cover = models.ImageField(upload_to='book_covers/', default='book_covers/default.png', null=False)
+    cover = models.ImageField(upload_to='book_covers\\', default='book_covers\\default.png', null=False)
     authors = models.ManyToManyField(Author)
     book_type = models.ForeignKey(Type, on_delete=models.CASCADE)
     genres = models.ManyToManyField(Genre)
@@ -62,7 +62,6 @@ class Book(models.Model):
         return reverse("preview", kwargs={"book_title": self.title})
 
     def save(self, *args, **kwargs):
-
         if self.cover:
             dir_path, file = os.path.split(self.cover.name)
             image_name, ext = os.path.splitext(file)

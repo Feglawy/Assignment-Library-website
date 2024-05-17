@@ -1,12 +1,14 @@
 import requests
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib import messages
 from django.views.generic import View
 
 from .models import *
+from .forms import *
 import os
 # Create your views here.
 
@@ -85,3 +87,25 @@ def preview(request, book_title) -> HttpResponse:
             }
 
     return HttpResponse(previewHTML.render(context))
+
+@staff_member_required
+def add_new_book(request):
+    if request.method == "POST":
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('update')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{error}")
+            
+    else:
+        form = BookForm()
+    
+    context = {
+        'user': request.user,
+        'form': form,
+    }
+    create_book_HTML = 'library/create_book.html'
+    return render(request, create_book_HTML, context)
