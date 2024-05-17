@@ -16,6 +16,7 @@ def ApiOverView(request):
         'Retrive all Types' : '/types',
         'Create book': '/book/create/',
         'Retrive book by id': '/book/id',
+        'Retrive book by title': '/book/title',
         'Update book': '/book/update/id',
         'Delete book': '/book/delete/id',
         'search': '/book/?search=search_query&searchBy=search_by_[title, genre, author, type, language, is_available]',
@@ -72,7 +73,7 @@ def get_types(request):
 @api_view(['GET'])
 def get_book_by_id(request, id):
     try:
-        book = Book.objects.filter(pk=id)
+        book = Book.objects.get(pk=id)
     except Book.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
@@ -82,7 +83,7 @@ def get_book_by_id(request, id):
 @api_view(['GET'])
 def get_book_by_title(request, title):
     try:
-        book = Book.objects.filter(title=title)
+        book = Book.objects.get(title=title)
     except Book.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
