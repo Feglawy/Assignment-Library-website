@@ -22,8 +22,8 @@ Update Books
     <div class="book">
       <a href="{{book.get_absolute_url}}"><img src="{{book.cover.url}}" alt="{{book.title}}" /></a>
       <h5 class="name">{{book.title}}</h5>
-      <button class="Edit">Edit</button>
-      <button class="Delete">Delete</button>
+      <a class="Edit btn" href="{% url "edit_book" book_id=book.id %}">Edit</a>
+      <a class="Delete btn">Delete</a>
     </div>
   {% endfor %}
 </div>
