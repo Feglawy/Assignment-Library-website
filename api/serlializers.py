@@ -57,6 +57,13 @@ class BookSerializer(serializers.ModelSerializer):
         book.save()
         return book
     
+class RecommendedBooksSerializer(serializers.ModelSerializer):
+    book = BookSerializer()
+    class Meta:
+        model = RecommendedBooks
+        fields = '__all__'
+        read_only_fields = ['id']
+
 class BorrowedBooksSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     borrowed_book = BookSerializer()

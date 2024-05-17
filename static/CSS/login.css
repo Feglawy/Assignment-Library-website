@@ -4,7 +4,8 @@
 .signupForm,
 .ResetPassForm,
 .RequestResetPassForm,
-.edit-profile-form {
+.edit-profile-form,
+.create-new-book-form {
   width: 700px;
   margin: 200px auto; /* Adjust margin to create space around the form */
   background-color: var(--login-form-bg-color);

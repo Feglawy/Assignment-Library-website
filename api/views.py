@@ -15,14 +15,17 @@ def ApiOverView(request):
         'Retrive all Genres' : '/genres',
         'Retrive all Types' : '/types',
         'Create book': '/book/create/',
-        'Retrive book by id': '/book/id',
-        'Update book': '/book/update/id',
-        'Delete book': '/book/delete/id',
+        'Retrive book by id': '/book/<int:id>',
+        'Retrive book by title': '/book/<str:title>',
+        'Update book': '/book/update/<int:id>',
+        'Delete book': '/book/delete/<int:id>',
         'search': '/book/?search=search_query&searchBy=search_by_[title, genre, author, type, language, is_available]',
         'random quote':'/random/quote/',
         'borrow a book':'/borrow/',
         'return a book':'/return/',
-        'get borrowed books' : '/borrowed_books/'
+        'get borrowed books' : '/borrowed_books/',
+        'add a recommendation' : '/add_recommendation/',
+        'delete a recommendation' : '/delete_recommendation/<int:book_id>',
     }
 
     return Response(api_urls)
@@ -72,7 +75,7 @@ def get_types(request):
 @api_view(['GET'])
 def get_book_by_id(request, id):
     try:
-        book = Book.objects.filter(pk=id)
+        book = Book.objects.get(pk=id)
     except Book.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
@@ -82,7 +85,7 @@ def get_book_by_id(request, id):
 @api_view(['GET'])
 def get_book_by_title(request, title):
     try:
-        book = Book.objects.filter(title=title)
+        book = Book.objects.get(title=title)
     except Book.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
@@ -210,3 +213,50 @@ def borrowed_books(request):
     borrowed_books = BorrowingRecord.objects.filter(user=user, returned = False)
     serializer = BorrowedBooksSerializer(borrowed_books, many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([IsAdminUser])
+def add_recommendation(request):
+    book_id = request.data.get('book_id')
+
+    try:
+        book = Book.objects.get(pk=book_id)
+    except Book.DoesNotExist:
+        ERROR_MESSAGE = 'This book id does not exist in the database'
+        return Response({'error': ERROR_MESSAGE}, status=status.HTTP_404_NOT_FOUND)
+    
+    recommendation, created = RecommendedBooks.objects.get_or_create(
+        book=book
+    )
+
+    if not created:
+        ERROR_MESSAGE = 'This book is already recommended'
+        return Response({'error': ERROR_MESSAGE}, status=status.HTTP_302_FOUND)
+
+    serializer = RecommendedBooksSerializer(recommendation)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def delete_recommendation(request, book_id):
+    try:
+        book = Book.objects.get(pk=book_id)
+        recommendation = RecommendedBooks.objects.get(book=book)
+    except RecommendedBooks.DoesNotExist:
+        ERROR_MESSAGE = 'This book is not recommended'
+        ERROR_RESPONSE = {'error': ERROR_MESSAGE}
+        return Response(data=ERROR_RESPONSE, status=status.HTTP_404_NOT_FOUND)
+    except Book.DoesNotExist:
+        ERROR_MESSAGE = 'This book does not exist in our database'
+        ERROR_RESPONSE = {'error': ERROR_MESSAGE}
+        return Response(data=ERROR_RESPONSE, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = RecommendedBooksSerializer(recommendation)
+    recommendation.delete()
+    return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+
+@api_view(['GET'])
+def recommended_books(request):
+    recommended = RecommendedBooks.objects.all()
+    serializer = RecommendedBooksSerializer(recommended, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)

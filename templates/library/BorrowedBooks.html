@@ -13,10 +13,10 @@
 <div class="books-section" id="borrowed-Books-section">
   {% for record in books %} 
     <div class="book">
-      <img
+      <a href="{{record.borrowed_book.get_absolute_url}}"><img
         src="{{record.borrowed_book.cover.url}}"
         alt="{{record.borrowed_book.title}}"
-      />
+      /></a>
       <h5 class="name">{{record.borrowed_book.title}}</h5>
       <button
         class="Borrowed"

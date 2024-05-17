@@ -75,6 +75,7 @@ if there was any firewall problems allow the port 8000 by adding the rule in the
   - [x] borrowed books database
 - [ ] admin's update books page
       ...
+- [ ] USE AJAX INSTEAD OF JS FETCH
 
 ---
 
