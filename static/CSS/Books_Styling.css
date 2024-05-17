@@ -43,7 +43,7 @@
   font-size: 15px;
 }
 
-.book a,
+.book .name ~ a,
 .book button {
   display: inline-block;
   width: 50%;
