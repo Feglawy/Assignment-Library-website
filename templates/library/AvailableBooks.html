@@ -13,7 +13,7 @@
     {% if user.is_authenticated and book.is_available %} 
       {% if book.id in borrow_records %}
         <button
-          class="Borrow"
+          class="Borrowed"
           type="button"
           onclick="return_book(event,{{ borrow_records|get_item_from_dict:book.id }})"
         >
