@@ -177,7 +177,7 @@ def borrow(request):
     
     user = request.user
 
-    borrow, created = BorrowingRecord.objects.get_or_create(
+    record, created = BorrowingRecord.objects.get_or_create(
         user=user,
         borrowed_book=book,
         returned = False
@@ -185,8 +185,9 @@ def borrow(request):
 
     if not created:
         return Response({'error': f'you already borrowed {book.title}'},status=status.HTTP_400_BAD_REQUEST)
-
-    serializer = BorrowedBooksSerializer(borrow)
+    
+    record.borrow()
+    serializer = BorrowedBooksSerializer(record)
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
@@ -194,15 +195,19 @@ def borrow(request):
 @permission_classes([IsAuthenticated])
 def return_book(request):
     user = request.user
-    borrow_id = request.data.get('borrow_id')
+    book_id = request.data.get('book_id')
     try:
-        borrowed_books = BorrowingRecord.objects.get(pk=borrow_id)
+        book = Book.objects.get(pk=book_id)
+        borrowed_book = BorrowingRecord.objects.get(
+            user=user,
+            borrowed_book=book,
+            returned = False
+        )
     except BorrowingRecord.DoesNotExist:
         return Response({'error': 'borrowing record does not exist'},status=status.HTTP_404_NOT_FOUND)
 
-    borrowed_books.returned = True
-    borrowed_books.save()
-    serializer = BorrowedBooksSerializer(borrowed_books)
+    borrowed_book.return_book()
+    serializer = BorrowedBooksSerializer(borrowed_book)
     return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
 

@@ -47,7 +47,8 @@
     <div class="text">
       <h1 id="book-name">{{book.title}}</h1>
       <p id="book-description" class="{{book.language}}-lang">{{book.desc}}</p>
-      {% if user.is_authenticated and book.is_available and not book.id in borrowed_dict %}
+      
+      {% if user.is_authenticated and book.is_available %}
         <button
           class="Borrow"
           type="button"
@@ -56,32 +57,57 @@
         >
           Borrow
         </button>
-      {% elif book.id in borrowed_dict %}
-        <button
-          class="Borrow"
-          type="button"
-          id="borrow-btn"
-          onclick="return_book(event,{{ borrowed_dict|get_item_from_dict:book.id }})"
-        >
-          Return
-        </button>
       {% elif not book.is_available %}
+        <div class="count-down">
+          <h1 id="counter"></h1>
+        </div>
         <button
           class="Borrow"
           type="button"
           id="borrow-btn"
           style="background-color: red"
         >
-          Out of stock
+          Borrowed
         </button>
       {% endif %}
     </div>
   </div>
 </div>
-{% endblock content %} {% block script %}
+
+{% endblock content %} 
+
+{% block script %}
 <script>
   let book_desc = document.getElementById("book-description");
   book_desc.innerHTML = book_desc.innerHTML.replaceAll("\n", "<br>");
   book_desc.innerHTML = book_desc.innerHTML.replaceAll("\\r\\n", "<br>");
 </script>
+
+{% if not book.is_available %}
+  <script>
+    let return_date = new Date("{{ returned_by|date:'Y-m-d H:i:s' }}").getTime();
+    let interval = setInterval(() => {
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = return_date - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      document.getElementById("counter").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(interval);
+        document.getElementById("counter").innerHTML = "Available now!!!";
+      } 
+    },1000);
+  </script>
+{% endif %}
 {% endblock script %}

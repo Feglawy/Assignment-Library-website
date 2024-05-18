@@ -16,7 +16,7 @@ function borrow(event, bookId) {
       return response.json();
     })
     .then((data) => {
-      book_borrowed(event, data.id);
+      book_borrowed(event, data.borrowed_book.id);
       const successMessage = "Book borrowed!";
       toastr.success(successMessage, "Success", {
         closeButton: true,
@@ -31,7 +31,7 @@ function borrow(event, bookId) {
     });
 }
 
-function return_book(event, borrow_id) {
+function return_book(event, bookId) {
   fetch("/api/return/", {
     method: "PUT",
     headers: {
@@ -39,7 +39,7 @@ function return_book(event, borrow_id) {
       "X-CSRFToken": getCookie("csrftoken"),
     },
     body: JSON.stringify({
-      borrow_id: borrow_id,
+      book_id: bookId,
     }),
   })
     .then((response) => {
@@ -79,12 +79,12 @@ function getCookie(name) {
   return cookieValue;
 }
 
-function book_borrowed(event, borrow_id) {
+function book_borrowed(event, book_id) {
   var button = event.target;
   button.innerText = "Return";
   button.classList.add("Borrowed");
   button.onclick = function (event) {
-    return_book(event, borrow_id);
+    return_book(event, book_id);
   };
 }
 
