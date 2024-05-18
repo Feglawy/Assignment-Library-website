@@ -82,6 +82,7 @@ function getCookie(name) {
 function book_borrowed(event, borrow_id) {
   var button = event.target;
   button.innerText = "Return";
+  button.classList.add("Borrowed");
   button.onclick = function (event) {
     return_book(event, borrow_id);
   };
@@ -90,6 +91,7 @@ function book_borrowed(event, borrow_id) {
 function book_returned(event, book_id) {
   var button = event.target;
   button.innerText = "Borrow";
+  button.classList.remove("Borrowed");
   button.onclick = function (event) {
     borrow(event, book_id);
   };

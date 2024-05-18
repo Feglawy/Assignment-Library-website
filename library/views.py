@@ -1,7 +1,7 @@
 import requests
 from django.shortcuts import render, redirect
 from django.template import loader
-from django.http import HttpResponse, HttpRequest, JsonResponse
+from django.http import HttpResponse, HttpRequest, JsonResponse, Http404
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
@@ -109,3 +109,30 @@ def add_new_book(request):
     }
     create_book_HTML = 'library/create_book.html'
     return render(request, create_book_HTML, context)
+
+@staff_member_required
+def edit_book(request, book_id):
+    try:
+        book = Book.objects.get(pk=book_id)
+    except Book.DoesNotExist:
+        raise Http404("Resource not found")
+
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES, instance=book)
+
+        if form.is_valid():
+            form.save()
+            redirect('update')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{error}")
+
+    else:
+        form = BookForm(instance=book)
+    edit_book_HTML = 'library/create_book.html'
+    context= {
+        'user':request.user,
+        'form':form,
+    }
+    return render(request, edit_book_HTML, context=context)
