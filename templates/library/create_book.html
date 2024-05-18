@@ -9,25 +9,29 @@
 
 {% block content %}
 <div class="create-new-book-form">
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% render_field form.cover %}
-        <h3 class="info">Title</h3>
-        {% render_field form.title class="input" id="title-inp" placeholder="Enter Book title..." %}
-        <h3 class="info">Description</h3>
-        {% render_field form.desc class="input" id="desc-inp" placeholder="Enter Book description..." %}
-        <h3 class="info">Author/s</h3>
-        {% render_field form.authors class="input" id="authors-inp" %}
-        <h3 class="info">Genre/s</h3>
-        {% render_field form.genres class="input" id="genres-inp" %}
-        <h3 class="info">Type</h3>
-        {% render_field form.book_type class="input" id="type-inp" %}
-        <h3 class="info">Language</h3>
-        {% render_field form.language %}
-        {% render_field form.is_available %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% render_field form.cover %}
+    <h3 class="info">Title</h3>
+    {% render_field form.title class="input" id="title-inp" placeholder="Enter Book title..." %}
+    <h3 class="info">Description</h3>
+    {% render_field form.desc class="input" id="desc-inp" placeholder="Enter Book description..." %}
+    <div class="AUTHOR" id="id">
+      <h3 class="info">Author/s</h3>
+      {% render_field form.authors class="input" id="authors-inp" %}
+    </div>
+    <div class="GENRES" id="id">
+      <h3 class="info">Genre/s</h3>
+      {% render_field form.genres class="input" id="genres-inp" %}
+    </div>
+    <h3 class="info">Type</h3>
+    {% render_field form.book_type class="input" id="type-inp" %}
+    <h3 class="info">Language</h3>
+    {% render_field form.language %}
+    {% render_field form.is_available %}
 
-        <button type="submit">Submit</button>
-    </form>
+    <button type="submit">Submit</button>
+  </form>
 </div>
 {% endblock content %}
 
