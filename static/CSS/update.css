@@ -98,3 +98,44 @@
   margin-top: 20px;
 }
 
+
+.recommend {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+	position: absolute;
+	top: 8px;
+	right: 16px;
+	background-color: var(--hover-color) !important;
+	transition: 0.2s ease !important;
+	width: 25% !important;
+	opacity: 0.7;
+}
+.recommend:hover {
+  width: 60% !important;
+  opacity: 1;
+	transition: 0.2s ease !important;
+}
+
+.recommend:hover .symbol {
+  animation: spin 0.3s ease;
+}
+.recommend .symbol-text {
+  display: none;
+  transform: scale(0);
+  margin-left: 2px;
+	transition: 0.3s ease !important;
+}
+
+.recommend:hover .symbol-text{
+  display: block;
+  transform: scale(1);
+  font-size: medium;
+	transition: 0.3s ease !important;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
