@@ -1,12 +1,12 @@
 
 {% extends "base.html" %} 
-{% load static %} 
+{% load static %}
+
 {% block title %}
 Update Books 
 {% endblock title %}
 
 {% block content %}
-
 
 <div class="user">
   <h1>Hello!</h1>
@@ -23,14 +23,25 @@ Update Books
       <a href="{{book.get_absolute_url}}"><img src="{{book.cover.url}}" alt="{{book.title}}" /></a>
       <h5 class="name">{{book.title}}</h5>
       <a class="Edit btn" href="{% url "edit_book" book_id=book.id %}">Edit</a>
-      <a class="Delete btn">Delete</a>
+      <a class="Delete btn" book_name="{{book.title}}" book_id="{{book.id}}">Delete</a>
     </div>
   {% endfor %}
 </div>
 
+<div id="popup_overlay" class="popup_overlay hidden">
+  <div id="confirm_delete_popup" class="popup">
+    <h1>Confirm deletion</h1>
+    <p id="Book_name"></p>
+    <p>This book will be deleted!</p>
+    <div class="popup_btns">
+      <button id="confirm_button">Confirm</button>
+      <button id="cancel_button">Cancel</button>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}
 
 {% block script %}
-<script type="module" src="{% static "/JS/Books.js" %}" defer></script>
+<script src="{% static 'JS/UpdateBooks.js' %}"></script>
 {% endblock script %}
