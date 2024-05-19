@@ -21,7 +21,7 @@ class AuthorForm(forms.ModelForm):
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = '__all__'
+        fields = ['title', 'desc', 'cover', 'authors', 'book_type', 'genres', 'language']
 
 class RecommendedBooksForm(forms.ModelForm):
     class Meta:

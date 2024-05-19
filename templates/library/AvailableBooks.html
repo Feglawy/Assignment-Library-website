@@ -14,7 +14,7 @@
         <button class="Borrow" type="button" onclick="borrow(event,{{book.id}})">
           Borrow
         </button>
-    {% elif not book.is_available %}
+    {% elif user.is_authenticated and not book.is_available %}
       <button class="Borrow" type="button" style="background-color: red">
         Borrowed
       </button>

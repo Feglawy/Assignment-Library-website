@@ -1,42 +1,90 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 
 {% load static %}
-{% load widget_tweaks %}
+{% load book_filter %}
 
+{% load widget_tweaks %}
 
 {% block title %} new book {% endblock title %}
 
 
 {% block content %}
-<div class="create-new-book-form">
+<div class="create-new-book-form" style="width: 1000px;">
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {% render_field form.cover %}
-    <h3 class="info">Title</h3>
-    {% render_field form.title class="input" id="title-inp" placeholder="Enter Book title..." %}
-    <h3 class="info">Description</h3>
-    {% render_field form.desc class="input" id="desc-inp" placeholder="Enter Book description..." %}
-    <h3 class="info">Type</h3>
-    {% render_field form.book_type class="input" id="type-inp" %}
+    <div class="form-container">
+      <div class="img-upload-container" style="width: calc(500px * 0.7032967033);">
+        <div class="edit-book-img">
+          <img
+            src="{{ book.cover.url|get_url_if_found_else:'Images/default_book.png' }}"
+            alt="New Book Cover"
+            id="preview-book-img"
+            style=""
+            onclick="document.getElementById('cover-img-upload').click();"
+          />
+        </div>
 
-    <div class="multi-select">
-        <div class="AUTHOR" id="id">
-        <h3 class="info">Author/s</h3>
-        {% render_field form.authors class="input" id="authors-inp" %}
+        <div id="img-upload-input" style="display: none">
+          {% render_field form.cover id="cover-img-upload" %}
+        </div>
+        <div class="Notes">
+          <ul>
+            <li>
+              To select multiple Authors or Genres hold ctrl button while choosing.
+            </li>
+          </ul>
+        </div>
+        {% if  messages %}
+          <ul class="errors">
+            {% for error in messages %}
+            <li>{{error}}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       </div>
-      <div class="GENRES" id="id">
-        <h3 class="info">Genre/s</h3>
-        {% render_field form.genres class="input" id="genres-inp" %}
+      <div class="title-desc-container">
+        <h3 class="info">Title</h3>
+        {% render_field form.title class="input" id="title-inp" placeholder="Enter Book title..." %}
+        <h3 class="info">Description</h3>
+        {% render_field form.desc class="input" id="desc-inp" placeholder="Enter Book description..." %}
+
+        <h3 class="info">Type</h3>
+        {% render_field form.book_type class="input" id="type-inp" %}
+
+        <div class="multi-select">
+          <div class="AUTHOR" id="id">
+            <h3 class="info" style="justify-content: center;">Author/s</h3>
+            {% render_field form.authors class="input" id="authors-inp" %}
+          </div>
+          <div class="GENRES" id="id">
+            <h3 class="info" style="justify-content: center;">Genre/s</h3>
+            {% render_field form.genres class="input" id="genres-inp" %}
+          </div>
+        </div>
+
+        <h3 class="info">Language</h3>
+        {% render_field form.language class="input" %}
       </div>
     </div>
-    
-    <h3 class="info">Language</h3>
-    {% render_field form.language class="input" %}
-
     <button type="submit">Submit</button>
   </form>
 </div>
-{% endblock content %}
+{% endblock content %} 
 
 {% block script %}
+<script>
+  document.querySelector("#cover-img-upload").addEventListener("change", function () {
+    const file = this.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const imgElement = document.querySelector("#preview-book-img"); //To display the book's cover
+      imgElement.src = e.target.result;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
 {% endblock script %}

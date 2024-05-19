@@ -112,7 +112,7 @@ def edit_book(request, book_id):
 
         if form.is_valid():
             form.save()
-            redirect('update')
+            return redirect('update')
         else:
             for field, errors in form.errors.items():
                 for error in errors:
@@ -121,8 +121,10 @@ def edit_book(request, book_id):
     else:
         form = BookForm(instance=book)
     edit_book_HTML = 'library/create_book.html'
+    
     context= {
         'user':request.user,
         'form':form,
+        'book':book,
     }
     return render(request, edit_book_HTML, context=context)
