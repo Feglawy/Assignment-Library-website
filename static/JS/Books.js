@@ -64,6 +64,21 @@ function return_book(event, bookId) {
     });
 }
 
+function borrow_timeout(bookId) {
+  fetch("/api/borrow_timeout/", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": getCookie("csrftoken"),
+    },
+    body: JSON.stringify({
+      book_id: bookId,
+    }),
+  }).then((response) => {
+    return response.json();
+  });
+}
+
 function getCookie(name) {
   let cookieValue = null;
   if (document.cookie && document.cookie !== "") {

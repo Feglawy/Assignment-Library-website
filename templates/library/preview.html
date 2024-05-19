@@ -47,36 +47,34 @@
     <div class="text">
       <h1 id="book-name">{{book.title}}</h1>
       <p id="book-description" class="{{book.language}}-lang">{{book.desc}}</p>
-      
+
       {% if user.is_authenticated and book.is_available %}
-        <button
-          class="Borrow"
-          type="button"
-          id="borrow-btn"
-          onclick="borrow(event, {{book.id}})"
-        >
-          Borrow
-        </button>
+      <button
+        class="Borrow"
+        type="button"
+        id="borrow-btn"
+        onclick="borrow(event, {{book.id}})"
+      >
+        Borrow
+      </button>
       {% elif not book.is_available %}
-        <div class="count-down">
-          <h1 id="counter"></h1>
-        </div>
-        <button
-          class="Borrow"
-          type="button"
-          id="borrow-btn"
-          style="background-color: red"
-        >
-          Borrowed
-        </button>
+      <div class="count-down">
+        <h1 id="counter"></h1>
+      </div>
+      <button
+        class="Borrow"
+        type="button"
+        id="borrow-btn"
+        style="background-color: red"
+      >
+        Borrowed
+      </button>
       {% endif %}
     </div>
   </div>
 </div>
 
-{% endblock content %} 
-
-{% block script %}
+{% endblock content %} {% block script %}
 <script>
   let book_desc = document.getElementById("book-description");
   book_desc.innerHTML = book_desc.innerHTML.replaceAll("\n", "<br>");
@@ -84,36 +82,52 @@
 </script>
 
 {% if not book.is_available %}
-  <script>
-    let return_date = new Date("{{ returned_by|date:'Y-m-d H:i:s' }}").getTime();
+<script>
+  function borrow_timeout(bookId) {
+    fetch("/api/borrow_timeout/", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken"),
+      },
+      body: JSON.stringify({
+        book_id: bookId,
+      }),
+    }).then((response) => {
+      return response.json();
+    });
+  }
+  let return_date = new Date("{{ returned_by|date:'Y-m-d H:i:s' }}").getTime();
 
-    show_countdown(return_date);
-    function show_countdown(return_date) {
-      // Get today's date and time
-      var now = new Date().getTime();
+  show_countdown(return_date);
+  function show_countdown(return_date) {
+    // Get today's date and time
+    var now = new Date().getTime();
 
-      // Find the distance between now and the count down date
-      var distance = return_date - now;
+    // Find the distance between now and the count down date
+    var distance = return_date - now;
 
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      // Display the result in the element with id="demo"
-      document.getElementById("counter").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
+    // Display the result in the element with id="demo"
+    document.getElementById("counter").innerHTML =
+      days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
-      if (distance < 0) {
-        clearInterval(interval);
-        document.getElementById("counter").innerHTML = "Available now!!!";
-      } 
+    if (distance < 0) {
+      clearInterval(interval);
+      document.getElementById("counter").innerHTML = "Available now!!! Reload the page to be able to borrow it";
+      borrow_timeout({{book.id}});
     }
+  }
 
-    let interval = setInterval(()=> {
-      show_countdown(return_date);
-    },1000);
-  </script>
-{% endif %}
-{% endblock script %}
+  let interval = setInterval(() => {
+    show_countdown(return_date);
+  }, 1000);
+</script>
+{% endif %} {% endblock script %}

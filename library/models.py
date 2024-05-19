@@ -108,5 +108,9 @@ class BorrowingRecord(models.Model):
         self.returned = True
         self.save()
 
+    def is_timeout(self):
+        return self.return_by < timezone.now()
+    
+
     def __str__(self) -> str:
         return f"{self.user.username} borrowed {self.borrowed_book.title}"

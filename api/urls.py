@@ -15,6 +15,7 @@ urlpatterns = [
     path('search/', search_books, name="search-books"),
     path('borrow/', borrow, name='borrow'),
     path("return/", return_book, name="return"),
+    path("borrow_timeout/", borrowed_book_timeout, name="borrow-timeout"),
     path('borrowed_books/', borrowed_books , name='borrowed_books'),
     path('add_recommendation/', add_recommendation, name='add_recommendation'),
     path('delete_recommendation/<int:book_id>', delete_recommendation, name='delete_recommendation'),

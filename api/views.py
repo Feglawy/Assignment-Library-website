@@ -23,6 +23,7 @@ def ApiOverView(request):
         'random quote':'/random/quote/',
         'borrow a book':'/borrow/',
         'return a book':'/return/',
+        'check book borrow timeout and return it':'borrow_timeout/',
         'get borrowed books' : '/borrowed_books/',
         'add a recommendation' : '/add_recommendation/',
         'delete a recommendation' : '/delete_recommendation/<int:book_id>',
@@ -92,6 +93,23 @@ def get_book_by_title(request, title):
     data = BookSerializer(book)
     return Response(data.data)
 
+@api_view(['GET'])
+def get_authors_like(request, name):
+    authors = Author.objects.filter(name=name)
+    serializer = AuthorSerializer(authors, many=True)
+    return Response(data=serializer.data,status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def get_genres_like(request, name):
+    genres = Genre.objects.filter(name=name)
+    serializer = AuthorSerializer(genres, many=True)
+    return Response(data=serializer.data,status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def get_book_titles_like(request, title):
+    books = Book.objects.filter(title=title)
+    serializer = BookSerializer(books, many=True)
+    return Response(data=serializer.data,status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 def search_books(request): # Retrive books
@@ -209,6 +227,25 @@ def return_book(request):
     borrowed_book.return_book()
     serializer = BorrowedBooksSerializer(borrowed_book)
     return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+
+@api_view(['PUT'])
+def borrowed_book_timeout(request):
+    book_id = request.data.get('book_id')
+    try:
+        book = Book.objects.get(pk=book_id)
+        borrowed_book = BorrowingRecord.objects.get(
+            borrowed_book=book,
+            returned = False
+        )
+    except BorrowingRecord.DoesNotExist:
+        return Response({'error': 'borrowing record does not exit'}, status=status.HTTP_404_NOT_FOUND)
+    except Book.DoesNotExist:
+        return Response({'error':'book does not exist'}, status=status.HTTP_404_NOT_FOUND)
+    
+    if borrowed_book.is_timeout():
+        borrowed_book.return_book()
+    serializer = BorrowedBooksSerializer(borrowed_book)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
