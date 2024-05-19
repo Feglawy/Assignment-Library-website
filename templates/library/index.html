@@ -63,6 +63,9 @@ Online Library website
         <a class="previewButton" href="{{rec.book.get_absolute_url}}">Details</a>
       </div>
     {% endfor %}
+    {% if not recommeded %}
+      <h1 style="text-align:center;">Looks like admins didn't recommend any books yet.</h1>
+    {% endif %}
   </div>
 </div>
 {% endblock content %}

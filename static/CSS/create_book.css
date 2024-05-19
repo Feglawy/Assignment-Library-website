@@ -119,7 +119,7 @@ select option {
   height: fit-content;
   width: calc(500px * 0.7032967033);
 }
-.title-desc-container {
+.book-inputs {
   padding: 15px;
 }
 
