@@ -55,6 +55,80 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+async function suggest(event) {
+  let bookId = event.target.getAttribute("book_id");
+
+  try {
+    const response = await fetch(`/api/add_recommendation/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken"),
+      },
+      body: JSON.stringify({
+        book_id: bookId,
+      }),
+    });
+    if (response.ok) {
+      const successMessage = "successfully added to the recommended books";
+      toastr.success(successMessage, "Success");
+      book_suggested(event);
+    } else {
+      const failedMessage = "There an error occurred";
+      toastr.error(failedMessage, "Failed");
+    }
+  } catch (error) {
+    alert(`Error: ${error}`);
+  }
+}
+
+async function un_suggest(event) {
+  try {
+    let bookId = event.target.getAttribute("book_id");
+    const response = await fetch(`/api/delete_recommendation/${bookId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken"),
+      },
+    });
+
+    if (response.ok) {
+      const successMessage =
+        "successfully removed the book from recommendations";
+      toastr.success(successMessage, "success");
+      book_unsuggested(event);
+    } else {
+      const failedMessage = "There is an error occured";
+      toastr.error(failedMessage, "failed");
+    }
+  } catch (error) {
+    alert(`Error: ${error}`);
+  }
+}
+
+function book_suggested(event) {
+  let button = event.target;
+  button.classList.add("RED");
+  const un_suggested = `
+    <span class="symbol">&#215</span>
+    <span class="symbol-text">Unsuggest</span>
+  `;
+  button.innerHTML = un_suggested;
+  button.setAttribute("onclick", "un_suggest(event)");
+}
+
+function book_unsuggested(event) {
+  let button = event.target;
+  button.classList.remove("RED");
+  const suggested = `
+    <span class="symbol">+</span>
+    <span class="symbol-text">Suggest</span>
+  `;
+  button.innerHTML = suggested;
+  button.setAttribute("onclick", "suggest(event)");
+}
+
 function getCookie(name) {
   let cookieValue = null;
   if (document.cookie && document.cookie !== "") {

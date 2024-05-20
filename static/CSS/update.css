@@ -134,6 +134,14 @@
 	transition: 0.3s ease !important;
 }
 
+.RED {
+  background-color: red !important;
+}
+
+.recommend * {
+  pointer-events: none;
+}
+
 @keyframes spin {
   100% {
     transform: rotate(360deg);

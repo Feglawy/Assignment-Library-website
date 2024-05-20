@@ -23,12 +23,12 @@ Update Books
       <a href="{{book.get_absolute_url}}"><img src="{{book.cover.url}}" alt="{{book.title}}" /></a>
       <h5 class="name">{{book.title}}</h5>
       {% if book.recommended_books %}
-        <button class="recommend" style="background-color:red !important;">
+        <button class="recommend RED" book_id="{{book.id}}" onclick="un_suggest(event)">
           <span class="symbol">&#215</span>
           <span class="symbol-text">Unsuggest</span>
         </button>
       {% else %}
-        <button class="recommend">
+        <button class="recommend" book_id="{{book.id}}" onclick="suggest(event)">
           <span class="symbol">+</span>
           <span class="symbol-text">Suggest</span>
         </button>
