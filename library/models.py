@@ -92,7 +92,7 @@ class BorrowingRecord(models.Model):
     return_by = models.DateTimeField(default=timezone.now)
 
     def borrow(self):
-        self.return_by = timezone.now() + timedelta(days=14) # idk how and why but there is something wrong with it timezone now
+        self.return_by = timezone.now() + timedelta(days=14, hours=3) # idk how and why but there is something wrong with it timezone now
         self.borrowed_book.is_available = False
         self.borrowed_book.save()
         self.returned = False
@@ -105,7 +105,7 @@ class BorrowingRecord(models.Model):
         self.save()
 
     def is_timeout(self):
-        return self.return_by < timezone.now() + timedelta()
+        return self.return_by < timezone.now() + timedelta(hours=3)
     
 
     def __str__(self) -> str:
