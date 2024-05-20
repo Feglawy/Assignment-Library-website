@@ -3,7 +3,7 @@
 {% load widget_tweaks %}
 
 {% block title %}
-{{user.first_name}}'s profile 
+{{request.user.first_name}}'s profile 
 {% endblock title %} 
 
 {% block style %}
@@ -35,7 +35,7 @@
     {% csrf_token %}
     
     <div class="edit-profile-img">
-      <img src="{{user.profile_icon.url}}" alt="profile icon" id="preview-profile-img" style="" onclick="document.getElementById('profile-img-upload').click();">  
+      <img src="{{request.user.profile_icon.url}}" alt="profile icon" id="preview-profile-img" style="" onclick="document.getElementById('profile-img-upload').click();">  
     </div>
     
     <div id="img-upload-input" style="display:none">

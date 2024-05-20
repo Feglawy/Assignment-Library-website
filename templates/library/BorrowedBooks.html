@@ -7,7 +7,7 @@
 <!-- greeting user -->
 <div class="user">
   <h1>Hello!</h1>
-  <h2 id="user-name">{{user.get_full_name|default:"not Found"}}</h2>
+  <h2 id="user-name">{{request.user.get_full_name|default:"not Found"}}</h2>
 </div>
 <!-- books section -->
 <div class="books-section" id="borrowed-Books-section">

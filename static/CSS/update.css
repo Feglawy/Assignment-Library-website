@@ -11,22 +11,19 @@
   color: var(--text-color);
 }
 
-#add-new {
-  display: inline-block;
-  border-radius: 15px;
-  padding: 15px;
-  background-color: var(--dark-color);
-  color: #fff;
-  font-size: 20px;
-  border: none;
-  text-align: center;
-  margin: auto;
-  margin-top: 20px;
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-#add-new:hover {
-  background-color: var(--Green-color);
-  transition: 0.5s;
+.another-buttons {
+  margin: 10px;
+}
+
+.another-buttons a {
+  margin: 10px;
 }
 
 @media (max-width: 520px) {
@@ -74,6 +71,10 @@
   transition: transform 0.2s;
   color: var(--text-color);
   width: 400px;
+}
+
+#confirm_delete_popup p {
+	font-size: larger;
 }
 
 #popup_overlay.visible #confirm_delete_popup {

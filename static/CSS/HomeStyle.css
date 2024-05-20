@@ -127,6 +127,12 @@ body {
   color: var(--text-color);
 }
 
+#no-recommendations {
+  margin: 50px;
+  text-align:center;
+  color: var(--text-color);
+}
+
 @media (max-width: 540px) {
   .first-section {
     display: flex;
@@ -147,3 +153,4 @@ body {
     padding: 70px;
   }
 }
+

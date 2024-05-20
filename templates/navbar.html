@@ -25,18 +25,16 @@
   <ul class="pages">
     <li><a href="{% url "index" %}">Home</a></li>
     <li><a href="{% url "search" %}">Search</a></li>
-    {% if user.is_authenticated %}
+    {% if request.user.is_authenticated %}
       <li><a href="{% url "borrowed" %}">Borrowed Books</a></li>
-      {% if user.is_admin %}
-        <li><a href="{% url "update" %}">Update Books</a></li>
+      {% if request.user.is_admin %}
+        <li><a href="{% url "update" %}">Admin</a></li>
       {% endif %}
     {% endif %}
     <li><a href="{% url "available" %}">Books</a></li>
     <li><a href="{% url "about" %}">About</a></li>
 
-    {% if user.is_authenticated %}
-      {% comment %} <li><a href="{% url "logout" %}">logout</a></li> {% endcomment %}
-      
+    {% if request.user.is_authenticated %}
   </ul>
   <div class="profile">
           <a href="{% url "profile" %}">

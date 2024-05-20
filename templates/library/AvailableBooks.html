@@ -10,11 +10,11 @@
   <div class="book">
     <a href="{{book.get_absolute_url}}"><img src="{{book.cover.url}}" alt="{{book.title}}" /></a>
     <h5 class="name">{{book.title}}</h5>
-    {% if user.is_authenticated and book.is_available %} 
+    {% if request.user.is_authenticated and book.is_available %} 
         <button class="Borrow" type="button" onclick="borrow(event,{{book.id}})">
           Borrow
         </button>
-    {% elif user.is_authenticated and not book.is_available %}
+    {% elif request.user.is_authenticated and not book.is_available %}
       <button class="Borrow" type="button" style="background-color: red">
         Borrowed
       </button>

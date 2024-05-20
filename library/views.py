@@ -15,10 +15,10 @@ import os
 
 def index(request):
     recommended =  RecommendedBooks.objects.all()
-    return render(request, 'library/index.html', context={'recommended':recommended, 'user':request.user})
+    return render(request, 'library/index.html', context={'recommended':recommended})
 
 def about(request):
-    return render(request, 'library/about.html', context={'user': request.user})
+    return render(request, 'library/about.html', context={})
 
 def search(request) -> HttpResponse:
     search_input = request.GET.get('search', '')
@@ -34,53 +34,75 @@ def search(request) -> HttpResponse:
         elif search_by == 'genre':
             books = books.filter(genres__name__icontains=search_input)
         
-    searchHTML = loader.get_template('library/Search.html')
-    return HttpResponse(searchHTML.render({'books': books, 'user':request.user}))
+    searchHTML = 'library/Search.html'
+    context = {'books': books,}
+    return render(request, searchHTML, context=context)
 
 @login_required
 def borrowed(request) -> HttpResponse:
-    borrowedHTML = loader.get_template('library/BorrowedBooks.html')
+    borrowedHTML = 'library/BorrowedBooks.html'
     users_borrowed_records = BorrowingRecord.objects.filter(user=request.user, returned=False)
-    return HttpResponse(borrowedHTML.render({'user':request.user, 'books':users_borrowed_records}))
+    context = {'books':users_borrowed_records}
+    return render(request, borrowedHTML, context=context)
 
 @staff_member_required
 def update(request) -> HttpResponse:
-    updateHTML = loader.get_template('library/UpdateBooks.html')
+    updateHTML = 'library/UpdateBooks.html'
     books = Book.objects.all()
+    context = {'books':books, }
+    return render(request, updateHTML, context=context)
 
-    context = {'books':books, 
-               'user':request.user
-               }
-    return HttpResponse(updateHTML.render(context=context))
+@staff_member_required
+def update_authors(request) -> HttpResponse:
+    updateHTML = 'library/UpdateTags.html'
+    authors = Author.objects.all()
+
+    context = {'authors':authors, }
+    return render(request, updateHTML, context=context)
+
+@staff_member_required
+def update_genres(request) -> HttpResponse:
+    updateHTML = 'library/UpdateTags.html'
+    genres = Genre.objects.all()
+
+    context = {'genres':genres, }
+    return render(request, updateHTML, context=context)
+
+@staff_member_required
+def update_types(request) -> HttpResponse:
+    updateHTML = 'library/UpdateTags.html'
+    types = Type.objects.all()
+
+    context = {'types':types, }
+    return render(request, updateHTML, context=context)
+
 
 def available(request) -> HttpResponse:
-    availableHTML = loader.get_template('library/AvailableBooks.html')
+    availableHTML = 'library/AvailableBooks.html'
     books = Book.objects.all()
     
     context = {'books':books, 
-               'user':request.user, 
                }
 
-    return HttpResponse(availableHTML.render(context=context))
+    return render(request, availableHTML, context=context)
+
 
 def preview(request, book_title) -> HttpResponse:
-    previewHTML = loader.get_template('library/preview.html')
+    previewHTML = 'library/preview.html'
     book = Book.objects.get(title=book_title)
     try:
         borrow_record = BorrowingRecord.objects.get(borrowed_book=book, returned=False)
         context = {
             'book':book, 
-            'user':request.user, 
             'returned_by':borrow_record.return_by
             }
 
     except BorrowingRecord.DoesNotExist:
         context = {
             'book':book, 
-            'user':request.user, 
             }
+    return render(request, previewHTML, context=context)
 
-    return HttpResponse(previewHTML.render(context))
 
 @staff_member_required
 def add_new_book(request):
@@ -127,7 +149,6 @@ def edit_book(request, book_id):
     edit_book_HTML = 'library/create_book.html'
     
     context= {
-        'user':request.user,
         'form':form,
         'book':book,
     }

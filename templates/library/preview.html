@@ -48,7 +48,7 @@
       <h1 id="book-name">{{book.title}}</h1>
       <p id="book-description" class="{{book.language}}-lang">{{book.desc}}</p>
 
-      {% if user.is_authenticated and book.is_available %}
+      {% if request.user.is_authenticated and book.is_available %}
       <button
         class="Borrow"
         type="button"

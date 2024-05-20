@@ -74,7 +74,7 @@ def EditProfile(request):
     else:
         form = EditProfileForm(instance=request.user)
     
-    return render(request, 'accounts/editProfile.html', context={'form': form, 'user':request.user})
+    return render(request, 'accounts/editProfile.html', context={'form': form})
 
 def ForgetPassword(request):
     if request.method == 'POST':
