@@ -47,7 +47,11 @@ def borrowed(request) -> HttpResponse:
 def update(request) -> HttpResponse:
     updateHTML = loader.get_template('library/UpdateBooks.html')
     books = Book.objects.all()
-    return HttpResponse(updateHTML.render(context={'books':books,'user':request.user}))
+
+    context = {'books':books, 
+               'user':request.user
+               }
+    return HttpResponse(updateHTML.render(context=context))
 
 def available(request) -> HttpResponse:
     availableHTML = loader.get_template('library/AvailableBooks.html')

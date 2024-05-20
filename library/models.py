@@ -78,11 +78,7 @@ class Book(models.Model):
         super().save(*args,**kwargs)
 
 class RecommendedBooks(models.Model):
-    book = models.OneToOneField(Book, on_delete=models.CASCADE, unique=True)
-
-    class Meta:
-        verbose_name = ("Recommended Book")
-        verbose_name_plural = ("Recommended Books")
+    book = models.OneToOneField(Book, on_delete=models.CASCADE, unique=True, related_name='recommended_books')
 
     def __str__(self) -> str:
         return self.book.title
