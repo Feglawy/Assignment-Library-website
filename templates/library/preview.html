@@ -121,8 +121,12 @@
 
     if (distance < 0) {
       clearInterval(interval);
-      document.getElementById("counter").innerHTML = "Available now!!! Reload the page to be able to borrow it";
+      document.getElementById("counter").innerHTML = "Available now!!! Reload the page to be able to borrow it or it will be automatically reloaded after 3 seconds";
+      document.getElementById("counter").style.color = "green"
       borrow_timeout({{book.id}});
+      setTimeout(function(){
+        location.reload();
+      }, 3000);
     }
   }
 
