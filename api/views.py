@@ -1,5 +1,6 @@
 import requests
 from django.shortcuts import get_object_or_404, render
+from rest_framework import viewsets, generics
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
@@ -30,6 +31,27 @@ def ApiOverView(request):
     }
 
     return Response(api_urls)
+
+
+@api_view(['GET'])
+def random_quote(request):
+    try:
+        # old api https://github.com/Sumansourabh14/recite it was slow
+        # the new one might return a quote with @ in the end of thee quote also sometimes it doesn't return an author
+        response = requests.get("https://stoic.tekloon.net/stoic-quote")
+        response.raise_for_status()
+
+        # Parse the JSON response
+        quote_data = response.json()
+
+        response_data = {
+            "quote": quote_data["quote"],
+            "author": quote_data["author"],
+        }
+        return Response(response_data)
+    
+    except requests.RequestException as e:
+        return Response({"error": str(e)}, status=response.status_code)
 
 
 @api_view(['POST'])
@@ -95,19 +117,25 @@ def get_book_by_title(request, title):
 
 @api_view(['GET'])
 def get_authors_like(request, name):
-    authors = Author.objects.filter(name=name)
+    authors = Author.objects.filter(name__icontains=name)
     serializer = AuthorSerializer(authors, many=True)
     return Response(data=serializer.data,status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 def get_genres_like(request, name):
-    genres = Genre.objects.filter(name=name)
+    genres = Genre.objects.filter(name__icontains=name)
     serializer = AuthorSerializer(genres, many=True)
     return Response(data=serializer.data,status=status.HTTP_200_OK)
 
 @api_view(['GET'])
-def get_book_titles_like(request, title):
-    books = Book.objects.filter(title=title)
+def get_types_like(request, name):
+    types = Type.objects.filter(name__icontains=name)
+    serializer = TypeSerializer(types, many=True)
+    return Response(data=serializer.data,status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def get_books_like(request, title):
+    books = Book.objects.filter(title__icontains=title)
     serializer = BookSerializer(books, many=True)
     return Response(data=serializer.data,status=status.HTTP_200_OK)
 
@@ -163,25 +191,6 @@ def delete_book(request, pk):
 
 
 
-@api_view(['GET'])
-def random_quote(request):
-    try:
-        # old api https://github.com/Sumansourabh14/recite it was slow
-        # the new one might return a quote with @ in the end of thee quote also sometimes it doesn't return an author
-        response = requests.get("https://stoic.tekloon.net/stoic-quote")
-        response.raise_for_status()
-
-        # Parse the JSON response
-        quote_data = response.json()
-
-        response_data = {
-            "quote": quote_data["quote"],
-            "author": quote_data["author"],
-        }
-        return Response(response_data)
-    
-    except requests.RequestException as e:
-        return Response({"error": str(e)}, status=response.status_code)
 
 
 @api_view(['POST'])
@@ -302,3 +311,16 @@ def recommended_books(request):
     recommended = RecommendedBooks.objects.all()
     serializer = RecommendedBooksSerializer(recommended, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class AuthorListCreateAPIView(viewsets.ModelViewSet):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+
+class TypesViewSet(viewsets.ModelViewSet):
+    queryset = Type.objects.all()
+    serializer_class = TypeSerializer
+
+class GenresViewSet(viewsets.ModelViewSet):
+    queryset = Genre.objects.all()
+    serializer_class = GenreSerializer

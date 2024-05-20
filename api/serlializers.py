@@ -13,17 +13,20 @@ class UserSerializer(serializers.ModelSerializer):
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = ['name']
-    
+        fields = ['id','name']
+        read_only_fields = ['id']
+        
 class TypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Type
-        fields = ['name']
+        fields = ['id','name']
+        read_only_fields = ['id']
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = ['name']
+        fields = ['id','name']
+        read_only_fields = ['id']
 
 
 class BookSerializer(serializers.ModelSerializer):
