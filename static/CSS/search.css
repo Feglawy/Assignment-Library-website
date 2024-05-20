@@ -36,6 +36,7 @@
   padding: 0px 0px 0px 40px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  z-index: 2;
 }
 
 .search-by-container {
@@ -100,17 +101,16 @@
   z-index: -1;
   margin-top: -10px;
   box-shadow: 15px 25px 15px 0px rgba(0, 0, 0, 0.1);
-  height: 0;
+  opacity: 0;
   transform: scale(0);
-  visibility: hidden;
-  transition: 0.3s all;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 
 #auto_compelete_container.visible {
-  height: fit-content;
-  visibility: visible;
+  opacity: 1;
   transform: scale(1);
-  transition: 0.3s all;
+  visibility: visible;
+  transition: transform 0.2s;
 }
 
 #auto_compelete_container {
@@ -123,4 +123,8 @@
 
 .result::before {
   content: ">   ";
+}
+
+#The-result-Books-section > h1:nth-child(1) {
+  color: var(--text-color);
 }
