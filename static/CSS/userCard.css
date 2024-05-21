@@ -5,10 +5,6 @@
   margin-left: 30px;
   margin-top: 15px;
 }
-body,
-html {
-  height: 100%;
-}
 
 .cont {
   display: flex;

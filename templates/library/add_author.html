@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update author</title>
+    <style>
+      /* Element | http://127.0.0.1:8000/update/Authors/new/ */
+
+      body > form:nth-child(1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        width: 100%;
+        flex-direction: column;
+        font-size: 20px;
+      }
+
+      /* Element | http://127.0.0.1:8000/update/Authors/new/ */
+
+      body {
+        height: 100%;
+      }
+
+      /* Element | http://127.0.0.1:8000/update/Authors/new/ */
+
+      body > form:nth-child(1) > button:nth-child(3) {
+        padding: 10px;
+        margin: 10px;
+      }
+      @import "CSS/rule.css";
+    </style>
+  </head>
+  <body>
+    <form method="post">
+      {% csrf_token %} {{form}}
+      <button type="submit" onclick="window.close();">Submit</button>
+    </form>
+    <script></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% load static %}
+{% block title %}{{item.name}} info{% endblock title %}
+{% block style %}
+<style>
+  .item-info {
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13em;
+  }
+</style>
+{% endblock style %} {% block content %}
+
+<div class="item-info">
+  <h1 id="item-name">{{item.name}}</h1>
+</div>
+<div class="books-section" id="available-books-section">
+    {% for book in books %}
+    <div class="book">
+    <a href="{{book.get_absolute_url}}"
+        ><img src="{{book.cover.url}}" alt="{{book.title}}"
+    /></a>
+    <h5 class="name">{{book.title}}</h5>
+    <a class="previewButton" href="{{book.get_absolute_url}}">Details</a>
+    </div>
+    {% endfor %} 
+    {% if not books %}
+        <h1 id="message">{{ item.name }} is not in any book in the database.</h1>
+    {% endif %}
+</div>
+{% endblock content %} 
+{% block script %}{% endblock script %}

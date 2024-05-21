@@ -29,6 +29,7 @@
   --books-section-bg-color: #eeeeee49;
   --news-bg-color: rgba(255, 255, 255, 0.18);
   --profile-card-color: white;
+  --book-shadow-color: rgba(100, 100, 111, 0.2);
 }
 .dark {
   --dark-color: #1a1620;
@@ -56,6 +57,7 @@
   --books-section-bg-color: #130c0c49;
   --news-bg-color: rgba(31, 31, 31, 0.18);
   --profile-card-color: #c1ceff4f;
+  --book-shadow-color: rgba(14, 14, 68, 0.33);
 }
 
 * {
@@ -94,9 +96,6 @@ button {
 button:hover {
   background-color: var(--btn-hover-effect-color);
   transition: all 0.3s ease;
-}
-.books-section {
-  min-height: 50rem;
 }
 
 #toast-container {

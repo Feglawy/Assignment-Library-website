@@ -1,0 +1,58 @@
+.items-container {
+  background-color: var(--books-section-bg-color);
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.item {
+  padding: 20px;
+  color: black;
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: 16px 12px 60px -21px rgba(100, 100, 255, 0.3);
+  font-size: 25px;
+  display: flex;
+  text-align: center;
+  width: 100%;
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 2px rgba(100, 100, 255, 0.1);
+  transition: 0.3s ease-in-out all;
+}
+.item > a:nth-child(1) {
+  color: var(--text-color);
+}
+
+.item .buttons {
+  display: flex;
+  padding: 20px;
+  width: 42%;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.item .buttons button {
+  width: 250px;
+  margin: 5px;
+}
+
+.item:hover {
+  transform: translateY(-10px);
+  transition: 0.3s ease-in-out all;
+}
+
+@media (max-width: 700px) {
+  .item {
+    display: block;
+  }
+  .item .buttons {
+    width: 100%;
+  }
+}

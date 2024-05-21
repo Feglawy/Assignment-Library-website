@@ -57,7 +57,7 @@ def update_authors(request) -> HttpResponse:
     updateHTML = 'library/UpdateTags.html'
     authors = Author.objects.all()
 
-    context = {'authors':authors, }
+    context = {'items':authors, 'type':'authors'}
     return render(request, updateHTML, context=context)
 
 @staff_member_required
@@ -65,7 +65,7 @@ def update_genres(request) -> HttpResponse:
     updateHTML = 'library/UpdateTags.html'
     genres = Genre.objects.all()
 
-    context = {'genres':genres, }
+    context = {'items':genres,'type':'genres'}
     return render(request, updateHTML, context=context)
 
 @staff_member_required
@@ -73,7 +73,7 @@ def update_types(request) -> HttpResponse:
     updateHTML = 'library/UpdateTags.html'
     types = Type.objects.all()
 
-    context = {'types':types, }
+    context = {'items':types, 'type':'types' }
     return render(request, updateHTML, context=context)
 
 
@@ -87,7 +87,7 @@ def available(request) -> HttpResponse:
     return render(request, availableHTML, context=context)
 
 
-def preview(request, book_title) -> HttpResponse:
+def preview(request, book_title):
     previewHTML = 'library/preview.html'
     book = Book.objects.get(title=book_title)
     try:
@@ -102,6 +102,49 @@ def preview(request, book_title) -> HttpResponse:
             'book':book, 
             }
     return render(request, previewHTML, context=context)
+
+def preview_author(request, name):
+    preview_tag_template = 'library/preview_item.html'
+    try:
+        author = Author.objects.get(name=name)
+        books = Book.objects.filter(authors=author)
+    except Author.DoesNotExist:
+        return HttpResponse("not found")
+
+    context = {
+        'item':author,
+        'books':books,
+    }
+    return render(request, preview_tag_template, context=context)
+
+
+def preview_genre(request, name):
+    preview_tag_template = 'library/preview_item.html'
+    try:
+        genre = Genre.objects.get(name=name)
+        books = Book.objects.filter(genres=genre)
+    except Author.DoesNotExist:
+        return HttpResponse("not found")
+
+    context = {
+        'item':genre,
+        'books':books,
+    }
+    return render(request, preview_tag_template, context=context)
+
+def preview_type(request, name):
+    preview_tag_template = 'library/preview_item.html'
+    try:
+        type = Type.objects.get(name=name)
+        books = Book.objects.filter(book_type=type)
+    except Author.DoesNotExist:
+        return HttpResponse("not found")
+
+    context = {
+        'item':type,
+        'books':books,
+    }
+    return render(request, preview_tag_template, context=context)
 
 
 @staff_member_required
@@ -120,7 +163,6 @@ def add_new_book(request):
         form = BookForm()
     
     context = {
-        'user': request.user,
         'form': form,
     }
     create_book_HTML = 'library/create_book.html'
@@ -131,7 +173,8 @@ def edit_book(request, book_id):
     try:
         book = Book.objects.get(pk=book_id)
     except Book.DoesNotExist:
-        raise Http404("Resource not found")
+        return HttpResponse("not found")
+
 
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES, instance=book)
@@ -153,3 +196,53 @@ def edit_book(request, book_id):
         'book':book,
     }
     return render(request, edit_book_HTML, context=context)
+
+
+@staff_member_required
+def add_author(request):
+    if request.method == 'POST':
+        form = AuthorForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('update_authors')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{error}")
+            
+    else:
+        form = AuthorForm()
+    
+    context = {
+        'form':form,
+    }
+    add_author_template = 'library/add_author.html'
+    return render(request, add_author_template, context)
+
+@staff_member_required
+def edit_author(request, name):
+    try:
+        author = Author.objects.get(name=name)
+    except Author.DoesNotExist:
+        return HttpResponse("not found")
+
+
+    if request.method == 'POST':
+        form = AuthorForm(request.POST, instance=author)
+
+        if form.is_valid():
+            form.save()
+            return redirect('update_authors')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{error}")
+
+    else:
+        form = AuthorForm(instance=author)
+    edit_author_template = 'library/add_author.html'
+    
+    context= {
+        'form':form,
+    }
+    return render(request, edit_author_template, context=context)

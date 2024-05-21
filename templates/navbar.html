@@ -28,7 +28,7 @@
     {% if request.user.is_authenticated %}
       <li><a href="{% url "borrowed" %}">Borrowed Books</a></li>
       {% if request.user.is_admin %}
-        <li><a href="{% url "update" %}">Admin</a></li>
+        <li><a href="{% url "update" %}">Update</a></li>
       {% endif %}
     {% endif %}
     <li><a href="{% url "available" %}">Books</a></li>

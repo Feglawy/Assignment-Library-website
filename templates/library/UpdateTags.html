@@ -1,5 +1,47 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %}update {{type}}{% endblock title %}
+{% block style %} <link rel="stylesheet" href="{% static "CSS/TagList.css" %}"> {% endblock style %} 
 
 {% block content %}
+<h1 style="color:var(--text-color);margin: 100px;margin-bottom: 50px;text-align: center;">Available {{type}}</h1>
+<div class="buttons" style="margin-bottom: 50px;">
+  {% if type == 'authors' %}
+  <a href="{% url "add_author_form" %}">
+  {% elif type == 'genres' %}
+  <a href="{% url "add_genre_form" %}">
+  {% elif type == 'types' %}
+  <a href="{% url "add_type_form" %}">
+  {% endif %}  
+    <button class="btn">
+      Add new tag
+    </button>
+  </a>
+</div>
+<div class="items-container">
+  {% for item in items %}
+  <div class="item">
+    <a href="{{ item.name }}">{{ item.name }}</a>
+    {% comment %} the href will be show tag/str:name {% endcomment %} 
+    {% comment %} the details to any tag is the name of the tag and the books that has that tag {% endcomment %}
+    <div class="buttons">
 
+      <button style="background-color: green" onclick="btn_open_link('{% url "edit_author_form" name=item.name %}')" >Edit</button>
+      {% comment %} open edit form in a pop up browser window {% endcomment %}
+      <button style="background-color: red">Delete</button>
+      {% comment %} the pop up in the update books and the same functinality {% endcomment %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock content %}
+
+{% block script %}
+<script>  
+  function btn_open_link(link) {
+    window.open(link, 'Edit', 'width=600,height=300')
+  }
+</script>
+{% endblock script %}
