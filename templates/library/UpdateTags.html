@@ -28,7 +28,7 @@
     {% comment %} the details to any tag is the name of the tag and the books that has that tag {% endcomment %}
     <div class="buttons">
 
-      <button style="background-color: green" onclick="btn_open_link('{% url "edit_author_form" name=item.name %}')" >Edit</button>
+      <a href="{% url "edit_author_form" name=item.name %}"><button style="background-color: green" >Edit</button></a>
       {% comment %} open edit form in a pop up browser window {% endcomment %}
       <button style="background-color: red">Delete</button>
       {% comment %} the pop up in the update books and the same functinality {% endcomment %}

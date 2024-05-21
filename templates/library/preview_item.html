@@ -9,14 +9,26 @@
     align-items: center;
     height: 13em;
   }
+  .books-section h1{
+    color: var(--text-color);
+  }
+  #message {
+    padding: auto;
+    margin:50px 0px 50px 0px;
+    text-align: center;
+
+  }
 </style>
-{% endblock style %} {% block content %}
+{% endblock style %} 
+
+{% block content %}
 
 <div class="item-info">
   <h1 id="item-name">{{item.name}}</h1>
 </div>
-<div class="books-section" id="available-books-section">
-    {% for book in books %}
+<h1 style="color: var(--text-color);text-align: center;">Books that include tag : {{item.name}}</h1>
+<div class="books-section">
+  {% for book in books %}
     <div class="book">
     <a href="{{book.get_absolute_url}}"
         ><img src="{{book.cover.url}}" alt="{{book.title}}"
