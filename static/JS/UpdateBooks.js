@@ -6,9 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancelBtn = document.getElementById("cancel_button");
 
   let bookId;
+  let bookDiv;
 
   deleteBtns.forEach((button) => {
     button.addEventListener("click", (event) => {
+      bookDiv = event.target.closest(".book");
       bookId = event.target.getAttribute("book_id");
       book_name.innerHTML = event.target.getAttribute("book_name");
       popupOverlay.classList.add("visible");
@@ -34,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           closeButton: true,
           progressBar: true,
         });
+        bookDiv.remove();
       } else {
         const failedMessage = "There an error occured!";
         toastr.error(failedMessage, "Error");
