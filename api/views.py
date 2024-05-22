@@ -313,14 +313,17 @@ def recommended_books(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class AuthorListCreateAPIView(viewsets.ModelViewSet):
+class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
+    permission_classes = [IsAdminUser]
 
 class TypesViewSet(viewsets.ModelViewSet):
     queryset = Type.objects.all()
     serializer_class = TypeSerializer
+    permission_classes = [IsAdminUser]
 
 class GenresViewSet(viewsets.ModelViewSet):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
+    permission_classes = [IsAdminUser]

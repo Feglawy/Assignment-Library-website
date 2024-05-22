@@ -2,10 +2,10 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import *
 
-# router = DefaultRouter()
-# router.register(r'authors', AuthorViewSet)
-# router.register(r'types', TypesViewSet)
-# router.register(r'genres', GenresViewSet)
+router = DefaultRouter()
+router.register(r'authors', AuthorViewSet)
+router.register(r'types', TypesViewSet)
+router.register(r'genres', GenresViewSet)
 
 urlpatterns = [
     # path('', include(router.urls)),
@@ -16,6 +16,8 @@ urlpatterns = [
     path('autor_like/<str:name>/', get_authors_like, name='author-like'),
     path('genre_like/<str:name>/', get_genres_like, name='genre-like'),
     path('type_like/<str:name>/', get_types_like, name='type-like'),
+ 
+    path('', include(router.urls)),
 
     path('book/create/', add_book, name='create-book'),
     path('book/<int:id>', get_book_by_id, name='get-book-by-id'),
