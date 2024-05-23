@@ -41,6 +41,19 @@
             {% endfor %}
           </ul>
         {% endif %}
+        <div id="CRUD">
+          <ul>
+            <li>
+              <a href="{% url "update_authors" %}">Add or create a Author</a>
+            </li>
+            <li>
+              <a href="{% url "update_genres" %}">Add or create a Genre</a>
+            </li>
+            <li>
+              <a href="{% url "update_types" %}">Add or create a Type</a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="book-inputs">
         <h3 class="info">Title</h3>

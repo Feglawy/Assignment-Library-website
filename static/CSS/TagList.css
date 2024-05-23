@@ -27,6 +27,7 @@
 }
 .item > a:nth-child(1) {
   color: var(--text-color);
+  width: inherit;
 }
 
 .item .buttons {
@@ -44,7 +45,7 @@
 }
 
 .item:hover {
-  transform: translateY(-10px);
+  transform: scale(1.1);
   transition: 0.3s ease-in-out all;
 }
 
@@ -55,4 +56,22 @@
   .item .buttons {
     width: 100%;
   }
+}
+
+#create_edit_popup > form:nth-child(2) > div:nth-child(2) {
+  margin: 25px;
+}
+
+#id_name {
+  padding: 10px;
+  text-align: center;
+  border: none;
+  color: black;
+  border-radius: 10px;
+  font-size: medium;
+}
+
+#create_edit_popup > form:nth-child(2) > div:nth-child(2) > label:nth-child(1) {
+  font-size: larger;
+  padding-right: 5px;
 }

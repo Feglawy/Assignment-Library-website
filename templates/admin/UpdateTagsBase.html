@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %}Update {{type}}{% endblock title %}
+{% block style %} <link rel="stylesheet" href="{% static "CSS/TagList.css" %}"> {% endblock style %} 
+
+{% block content %}
+<h1 style="color:var(--text-color);margin: 100px;margin-bottom: 50px;text-align: center;">Available {{type}}</h1>
+<div class="buttons" style="margin-bottom: 50px;">
+    <button class="btn" id="add_new">
+      Add new {{type}}
+    </button>
+</div>
+<div class="items-container">
+  {% for item in items %}
+  <div class="item">
+    <a href="{{ item.name }}">{{ item.name }}</a>
+    <div class="buttons">
+      <button class="edit"  tag_id="{{ item.id }}" tag_name="{{ item.name }}" style="background-color: green;">Edit</button>
+      <button class="Delete" tag_id="{{ item.id }}" tag_name="{{ item.name }}" style="background-color: red">Delete</button>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div id="popup_overlay" class="popup_overlay hidden">
+  <div id="confirm_delete_popup" class="popup">
+    <h1>Confirm deletion</h1>
+    <p id="tag_name"></p>
+    <p>This tag will be deleted!</p>
+    <div class="popup_btns">
+      <button class="RED" id="confirm_button">Confirm</button>
+      <button id="cancel_button">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="create_edit_popup_overlay" class="popup_overlay hidden">
+  <div id="create_edit_popup" class="popup">
+    <h1 id="popup_title"></h1>
+    <form method="put" id="create_edit_form">
+      {% csrf_token %}
+      {{form}}
+      <button id="submit">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{% endblock scripts %}

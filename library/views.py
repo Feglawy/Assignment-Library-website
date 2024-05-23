@@ -54,26 +54,26 @@ def update(request) -> HttpResponse:
 
 @staff_member_required
 def update_authors(request) -> HttpResponse:
-    updateHTML = 'library/UpdateTags.html'
+    updateHTML = 'admin/UpdateAuthor.html'
     authors = Author.objects.all()
-
-    context = {'items':authors, 'type':'authors'}
+    form = AuthorForm()
+    context = {'items':authors, 'type':'authors', 'form':form}
     return render(request, updateHTML, context=context)
 
 @staff_member_required
 def update_genres(request) -> HttpResponse:
-    updateHTML = 'library/UpdateTags.html'
+    updateHTML = 'admin/UpdateGenre.html'
     genres = Genre.objects.all()
-
-    context = {'items':genres,'type':'genres'}
+    form = GenreForm()
+    context = {'items':genres,'type':'genres',  'form':form}
     return render(request, updateHTML, context=context)
 
 @staff_member_required
 def update_types(request) -> HttpResponse:
-    updateHTML = 'library/UpdateTags.html'
+    updateHTML = 'admin/UpdateType.html'
     types = Type.objects.all()
-
-    context = {'items':types, 'type':'types' }
+    form = TypeForm()
+    context = {'items':types, 'type':'types',  'form':form }
     return render(request, updateHTML, context=context)
 
 

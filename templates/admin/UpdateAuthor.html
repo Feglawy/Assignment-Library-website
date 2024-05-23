@@ -1,0 +1,11 @@
+{% extends "admin/UpdateTagsBase.html" %}
+{% load static %}
+
+{% block add_new_url %}
+{% url "add_author_form" %}
+{% endblock add_new_url %}
+
+
+{% block script %}
+<script src="{% static 'JS/UpdateAuthor.js' %}"></script>
+{% endblock script %}

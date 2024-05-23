@@ -42,7 +42,7 @@
   background: red;
 }
 
-#popup_overlay {
+.popup_overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -57,12 +57,12 @@
   transition: opacity 0.3s, visibility 0.3s;
 }
 
-#popup_overlay.visible {
+.popup_overlay.visible {
   opacity: 1;
   visibility: visible;
 }
 
-#confirm_delete_popup {
+.popup {
   background: var(--body-bg-color);
   padding: 30px;
   text-align: center;
@@ -73,15 +73,15 @@
   width: 400px;
 }
 
-#confirm_delete_popup p {
-	font-size: larger;
+.popup p {
+  font-size: larger;
 }
 
-#popup_overlay.visible #confirm_delete_popup {
+.popup_overlay.visible .popup {
   transform: scale(1);
 }
 
-#confirm_delete_popup > h1:nth-child(1) {
+.popup > h1:nth-child(1) {
   padding: 20px;
 }
 
@@ -99,23 +99,22 @@
   margin-top: 20px;
 }
 
-
 .recommend {
   display: flex !important;
   justify-content: center;
   align-items: center;
-	position: absolute;
-	top: 8px;
-	right: 16px;
-	background-color: var(--hover-color) !important;
-	transition: 0.2s ease !important;
-	width: 25% !important;
-	opacity: 0.7;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  background-color: var(--hover-color) !important;
+  transition: 0.2s ease !important;
+  width: 25% !important;
+  opacity: 0.7;
 }
 .recommend:hover {
   width: 60% !important;
   opacity: 1;
-	transition: 0.2s ease !important;
+  transition: 0.2s ease !important;
 }
 
 .recommend:hover .symbol {
@@ -125,14 +124,14 @@
   display: none;
   transform: scale(0);
   margin-left: 2px;
-	transition: 0.3s ease !important;
+  transition: 0.3s ease !important;
 }
 
-.recommend:hover .symbol-text{
+.recommend:hover .symbol-text {
   display: block;
   transform: scale(1);
   font-size: medium;
-	transition: 0.3s ease !important;
+  transition: 0.3s ease !important;
 }
 
 .RED {

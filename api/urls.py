@@ -9,7 +9,7 @@ router.register(r'genres', GenresViewSet)
 
 urlpatterns = [
     # path('', include(router.urls)),
-    path('', ApiOverView, name="api-overview"),
+    path('', include(router.urls)),
     path('random/quote/', random_quote, name='quote'),
 
     path('book_like/<str:title>', get_books_like, name='book-like'),
@@ -17,7 +17,6 @@ urlpatterns = [
     path('genre_like/<str:name>/', get_genres_like, name='genre-like'),
     path('type_like/<str:name>/', get_types_like, name='type-like'),
  
-    path('', include(router.urls)),
 
     path('book/create/', add_book, name='create-book'),
     path('book/<int:id>', get_book_by_id, name='get-book-by-id'),
