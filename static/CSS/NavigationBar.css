@@ -22,7 +22,7 @@ nav {
   position: absolute;
   display: flex;
   align-items: center;
-  color: white;
+  color: white !important;
   font-size: 35px;
   font-weight: bold;
   line-height: 80px;
@@ -46,7 +46,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: white;
+  color: white !important;
   font-size: 15px;
   padding: 7px 13px;
   border-radius: 15px;

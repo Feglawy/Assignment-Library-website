@@ -12,6 +12,9 @@ function ToggleMenu() {
 
 // as soon as the window load it will do this function
 document.addEventListener("DOMContentLoaded", function () {
+  // reset the menu on new page
+  document.getElementById("check").checked = false;
+
   // --------- get the active page and add .active class to it ------------
   const navbarElements = document.querySelectorAll(".pages");
 

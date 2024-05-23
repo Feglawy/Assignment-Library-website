@@ -42,18 +42,18 @@
         document.body.className = theme;
         localStorage.setItem("theme", theme);
       }
-      if (currentTheme) {
+      
+      if (currentTheme === "dark") {
+        if (themeToggle) {themeToggle.checked = true;}
+        setTheme(currentTheme);
+      }
+      else if (currentTheme === "light") {
+        if (themeToggle) {themeToggle.checked = false;}
         setTheme(currentTheme);
       }
       else {
         setTheme("light");
-      }
-
-      if (currentTheme === "dark" && themeToggle) {
-        themeToggle.checked = true;
-      }
-      if (currentTheme === "light" && themeToggle) {
-        themeToggle.checked = false;
+        currentTheme = "light";
       }
     </script>
   </body>
