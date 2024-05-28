@@ -15,9 +15,13 @@ class CustomUser(AbstractUser):
     ]
 
     email = models.EmailField(unique=True)
-    profile_icon = models.ImageField(upload_to='profile_icons/', default='profile_icons\default.png', blank=True, null=True)
     user_type = models.CharField(max_length=10, choices=USER_TYPES, default=CUSTOMER)
     bio = models.TextField(blank=True, null=True)
+    
+    
+    DEFAULT_PROFILE_ICON = os.path.join('profile_icons', 'default.png')
+    profile_icon = models.ImageField(upload_to='profile_icons', default=DEFAULT_PROFILE_ICON, blank=True, null=True)
+    
     
     def __str__(self) -> str:
         return f"{self.username}"
@@ -40,7 +44,7 @@ class CustomUser(AbstractUser):
                 super().save(*args, **kwargs)
                 return
             
-            saved_image_name = f"{dir_path + "/" if dir_path else ""}{self.username.replace(' ', '_')}{ext}"
+            saved_image_name = os.path.join(dir_path if dir_path else "profile_icons", f"{self.username.replace(' ', '_')}{ext}")
             self.profile_icon.name = saved_image_name
 
 

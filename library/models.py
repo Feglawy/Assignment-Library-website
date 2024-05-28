@@ -37,12 +37,14 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=255,null=False,unique=True)
     desc = models.TextField()
-    cover = models.ImageField(upload_to='book_covers\\', default='book_covers\\default.png', null=False)
     authors = models.ManyToManyField(Author)
     book_type = models.ForeignKey(Type, on_delete=models.CASCADE)
     genres = models.ManyToManyField(Genre)
     is_available = models.BooleanField(default=True)
 
+
+    DEFAULT_COVER = os.path.join('book_covers', 'default.png')
+    cover = models.ImageField(upload_to='book_covers', default=DEFAULT_COVER, null=False)
 
     LANGUAGES = [
         ('en', 'English'),
@@ -72,7 +74,7 @@ class Book(models.Model):
                 super().save(*args, **kwargs)
                 return
 
-            saved_image_name = f"{dir_path + "\\" if dir_path else ""}{self.title.replace(' ', '_')}{ext}"
+            saved_image_name = os.path.join(dir_path if dir_path else "book_covers", f"{self.title.replace(' ', '_')}{ext}")
             self.cover.name = saved_image_name
 
         super().save(*args,**kwargs)
