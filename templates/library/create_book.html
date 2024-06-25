@@ -10,7 +10,7 @@
 
 {% block content %}
 <div class="create-new-book-form" style="width: 1000px;">
-  <form method="post" enctype="multipart/form-data">
+  <form method="post" enctype="multipart/form-data" autocomplete="off">
     {% csrf_token %}
     <div class="form-container">
       <div class="img-upload-container" style="width: calc(500px * 0.7032967033);">
@@ -57,9 +57,9 @@
       </div>
       <div class="book-inputs">
         <h3 class="info">Title</h3>
-        {% render_field form.title class="input" id="title-inp" placeholder="Enter Book title..." %}
+        {% render_field form.title class="input" id="title-inp" placeholder="Enter Book title..."  autocomplete="false" %}
         <h3 class="info">Description</h3>
-        {% render_field form.desc class="input" id="desc-inp" placeholder="Enter Book description..." %}
+        {% render_field form.desc class="input" id="desc-inp" placeholder="Enter Book description..."  autocomplete="false" %}
 
         <h3 class="info">Type</h3>
         {% render_field form.book_type class="input" id="type-inp" %}
