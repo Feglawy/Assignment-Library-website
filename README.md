@@ -1,4 +1,4 @@
-# Assignment-Library-website
+# Library-website
 
 Assignment web 2024
 
@@ -38,6 +38,7 @@ Assignment web 2024
 
 if there was any firewall problems allow the port 8000 by adding the rule in the firewall settings
 
+___
 ### phase 1 html
 
 - [x] navigation bar
@@ -73,16 +74,8 @@ if there was any firewall problems allow the port 8000 by adding the rule in the
   - [x] geners database
   - [x] types database
   - [x] borrowed books database
-- [ ] admin's update books page
-      ...
-- [ ] USE AJAX INSTEAD OF JS FETCH
+- [x] admin's update books page
 
----
-
-- [x] TO-DO add to css some checks to screen width and hight
-- [x] TO-DO add the tags and author name to the book preview page
-
----
 
 ## [Database structure](https://drawsql.app/teams/feglawy/diagrams/library)
 
